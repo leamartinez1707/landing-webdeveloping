@@ -30,14 +30,14 @@ const Services = () => {
     return (
         <motion.section
             id="servicios"
-            className="py-20 px-6 bg-gradient-to-b from-white via-blue-100 to-white text-center"
+            className="py-20 px-6 bg-gradient-to-b from-white via-blue-100 to-white text-center will-change-transform"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount }}
         >
             <motion.h2
-                className="text-4xl font-extrabold mb-12 text-gray-800"
+                className="text-4xl font-extrabold mb-12 text-gray-800 will-change-transform"
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -55,7 +55,7 @@ const Services = () => {
                         transition={{ duration: 0.6, delay: idx * 0.2 }}
                         viewport={{ once: true, amount }}
                         whileHover={{ scale: 1.03 }}
-                        className="bg-white border border-gray-200 p-8 rounded-2xl shadow-md hover:shadow-xl transition-all"
+                        className="bg-white border border-gray-200 p-8 rounded-2xl shadow-md hover:shadow-xl transition-all will-change-transform"
                     >
                         <div className="text-5xl mb-6 text-blue-600">{service.icon}</div>
                         <h3 className="text-2xl font-semibold mb-3 text-gray-900">{service.title}</h3>

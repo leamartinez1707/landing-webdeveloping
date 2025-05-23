@@ -34,14 +34,14 @@ const Contact = () => {
   return (
     <motion.section
       id="contacto"
-      className="py-20 bg-gray-50 px-6"
+      className="py-20 bg-gray-50 px-6 will-change-transform"
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true, amount }}
     >
       <motion.h2
-        className="text-4xl font-extrabold mb-4 text-center text-gray-800"
+        className="text-4xl font-extrabold mb-4 text-center text-gray-800 will-change-transform"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -50,7 +50,7 @@ const Contact = () => {
         Contactame
       </motion.h2>
       <motion.p
-        className="max-w-xl mx-auto text-center mb-12 text-gray-600 text-lg"
+        className="max-w-xl mx-auto text-center mb-12 text-gray-600 text-lg will-change-transform"
         initial={{ opacity: 0, y: -10 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
@@ -66,7 +66,7 @@ const Contact = () => {
       >
         <motion.label
           htmlFor="name"
-          className="font-semibold text-gray-700"
+          className="font-semibold text-gray-700 will-change-transform"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -79,7 +79,7 @@ const Contact = () => {
           name="name"
           placeholder="Tu nombre"
           required
-          className="border border-gray-300 p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+          className="border border-gray-300 p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition will-change-transform"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25 }}
@@ -96,7 +96,7 @@ const Contact = () => {
 
         <motion.label
           htmlFor="email"
-          className="font-semibold text-gray-700"
+          className="font-semibold text-gray-700 will-change-transform"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -109,7 +109,7 @@ const Contact = () => {
           name="email"
           placeholder="Tu email"
           required
-          className="border border-gray-300 p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+          className="border border-gray-300 p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition will-change-transform"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.35 }}
@@ -118,7 +118,7 @@ const Contact = () => {
 
         <motion.label
           htmlFor="message"
-          className="font-semibold text-gray-700"
+          className="font-semibold text-gray-700 will-change-transform"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -131,7 +131,7 @@ const Contact = () => {
           placeholder="Tu mensaje"
           rows="5"
           required
-          className="border border-gray-300 p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"
+          className="border border-gray-300 p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none will-change-transform"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.45 }}
@@ -140,7 +140,7 @@ const Contact = () => {
 
         <motion.button
           type="submit"
-          className="bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition"
+          className="bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition will-change-transform"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           whileHover={{ scale: 1.05 }}
@@ -152,7 +152,7 @@ const Contact = () => {
 
         {status && (
           <motion.p
-            className="text-center mt-4 text-green-600 font-medium"
+            className="text-center mt-4 text-green-600 font-medium will-change-transform"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -161,7 +161,6 @@ const Contact = () => {
           </motion.p>
         )}
       </form>
-
       <SocialMedia />
     </motion.section>
 

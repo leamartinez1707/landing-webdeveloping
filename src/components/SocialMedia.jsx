@@ -13,7 +13,7 @@ const SocialMedia = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="hover:text-blue-700"
+                className="hover:text-blue-700 will-change-transform"
                 whileHover="hover"
                 whileTap="tap"
                 variants={iconVariants}
@@ -34,7 +34,7 @@ const SocialMedia = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="hover:text-gray-900"
+                className="hover:text-gray-900 will-change-transform"
                 whileHover={{ scale: 1.2, color: "#333" }}
                 whileTap={{ scale: 0.9 }}
             >
@@ -53,7 +53,7 @@ const SocialMedia = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="hover:text-pink-600"
+                className="hover:text-pink-600 will-change-transform"
                 whileHover={{ scale: 1.2, color: "#E1306C" }}
                 whileTap={{ scale: 0.9 }}
             >

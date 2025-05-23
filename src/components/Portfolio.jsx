@@ -28,14 +28,14 @@ const Portfolio = () => {
     return (
         <motion.section
             id="portfolio"
-            className="py-20 px-6 bg-white text-center"
+            className="py-20 px-6 bg-white text-center will-change-transform"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true, amount }}
         >
             <motion.h2
-                className="text-4xl font-extrabold mb-12 text-gray-800"
+                className="text-4xl font-extrabold mb-12 text-gray-800 will-change-transform"
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -53,7 +53,7 @@ const Portfolio = () => {
                         transition={{ duration: 0.6, delay: idx * 0.2 }}
                         viewport={{ once: true, amount }}
                         whileHover={{ scale: 1.02 }}
-                        className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border"
+                        className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border will-change-transform"
                     >
                         <img
                             src={project.image}
