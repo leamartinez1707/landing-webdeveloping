@@ -50,12 +50,14 @@ const Services = () => {
                 {services.map((service, idx) => (
                     <motion.div
                         key={idx}
+                        layout
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: idx * 0.2 }}
-                        viewport={{ once: true, amount }}
-                        whileHover={{ scale: 1.03 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        whileHover={{ scale: 1.02 }}
                         className="bg-white border border-gray-200 p-8 rounded-2xl shadow-md hover:shadow-xl transition-all will-change-transform"
+                        style={{ minHeight: '250px' }}
                     >
                         <div className="text-5xl mb-6 text-blue-600">{service.icon}</div>
                         <h3 className="text-2xl font-semibold mb-3 text-gray-900">{service.title}</h3>
