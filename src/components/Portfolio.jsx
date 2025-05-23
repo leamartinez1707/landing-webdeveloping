@@ -52,8 +52,7 @@ const Portfolio = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: idx * 0.2 }}
                         viewport={{ once: true, amount }}
-                        whileHover={{ scale: 1.02 }}
-                        className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border will-change-transform"
+                        className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-transform border will-change-transform"
                     >
                         <img
                             src={project.image}

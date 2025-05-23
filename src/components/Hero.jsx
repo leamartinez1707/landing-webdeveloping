@@ -33,7 +33,7 @@ const Hero = () => {
       <motion.a
         href="https://api.whatsapp.com/send?phone=59895220063&text=Hola%20Leandro!%20 Me contacto%20para%20consultar%20sobre%20una%20web%20o%20tienda."
         target="_blank"
-        className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full text-lg font-medium transition-all shadow-lg will-change-transform"
+        className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full text-lg font-medium transition-transform shadow-lg will-change-transform"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.8, duration: 0.5 }}

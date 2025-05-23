@@ -54,10 +54,8 @@ const Services = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: idx * 0.2, ease: "easeOut" }}
                         viewport={{ once: true, amount: 0.5 }}
-                        whileHover={{ scale: 1.03 }}
-                        layout // <-- ayuda a que el layout no salte
-                        className="bg-white border border-gray-200 p-8 rounded-2xl shadow-md hover:shadow-xl transition-all will-change-transform"
-                        style={{ minHeight: 250 }} // evita que la altura cambie
+                        className="bg-white border border-gray-200 p-8 rounded-2xl shadow-md hover:shadow-xl transition-transform will-change-transform"
+                        style={{ minHeight: 250, willChange: 'transform, opacity' }}
                     >
                         <div className="text-5xl mb-6 text-blue-600">{service.icon}</div>
                         <h3 className="text-2xl font-semibold mb-3 text-gray-900">{service.title}</h3>
