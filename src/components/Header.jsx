@@ -5,14 +5,14 @@ const Header = () => {
   return (
     <header className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
       <div className="bg-black">
-        <div className="flex items-center text-white max-w-6xl mx-auto py-1 px-6 gap-x-2">
-          <MailIcon className="size-4" />
-          <p>
+        <div className="flex items-center text-white max-w-6xl justify-center md:justify-normal mx-auto py-1 px-6 gap-x-2">
+          <MailIcon className="hidden sm:block size-5" />
+          <p className='text-sm md:text-lg'>
             leandromartinez.dev@gmail.com
           </p>
-          <span>|</span>
-          <PhoneIcon className="size-4" />
-          <p>
+          <span className='text-sm md:text-base'>|</span>
+          <PhoneIcon className="hidden sm:block size-5" />
+          <p className='text-sm md:text-lg'>
             095220063
           </p>
         </div>

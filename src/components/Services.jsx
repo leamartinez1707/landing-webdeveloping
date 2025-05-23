@@ -1,4 +1,5 @@
 import { motion } from "motion/react"
+import useViewportAmount from "../hooks/useViewportAmount";
 
 const services = [
     {
@@ -24,6 +25,8 @@ const services = [
 ];
 
 const Services = () => {
+
+    const amount = useViewportAmount()
     return (
         <motion.section
             id="servicios"
@@ -31,7 +34,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount }}
         >
             <motion.h2
                 className="text-4xl font-extrabold mb-12 text-gray-800"
@@ -50,7 +53,7 @@ const Services = () => {
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: idx * 0.2 }}
-                        viewport={{ once: true, amount: 0.3 }}
+                        viewport={{ once: true, amount }}
                         whileHover={{ scale: 1.03 }}
                         className="bg-white border border-gray-200 p-8 rounded-2xl shadow-md hover:shadow-xl transition-all"
                     >

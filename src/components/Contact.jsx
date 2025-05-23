@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { motion } from "motion/react";
 import emailjs from "@emailjs/browser";
 import SocialMedia from "./SocialMedia";
+import useViewportAmount from "../hooks/useViewportAmount";
 
 const Contact = () => {
   const form = useRef();
@@ -29,6 +30,7 @@ const Contact = () => {
       );
   };
 
+  const amount = useViewportAmount();
   return (
     <motion.section
       id="contacto"
@@ -36,7 +38,7 @@ const Contact = () => {
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6 }}
-      viewport={{ once: true, amount: 0.4 }}
+      viewport={{ once: true, amount }}
     >
       <motion.h2
         className="text-4xl font-extrabold mb-4 text-center text-gray-800"

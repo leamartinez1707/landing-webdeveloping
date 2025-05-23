@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import useViewportAmount from "../hooks/useViewportAmount";
 
 const projects = [
     {
@@ -22,6 +23,8 @@ const projects = [
 ];
 
 const Portfolio = () => {
+
+    const amount = useViewportAmount();
     return (
         <motion.section
             id="portfolio"
@@ -29,7 +32,7 @@ const Portfolio = () => {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount }}
         >
             <motion.h2
                 className="text-4xl font-extrabold mb-12 text-gray-800"
@@ -48,7 +51,7 @@ const Portfolio = () => {
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: idx * 0.2 }}
-                        viewport={{ once: true, amount: 0.3 }}
+                        viewport={{ once: true, amount }}
                         whileHover={{ scale: 1.02 }}
                         className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border"
                     >
