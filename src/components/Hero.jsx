@@ -27,7 +27,7 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
       >
-        Soy <strong>Leandro Martinez</strong>, desarrollador web. Ayudo a emprendedores y pequeñas empresas a tener su sitio web profesional o software personalizado, sin vueltas ni costos excesivos.
+        Soy <strong>Leandro Martinez</strong>, desarrollador web. Ayudo a emprendedores y pequeñas empresas a tener su sitio web profesional o software personalizado, sin costos excesivos y rápido.
       </motion.p>
 
       <motion.a
