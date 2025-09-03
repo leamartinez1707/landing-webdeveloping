@@ -20,11 +20,12 @@ const Header = () => {
     <motion.header
       initial={{ backgroundColor: "rgba(255, 255, 255, 0)", boxShadow: "0px 0px 0px rgba(0,0,0,0)" }}
       animate={{
-        backgroundColor: scrolled ? "rgba(255, 255, 255, 1)" : "rgba(255, 255, 255, 0)",
-        boxShadow: scrolled ? "0 4px 12px rgba(0,0,0,0.1)" : "0px 0px 0px rgba(0,0,0,0)",
+        backgroundColor: scrolled ? "#1e3a8a" : "#fff",
+        color: scrolled && "#ffff",
+        boxShadow: scrolled ? "0 4px 12px rgba(30,58,138,0.12)" : "0px 0px 0px rgba(0,0,0,0)",
       }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="fixed top-0 left-0 w-full z-50 will-change-transform"
+      className="fixed top-0 left-0 w-full z-50 will-change-transform border-b border-blue-900"
     >
       <AnimatePresence>
         {!scrolled && (

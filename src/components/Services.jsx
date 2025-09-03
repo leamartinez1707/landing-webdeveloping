@@ -33,7 +33,7 @@ const Services = () => {
     return (
         <motion.section
             id="servicios"
-            className="py-20 px-6 bg-gradient-to-b from-white via-blue-100 to-white text-center will-change-transform"
+            className="py-20 px-6 bg-white text-center will-change-transform border-b border-gray-200"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -47,39 +47,31 @@ const Services = () => {
                 viewport={{ once: true }}
             >
                 <motion.h2
-                    className="text-4xl font-extrabold mb-4 text-gray-800 will-change-transform"
+                    className="text-4xl font-bold mb-4 text-gray-900 will-change-transform"
                 >
-                    Soluciones que impulsan tu negocio
+                    Servicios
                 </motion.h2>
-
-                <motion.p
-                    className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto"
-                >
-                    Cada proyecto es único. Trabajamos juntos para crear la solución perfecta que resuelva tus desafíos específicos y ayude a tu negocio a crecer.
-                </motion.p>
-
-                <div className="grid md:grid-cols-2 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
                     {services.map((service, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.6, delay: idx * 0.2, ease: "easeOut" }}
-                            viewport={{ once: true, amount: 0.5 }}
-                            className="bg-white border border-gray-200 p-8 rounded-2xl shadow-md hover:shadow-xl transition-all will-change-transform"
-                            style={{ minHeight: 300, willChange: 'transform, opacity' }}
+                            className="bg-white border border-gray-300 p-7 rounded-md shadow-lg hover:shadow-xl transition-all will-change-transform flex flex-col h-full"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: idx * 0.2 }}
+                            viewport={{ once: true }}
                         >
-                            <div className="text-5xl mb-6 text-blue-600">{service.icon}</div>
-                            <h3 className="text-2xl font-semibold mb-3 text-gray-900">{service.title}</h3>
-                            <p className="text-gray-600 leading-relaxed mb-6">{service.description}</p>
-                            <ul className="text-left space-y-2">
-                                {service.benefits.map((benefit, index) => (
-                                    <li key={index} className="flex items-center text-gray-700">
-                                        <span className="text-green-500 mr-2">✓</span>
-                                        {benefit}
-                                    </li>
+                            <div className="text-3xl mb-4">{service.icon}</div>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-2">{service.title}</h3>
+                            <div className="mb-4">
+                                <p className="text-gray-700 text-base font-normal mb-2">{service.description}</p>
+                            </div>
+                            <ul className="mb-4 text-gray-500 text-sm list-disc list-inside">
+                                {service.benefits.map((b, i) => (
+                                    <li key={i}>{b}</li>
                                 ))}
                             </ul>
+                            <a href="#contacto" className="inline-block bg-blue-800 text-white px-5 py-2 rounded-md font-medium shadow hover:bg-blue-900 transition-colors duration-200 text-sm mt-auto border border-blue-900">Solicitar info</a>
                         </motion.div>
                     ))}
                 </div>
