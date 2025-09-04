@@ -21,7 +21,6 @@ const Header = () => {
       initial={{ backgroundColor: "rgba(255, 255, 255, 0)", boxShadow: "0px 0px 0px rgba(0,0,0,0)" }}
       animate={{
         backgroundColor: scrolled ? "#1e3a8a" : "#fff",
-        color: scrolled && "#ffff",
         boxShadow: scrolled ? "0 4px 12px rgba(30,58,138,0.12)" : "0px 0px 0px rgba(0,0,0,0)",
       }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -49,12 +48,12 @@ const Header = () => {
 
       <motion.div
         initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0, color: scrolled ? "var(--color-white)" : "var(--color-blue-600)" }}
         transition={{ duration: 0.5, delay: 0.2 }}
         className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center will-change-transform"
       >
         <a href="/">
-          <h1 className="text-xl font-bold text-blue-600 cursor-pointer">Leandro Martínez</h1>
+          <h1 className="text-xl font-boldcursor-pointer">Leandro Martínez</h1>
         </a>
 
         {/* Menú desktop */}
@@ -63,7 +62,7 @@ const Header = () => {
             <a
               key={section}
               href={`#${section}`}
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              className={`${scrolled ? "text-white hover:underline" : "text-black hover:text-blue-600"} transition-colors duration-200`}
               onClick={handleLinkClick}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
@@ -73,7 +72,7 @@ const Header = () => {
 
         {/* Botón hamburguesa móvil */}
         <button
-          className="md:hidden text-gray-700 focus:outline-none"
+          className="md:hidden text-white focus:outline-none"
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >

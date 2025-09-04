@@ -13,31 +13,32 @@ const Hero = () => {
       <img
         src="/hero_background.jpg"
         alt="Hero background"
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-70"
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-90"
         style={{ pointerEvents: 'none' }}
       />
       <motion.div
-        className="max-w-4xl mx-auto relative z-10"
+        className="max-w-6xl mx-auto relative z-10"
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.8 }}
       >
         <motion.h1
-          className="text-4xl md:text-5xl font-bold mb-6 text-black leading-tight will-change-transform drop-shadow-lg"
+          className="text-4xl md:text-5xl font-bold mb-6 text-black leading-tight will-change-transform drop-shadow-lg uppercase"
         >
-          Impulsa <span className="text-white">tu negocio</span> con
+          Impulsa <span className="text-white">tu negocio</span>
           <br />
-          <span className="text-blue-600">soluciones digitales </span>profesionales
-          <br /> que generan confianza y resultados
+          <span className="text-blue-600 text-5xl md:text-7xl uppercase">Soluciones digitales </span>
+          <br /> para <span className="text-white">empresas</span> y <span className="text-white">emprendimientos</span>
         </motion.h1>
 
         <motion.p
-          className="text-lg text-blue-600 mb-8 max-w-2xl mx-auto drop-shadow-md"
+          className="text-lg md:text-xl text-black mb-8 max-w-3xl mx-auto drop-shadow-md px-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Soy <strong className="text-white">Leandro Martinez</strong>, desarrollador web orientado a empresas y emprendimientos que buscan crecer con tecnología confiable y soluciones a medida. Mi enfoque es profesional, seguro y adaptado a tus necesidades reales.
+          Estas buscando una web o tienda online profesional y asequible? <br />
+          ¡Hablemos! Estoy aquí para ayudarte a crecer en el mundo digital.
         </motion.p>
         <motion.div
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
@@ -51,7 +52,7 @@ const Hero = () => {
             className="flex items-center gap-2 bg-blue-900 hover:bg-blue-800 text-white px-6 py-3 rounded font-semibold transition-transform shadow-lg will-change-transform border border-blue-900 backdrop-blur-md"
           >
             <WhatsappIcon className="size-8" />
-            Solicitar asesoría empresarial
+            Solicitar asesoría
           </motion.a>
         </motion.div>
       </motion.div>
