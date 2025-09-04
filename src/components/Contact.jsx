@@ -34,14 +34,14 @@ const Contact = () => {
   return (
     <motion.section
       id="contacto"
-      className="py-20 bg-gray-50 px-6 will-change-transform"
+      className="py-20 bg-white px-6 will-change-transform border-b border-gray-200"
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true, amount }}
     >
       <motion.h2
-        className="text-4xl font-extrabold mb-4 text-center text-gray-800 will-change-transform"
+        className="text-4xl font-bold mb-4 text-center text-gray-900 will-change-transform"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -140,7 +140,7 @@ const Contact = () => {
 
         <motion.button
           type="submit"
-          className="bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition will-change-transform"
+          className="bg-blue-800 text-white py-4 rounded font-semibold hover:bg-blue-900 transition will-change-transform border border-blue-900"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           whileHover={{ scale: 1.05 }}

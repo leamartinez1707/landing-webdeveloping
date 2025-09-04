@@ -8,3 +8,12 @@ html {
     font-style: normal;
     scroll-behavior: smooth;
 }
+
+/* Paleta de colores principal */
+:root {
+    --color-primary: #1e3a8a; /* Azul oscuro */
+    --color-secondary: #2563eb; /* Azul vibrante */
+    --color-bg: #f8fafc; /* Gris claro */
+    --color-text: #111827; /* Gris oscuro */
+    --color-white: #fff;
+}
