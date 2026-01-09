@@ -5,12 +5,13 @@ import Footer from "./components/Footer"
 import Header from "./components/Header"
 import Portfolio from "./components/Portfolio"
 import WorkProcess from "./components/WorkProcess"
+import FloatingButtons from "./components/FloatingButtons"
 
 function App() {
   return (
     <div>
       <Header />
-      <main className="pt-20">
+      <main className="pt-26">
         <Hero />
         <Services />
         <WorkProcess />
@@ -18,6 +19,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <FloatingButtons />
     </div>
   )
 }

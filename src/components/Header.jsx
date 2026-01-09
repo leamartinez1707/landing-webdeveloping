@@ -13,18 +13,19 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Para cerrar menú al hacer click en link (en móvil)
   const handleLinkClick = () => setMenuOpen(false);
 
   return (
     <motion.header
-      initial={{ backgroundColor: "rgba(255, 255, 255, 0)", boxShadow: "0px 0px 0px rgba(0,0,0,0)" }}
+      initial={{ backgroundColor: "rgba(10, 31, 36, 0)" }}
       animate={{
-        backgroundColor: scrolled ? "#1e3a8a" : "#fff",
-        boxShadow: scrolled ? "0 4px 12px rgba(30,58,138,0.12)" : "0px 0px 0px rgba(0,0,0,0)",
+        backgroundColor: scrolled ? "rgba(10, 31, 36, 0.95)" : "rgba(10, 31, 36, 0)",
+        backdropFilter: scrolled ? "blur(10px)" : "blur(0px)",
+        boxShadow: scrolled ? "0 4px 20px rgba(32, 219, 209, 0.1)" : "0 0 0 rgba(0,0,0,0)",
       }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="fixed top-0 left-0 w-full z-50 will-change-transform border-b border-blue-900"
+      className="fixed top-0 left-0 w-full z-50 will-change-transform"
+      style={{ borderBottom: scrolled ? '1px solid rgba(32, 219, 209, 0.2)' : '1px solid transparent' }}
     >
       <AnimatePresence>
         {!scrolled && (
@@ -33,14 +34,18 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="bg-black will-change-transform"
+            className="will-change-transform"
+            style={{
+              background: 'linear-gradient(135deg, #12353d, #124e50)'
+            }}
           >
-            <div className="flex items-center text-white max-w-6xl justify-center md:justify-normal mx-auto py-1 px-6 gap-x-2">
-              <MailIcon className="hidden sm:block w-5 h-5" />
-              <p className="text-sm md:text-lg">leandromartinez.dev@gmail.com</p>
-              <span className="text-sm md:text-base">|</span>
-              <PhoneIcon className="hidden sm:block w-5 h-5" />
-              <p className="text-sm md:text-lg">095220063</p>
+            <div className="flex items-center max-w-6xl justify-center md:justify-normal mx-auto py-2 px-6 gap-x-3"
+              style={{ color: '#e0f2f1' }}>
+              <MailIcon className="hidden sm:block w-5 h-5" style={{ color: '#20dbd1' }} />
+              <a href="mailto:leandromartinez.dev@gmail.com" className="text-sm md:text-base hover:underline">leandromartinez.dev@gmail.com</a>
+              <span className="text-sm md:text-base" style={{ color: '#20dbd1' }}>|</span>
+              <PhoneIcon className="hidden sm:block w-5 h-5" style={{ color: '#20dbd1' }} />
+              <p className="text-sm md:text-base">+598 95 220 063</p>
             </div>
           </motion.div>
         )}
@@ -48,21 +53,26 @@ const Header = () => {
 
       <motion.div
         initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0, color: scrolled ? "var(--color-white)" : "var(--color-blue-600)" }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center will-change-transform"
       >
         <a href="/">
-          <h1 className="text-xl font-boldcursor-pointer">Leandro Martínez</h1>
+          <h1 className="text-xl md:text-2xl font-bold cursor-pointer gradient-text">
+            Martinez Studio
+          </h1>
         </a>
 
         {/* Menú desktop */}
-        <nav className="space-x-4 hidden md:flex">
+        <nav className="space-x-6 hidden md:flex">
           {["inicio", "servicios", "portfolio", "contacto"].map((section) => (
             <a
               key={section}
               href={`#${section}`}
-              className={`${scrolled ? "text-white hover:underline" : "text-black hover:text-blue-600"} transition-colors duration-200`}
+              className="transition-all duration-200 font-medium hover:scale-105"
+              style={{ color: '#e0f2f1' }}
+              onMouseEnter={(e) => e.target.style.color = '#20dbd1'}
+              onMouseLeave={(e) => e.target.style.color = '#e0f2f1'}
               onClick={handleLinkClick}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
@@ -72,12 +82,12 @@ const Header = () => {
 
         {/* Botón hamburguesa móvil */}
         <button
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden focus:outline-none"
+          style={{ color: '#20dbd1' }}
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
           {menuOpen ? (
-            // <XIcon className="w-6 h-6" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-6 h-6"
@@ -89,7 +99,6 @@ const Header = () => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
-            // <MenuIcon className="w-6 h-6" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-6 h-6"
@@ -100,7 +109,6 @@ const Header = () => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
-
           )}
         </button>
       </motion.div>
@@ -113,14 +121,22 @@ const Header = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden bg-white shadow-lg overflow-hidden will-change-transform "
+            className="md:hidden overflow-hidden will-change-transform"
+            style={{
+              backgroundColor: 'rgba(10, 31, 36, 0.98)',
+              backdropFilter: 'blur(10px)',
+              boxShadow: '0 4px 20px rgba(32, 219, 209, 0.1)'
+            }}
           >
             <div className="flex flex-col max-w-6xl mx-auto px-6 py-4 space-y-4">
               {["inicio", "servicios", "portfolio", "contacto"].map((section) => (
                 <a
                   key={section}
                   href={`#${section}`}
-                  className="text-gray-700 hover:text-blue-600 text-lg"
+                  className="text-lg font-medium transition-colors"
+                  style={{ color: '#e0f2f1' }}
+                  onMouseEnter={(e) => e.target.style.color = '#20dbd1'}
+                  onMouseLeave={(e) => e.target.style.color = '#e0f2f1'}
                   onClick={handleLinkClick}
                 >
                   {section.charAt(0).toUpperCase() + section.slice(1)}
