@@ -28,8 +28,8 @@ const Footer = () => {
           Martinez Studio
         </motion.h3>
         
-        <p className="text-base mb-6 max-w-2xl mx-auto" style={{ color: '#b2dfdb' }}>
-          Diseñamos páginas web estratégicas que potencian tu marca en el mercado online
+        <p className="text-base mb-6 max-w-2xl mx-auto" style={{ color: '#c0c0c0' }}>
+          Tu aliado digital para construir una presencia web profesional y efectiva
         </p>
 
         {/* Links rápidos */}
@@ -39,9 +39,9 @@ const Footer = () => {
               key={section}
               href={`#${section}`}
               className="transition-all duration-200 font-medium hover:scale-105"
-              style={{ color: '#e0f2f1' }}
+              style={{ color: '#ffffff' }}
               onMouseEnter={(e) => e.target.style.color = '#20dbd1'}
-              onMouseLeave={(e) => e.target.style.color = '#e0f2f1'}
+              onMouseLeave={(e) => e.target.style.color = '#ffffff'}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
             </a>
@@ -53,9 +53,9 @@ const Footer = () => {
           <a 
             href="mailto:leandromartinez.dev@gmail.com" 
             className="transition-colors duration-200"
-            style={{ color: '#b2dfdb' }}
+            style={{ color: '#c0c0c0' }}
             onMouseEnter={(e) => e.target.style.color = '#20dbd1'}
-            onMouseLeave={(e) => e.target.style.color = '#b2dfdb'}
+            onMouseLeave={(e) => e.target.style.color = '#c0c0c0'}
           >
             ✉️ leandromartinez.dev@gmail.com
           </a>
@@ -63,9 +63,9 @@ const Footer = () => {
           <a 
             href="tel:095220063" 
             className="transition-colors duration-200"
-            style={{ color: '#b2dfdb' }}
+            style={{ color: '#c0c0c0' }}
             onMouseEnter={(e) => e.target.style.color = '#20dbd1'}
-            onMouseLeave={(e) => e.target.style.color = '#b2dfdb'}
+            onMouseLeave={(e) => e.target.style.color = '#c0c0c0'}
           >
             📞 095220063
           </a>
@@ -89,7 +89,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="mt-8 pt-8" style={{ borderTop: '1px solid rgba(32, 219, 209, 0.2)' }}>
-          <p className="text-sm" style={{ color: '#80cbc4' }}>
+          <p className="text-sm" style={{ color: '#a0a0a0' }}>
             &copy; {new Date().getFullYear()} Martinez Studio - Todos los derechos reservados
           </p>
         </div>

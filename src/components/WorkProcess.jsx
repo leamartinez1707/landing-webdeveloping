@@ -82,11 +82,11 @@ const WorkProcess = () => {
                         </span>
                     </motion.div>
 
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#e0f2f1' }}>
-                        De la idea a la acción: <span className="gradient-text">el proceso</span> para crear tu página web exitosa
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#ffffff' }}>
+                        Nuestro <span className="gradient-text">método de trabajo</span>
                     </h2>
-                    <p className="text-lg max-w-3xl mx-auto" style={{ color: '#b2dfdb' }}>
-                        Un proceso claro y transparente para asegurar el éxito de tu proyecto
+                    <p className="text-lg max-w-3xl mx-auto" style={{ color: '#c0c0c0' }}>
+                        Cada proyecto es único, pero seguimos un proceso probado para garantizar resultados excepcionales
                     </p>
                 </motion.div>
 

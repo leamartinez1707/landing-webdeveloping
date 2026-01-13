@@ -73,17 +73,17 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <span>Contactame</span>
+          Hablemos de <span className="gradient-text">tu proyecto</span>
         </motion.h2>
         <motion.p
           className="max-w-2xl mx-auto text-center mb-12 text-lg will-change-transform"
-          style={{ color: '#b2dfdb' }}
+          style={{ color: '#c0c0c0' }}
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          ¿Tenés alguna idea, consulta o proyecto? ¡No dudes en escribirme! Estoy para ayudarte a darle vida a tu presencia online.
+          Completa el formulario y nos pondremos en contacto para discutir cómo podemos ayudarte a alcanzar tus objetivos digitales.
         </motion.p>
 
         <form
@@ -99,7 +99,7 @@ const Contact = () => {
           <motion.label
             htmlFor="name"
             className="font-semibold will-change-transform"
-            style={{ color: '#e0f2f1' }}
+            style={{ color: '#ffffff' }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -136,7 +136,7 @@ const Contact = () => {
           <motion.label
             htmlFor="email"
             className="font-semibold will-change-transform"
-            style={{ color: '#e0f2f1' }}
+            style={{ color: '#ffffff' }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -165,7 +165,7 @@ const Contact = () => {
           <motion.label
             htmlFor="message"
             className="font-semibold will-change-transform"
-            style={{ color: '#e0f2f1' }}
+            style={{ color: '#ffffff' }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}

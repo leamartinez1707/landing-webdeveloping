@@ -117,9 +117,9 @@ const Services = () => {
 
                 <motion.h2
                     className="text-4xl md:text-5xl font-bold mb-4 will-change-transform"
-                    style={{ color: '#e0f2f1' }}
+                    style={{ color: '#ffffff' }}
                 >
-                    Páginas web <span className="gradient-text">a medida</span>
+                    Soluciones web <span className="gradient-text">para tu negocio</span>
                 </motion.h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
@@ -160,11 +160,11 @@ const Services = () => {
                                 <IconComponent size={56} style={{ color: '#20dbd1' }} />
                             </div>
                             
-                            <h3 className="text-2xl font-bold mb-2" style={{ color: 'white' }}>
+                            <h3 className="text-2xl font-bold mb-2" style={{ color: '#ffffff' }}>
                                 {service.title}
                             </h3>
                             
-                            <p className="text-sm mb-4 font-medium" style={{ color: '#b2dfdb' }}>
+                            <p className="text-sm mb-4 font-medium" style={{ color: '#c0c0c0' }}>
                                 {service.subtitle}
                             </p>
                             
@@ -181,7 +181,7 @@ const Services = () => {
                             
                             <ul className="mb-6 text-left space-y-3 flex-grow">
                                 {service.features.map((feature, i) => (
-                                    <li key={i} className="flex items-start gap-2 text-sm" style={{ color: '#b2dfdb' }}>
+                                    <li key={i} className="flex items-start gap-2 text-sm" style={{ color: '#d0d0d0' }}>
                                         <span style={{ color: '#20dbd1' }}>✓</span>
                                         <span>{feature}</span>
                                     </li>

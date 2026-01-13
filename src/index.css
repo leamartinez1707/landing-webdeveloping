@@ -30,7 +30,7 @@ button {
 
 body {
     background-color: var(--color-bg-darker);
-    color: var(--color-text-light);
+    color: #ffffff;
 }
 
 /* Animaciones suaves */

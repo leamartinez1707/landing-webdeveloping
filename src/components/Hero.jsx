@@ -37,31 +37,31 @@ const Hero = () => {
           transition={{ delay: 0.5, duration: 0.6 }}
         >
           <span className="text-sm font-semibold tracking-wider" style={{ color: '#ffffff' }}>
-            ✨ MARTINEZ STUDIO
+            ✨ DESARROLLO WEB PROFESIONAL
           </span>
         </motion.div>
 
         <motion.h1
           className="text-5xl md:text-7xl font-bold mb-6 leading-tight will-change-transform"
-          style={{ color: '#e0f2f1' }}
+          style={{ color: '#ffffff' }}
         >
-          Diseñamos tu{" "}
-          <span className="gradient-text">página web</span>
+          Creamos tu{" "}
+          <span className="gradient-text">presencia digital</span>
         </motion.h1>
 
         <motion.p
           className="text-xl md:text-2xl mb-4 max-w-4xl mx-auto font-light"
-          style={{ color: '#b2dfdb' }}
+          style={{ color: '#e0e0e0' }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Diseñamos páginas web estratégicas y experiencias digitales que potencian tu marca y mejoran su posicionamiento en el mercado online.
+          Desarrollamos sitios web profesionales que convierten visitantes en clientes y posicionan tu negocio en el mercado digital.
         </motion.p>
 
         <motion.p
           className="text-base md:text-lg mb-10 max-w-2xl mx-auto"
-          style={{ color: '#80cbc4' }}
+          style={{ color: '#b0b0b0' }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
