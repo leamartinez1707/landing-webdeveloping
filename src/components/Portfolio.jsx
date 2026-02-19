@@ -55,22 +55,22 @@ const Portfolio = () => {
             {/* Efectos decorativos de fondo */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
                 <div className="absolute top-1/4 right-0 w-96 h-96 rounded-full blur-3xl"
-                    style={{ backgroundColor: 'rgba(32, 219, 209, 0.15)' }}></div>
+                    style={{ backgroundColor: 'rgba(0, 102, 204, 0.15)' }}></div>
             </div>
 
             <motion.div className="max-w-7xl mx-auto relative z-10">
                 <motion.div
                     className="inline-block px-6 py-2 rounded-full mb-4 border"
                     style={{
-                        backgroundColor: 'rgba(32, 219, 209, 0.1)',
-                        borderColor: '#20dbd1'
+                        backgroundColor: 'rgba(0, 102, 204, 0.1)',
+                        borderColor: '#0066cc'
                     }}
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <span className="text-sm font-semibold tracking-wider" style={{ color: '#20dbd1' }}>
+                    <span className="text-sm font-semibold tracking-wider" style={{ color: '#0066cc' }}>
                         PÁGINAS WEB QUE HABLAN POR SÍ SOLAS
                     </span>
                 </motion.div>
@@ -99,14 +99,14 @@ const Portfolio = () => {
                             viewport={{ once: true, amount }}
                             className="rounded-2xl overflow-hidden transition-all flex flex-col h-full group"
                             style={{
-                                backgroundColor: 'rgba(18, 112, 110, 0.15)',
+                                backgroundColor: 'rgba(0, 102, 204, 0.08)',
                                 borderWidth: '2px',
-                                borderColor: 'rgba(32, 219, 209, 0.3)'
+                                borderColor: 'rgba(0, 102, 204, 0.2)'
                             }}
                             whileHover={{
                                 y: -10,
-                                borderColor: '#20dbd1',
-                                boxShadow: '0 20px 40px rgba(32, 219, 209, 0.2)'
+                                borderColor: '#0066cc',
+                                boxShadow: '0 20px 40px rgba(0, 102, 204, 0.2)'
                             }}
                         >
                             <div className="relative overflow-hidden">
@@ -119,8 +119,8 @@ const Portfolio = () => {
                                 <span
                                     className="absolute top-4 left-4 px-4 py-2 rounded-full text-xs font-bold tracking-wider"
                                     style={{
-                                        backgroundColor: '#20dbd1',
-                                        color: '#0a1f24'
+                                        backgroundColor: '#0066cc',
+                                        color: '#ffffff'
                                     }}
                                 >
                                     {project.type}
@@ -141,10 +141,10 @@ const Portfolio = () => {
                                     rel="noopener noreferrer"
                                     className="w-full py-3 rounded-full font-semibold transition-all text-center block group-hover:scale-105"
                                     style={{
-                                        backgroundColor: 'rgba(32, 219, 209, 0.2)',
-                                        color: '#20dbd1',
+                                        backgroundColor: 'rgba(0, 102, 204, 0.2)',
+                                        color: '#0066cc',
                                         borderWidth: '2px',
-                                        borderColor: '#20dbd1'
+                                        borderColor: '#0066cc'
                                     }}
                                 >
                                     Ver proyecto →

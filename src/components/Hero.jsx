@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Rocket, Star, Target, Lightbulb } from "lucide-react";
+import { Zap, Code, BarChart3 } from "lucide-react";
 import WhatsappIcon from "./Icons/WhatsApp"
 
 const Hero = () => {
@@ -7,17 +7,19 @@ const Hero = () => {
     <motion.section
       id="inicio"
       className="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden will-change-transform"
-      style={{ backgroundColor: '#0a1f24' }}
+      style={{ 
+        background: 'linear-gradient(135deg, #f8f9fa 0%, #f0f4f8 100%)'
+      }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      {/* Efectos de fondo decorativos */}
+      {/* Efectos de fondo sutiles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-96 h-96 rounded-full opacity-10 blur-3xl animate-pulse-slow"
-          style={{ backgroundColor: '#20dbd1' }}></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full opacity-10 blur-3xl animate-pulse-slow"
-          style={{ backgroundColor: '#17a59d', animationDelay: '1s' }}></div>
+        <div className="absolute top-32 left-1/4 w-96 h-96 rounded-full opacity-5 blur-3xl"
+          style={{ backgroundColor: '#0066cc' }}></div>
+        <div className="absolute bottom-32 right-1/4 w-96 h-96 rounded-full opacity-5 blur-3xl"
+          style={{ backgroundColor: '#1a3a52' }}></div>
       </div>
 
       <motion.div
@@ -29,44 +31,44 @@ const Hero = () => {
         <motion.div
           className="inline-block px-6 py-2 rounded-full mb-6 border"
           style={{
-            backgroundColor: 'rgba(32, 219, 209, 0.1)',
-            borderColor: '#20dbd1'
+            backgroundColor: 'rgba(0, 102, 204, 0.15)',
+            borderColor: '#0066cc'
           }}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
-          <span className="text-sm font-semibold tracking-wider" style={{ color: '#ffffff' }}>
-            ✨ DESARROLLO WEB PROFESIONAL
+          <span className="text-sm font-semibold tracking-wider" style={{ color: '#1a3a52' }}>
+            ⚙️ SISTEMAS PARA NEGOCIOS REALES
           </span>
         </motion.div>
 
         <motion.h1
           className="text-5xl md:text-7xl font-bold mb-6 leading-tight will-change-transform"
-          style={{ color: '#ffffff' }}
+          style={{ color: '#0a1f24' }}
         >
-          Creamos tu{" "}
-          <span className="gradient-text">presencia digital</span>
+          Software que{" "}
+          <span style={{ color: '#0066cc' }}>ordena y automatiza</span> <br /> tu negocio
         </motion.h1>
 
         <motion.p
           className="text-xl md:text-2xl mb-4 max-w-4xl mx-auto font-light"
-          style={{ color: '#e0e0e0' }}
+          style={{ color: '#333333' }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Desarrollamos sitios web profesionales que convierten visitantes en clientes y posicionan tu negocio en el mercado digital.
+          Creamos sistemas profesionales que digitalizan procesos, ordenan negocios y profesionalizan talleres y empresas técnicas.
         </motion.p>
 
         <motion.p
           className="text-base md:text-lg mb-10 max-w-2xl mx-auto"
-          style={{ color: '#b0b0b0' }}
+          style={{ color: '#555555' }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
         >
-          Soluciones web para emprendedores y negocios que buscan crecer en el mundo digital
+          Especialistas en <strong>autogestión de talleres, gestión de servicios y automatización de procesos</strong> para negocios en Uruguay
         </motion.p>
 
         <motion.div
@@ -76,70 +78,71 @@ const Hero = () => {
           transition={{ delay: 0.9, duration: 0.5 }}
         >
           <motion.a
-            href="https://api.whatsapp.com/send?phone=59895220063&text=Hola!%20Me%20interesa%20crear%20mi%20página%20web"
-            target="_blank"
-            className="flex items-center gap-3 px-8 py-4 rounded-full font-semibold transition-all shadow-lg will-change-transform text-lg group"
+            href="#urufix"
+            className="flex items-center gap-3 px-8 py-4 rounded-lg font-semibold transition-all shadow-lg will-change-transform text-lg group"
             style={{
-              backgroundColor: '#20dbd1',
-              color: '#0a1f24'
+              backgroundColor: '#0066cc',
+              color: '#ffffff'
             }}
-            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(32, 219, 209, 0.4)' }}
+            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 102, 204, 0.4)' }}
             whileTap={{ scale: 0.95 }}
           >
-            <WhatsappIcon className="size-6 group-hover:rotate-12 transition-transform" />
-            + INFO
+            <Zap className="size-5 group-hover:rotate-12 transition-transform" />
+            Ver UruFix
           </motion.a>
           <motion.a
-            href="#servicios"
-            className="px-8 py-4 rounded-full font-semibold transition-all border-2 text-lg"
+            href="https://api.whatsapp.com/send?phone=59895220063&text=Hola!%20Quiero%20saber%20m%C3%A1s%20sobre%20sus%20sistemas"
+            target="_blank"
+            className="flex items-center gap-3 px-8 py-4 rounded-lg font-semibold transition-all border-2 text-lg"
             style={{
-              borderColor: '#20dbd1',
-              color: '#20dbd1',
+              borderColor: '#0066cc',
+              color: '#0066cc',
               backgroundColor: 'transparent'
             }}
             whileHover={{
-              backgroundColor: 'rgba(32, 219, 209, 0.1)',
+              backgroundColor: 'rgba(0, 102, 204, 0.1)',
               scale: 1.05
             }}
             whileTap={{ scale: 0.95 }}
           >
-            Ver servicios
+            <WhatsappIcon className="size-5 group-hover:rotate-12 transition-transform" />
+            Hablar por WhatsApp
           </motion.a>
         </motion.div>
 
-        {/* Estadísticas */}
+        {/* Features destacadas */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.8 }}
         >
           {[
-            { icon: Rocket, label: 'Compromiso', value: '' },
-            { icon: Star, label: 'Experiencia', value: '' },
-            { icon: Target, label: 'Impacto', value: '' },
-            { icon: Lightbulb, label: 'Innovación', value: '' }
-          ].map((stat, idx) => {
-            const IconComponent = stat.icon;
+            { icon: Code, label: 'Software a medida', desc: 'Adaptado a tu negocio' },
+            { icon: Zap, label: 'Automatización', desc: 'Menos manual, más eficiencia' },
+            { icon: BarChart3, label: 'Métricas reales', desc: 'Control y visibilidad' }
+          ].map((feature, idx) => {
+            const IconComponent = feature.icon;
             return (
               <motion.div
                 key={idx}
-                className="p-12 rounded-2xl text-center backdrop-blur-sm"
+                className="p-6 rounded-xl text-center backdrop-blur-sm"
                 style={{
-                  backgroundColor: 'rgba(18, 112, 110, 0.2)',
+                  backgroundColor: '#ffffff',
                   borderWidth: '1px',
-                  borderColor: 'rgba(32, 219, 209, 0.3)'
+                  borderColor: 'rgba(0, 102, 204, 0.2)',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
                 }}
                 whileHover={{
-                  backgroundColor: 'rgba(18, 112, 110, 0.3)',
-                  scale: 1.05
+                  boxShadow: '0 12px 24px rgba(32, 219, 209, 0.15)',
+                  y: -5
                 }}
               >
-                <div className="mb-2 animate-float flex justify-center" style={{ animationDelay: `${idx * 0.2}s` }}>
-                  <IconComponent size={60} style={{ color: '#20dbd1' }} />
+                <div className="mb-3 flex justify-center">
+                  <IconComponent size={40} style={{ color: '#0066cc' }} />
                 </div>
-                <h3 className="font-bold text-xl" style={{ color: '#20dbd1' }}>{stat.value}</h3>
-                <p className="text-sm" style={{ color: '#b2dfdb' }}>{stat.label}</p>
+                <h3 className="font-bold text-lg" style={{ color: '#0a1f24' }}>{feature.label}</h3>
+                <p className="text-sm mt-2" style={{ color: '#666666' }}>{feature.desc}</p>
               </motion.div>
             )
           })}

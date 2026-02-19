@@ -51,11 +51,11 @@ const FloatingButtons = () => {
                         onClick={scrollToTop}
                         className="flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all"
                         style={{
-                            backgroundColor: "#20dbd1",
+                            backgroundColor: "#0066cc",
                         }}
                         whileHover={{
                             scale: 1.1,
-                            boxShadow: "0 0 30px rgba(32, 219, 209, 0.5)",
+                            boxShadow: "0 0 30px rgba(0, 102, 204, 0.5)",
                         }}
                         whileTap={{ scale: 0.9 }}
                         initial={{ opacity: 0, scale: 0, y: 20 }}
@@ -63,7 +63,7 @@ const FloatingButtons = () => {
                         exit={{ opacity: 0, scale: 0, y: 20 }}
                         transition={{ type: "spring", stiffness: 260, damping: 20 }}
                     >
-                        <ArrowUp size={28} style={{ color: "#0a1f24" }} />
+                        <ArrowUp size={28} style={{ color: "#ffffff" }} />
                     </motion.button>
                 )}
             </AnimatePresence>

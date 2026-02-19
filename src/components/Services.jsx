@@ -1,77 +1,54 @@
 import { motion } from "motion/react"
-import { Rocket, Wrench, Gem, Settings } from "lucide-react";
+import { Wrench, Zap, BarChart3 } from "lucide-react";
 import useViewportAmount from "../hooks/useViewportAmount";
 
 const services = [
     {
-        title: "Landing Page",
-        subtitle: "1 página con secciones internas",
-        price: "U$S 180",
-        description: "Diseño alineado a tu marca.",
+        title: "Sistemas para talleres",
+        subtitle: "Control total de tu operación",
+        description: "Ordena clientes, tareas, inventario y presupuestos en un solo lugar.",
         features: [
-            "Diseño alineado a tu marca",
-            "1 página con secciones internas",
-            "Adaptada a todos los dispositivos",
-            "Formulario o botón de contacto",
-            "Integración con redes sociales",
-            "Botón de WhatsApp",
-            "Hosting y dominio incluidos el primer año"
+            "Gestión de clientes y contactos",
+            "Control de trabajos y órdenes",
+            "Seguimiento en tiempo real",
+            "Reportes de rentabilidad",
+            "Notificaciones automáticas",
+            "Acceso desde cualquier dispositivo"
         ],
         highlighted: true,
-        icon: Rocket,
-        badge: "MÁS VENDIDA"
-    },
-    {
-        title: "Sitio web básico",
-        subtitle: "Hasta 5 secciones",
-        price: "U$S 300",
-        description: "Diseño alineado a tu identidad.",
-        features: [
-            "Diseño alineado a tu identidad",
-            "Hasta 5 secciones (Inicio, Servicios, Contacto, etc.)",
-            "SEO y conexión con redes",
-            "Navegación intuitiva y rápida",
-            "Formulario o botón de contacto",
-            "Botón de whatsapp",
-            "Hosting y dominio incluidos el primer año"
-        ],
-        highlighted: false,
         icon: Wrench,
-        badge: null
+        badge: "POPULAR"
     },
     {
-        title: "Sitio web avanzado",
-        subtitle: "Hasta 10 secciones o más",
-        price: "U$S 570",
-        description: "Diseño y desarrollo a medida.",
+        title: "Automatización de procesos",
+        subtitle: "Reduce trabajo manual",
+        description: "Automatiza tareas repetitivas y ahorra tiempo en operaciones diarias.",
         features: [
-            "Diseño y desarrollo a medida",
-            "Hasta 10 secciones o más",
-            "Blog, catálogo u otro",
-            "SEO y conexión con redes",
-            "Formulario o botón de contacto",
-            "Botón de whatsapp",
-            "Hosting y dominio incluidos el primer año"
-        ],
-        highlighted: false,
-        icon: Gem,
-        badge: null
-    },
-    {
-        title: "Software personalizado",
-        subtitle: "Soluciones a medida",
-        price: "Cotizar",
-        description: "Pensado para marcas que buscan expandirse.",
-        features: [
-            "Automatización de tareas",
-            "Reportes personalizados",
+            "Workflow personalizado",
             "Integración con tus herramientas",
-            "Panel de administración",
-            "Soporte técnico continuo",
-            "Escalable y seguro"
+            "Generación automática de reportes",
+            "Notificaciones y alertas",
+            "Sincronización de datos",
+            "Backups automáticos"
         ],
         highlighted: false,
-        icon: Settings,
+        icon: Zap,
+        badge: null
+    },
+    {
+        title: "Desarrollo de software a medida",
+        subtitle: "Soluciones específicas",
+        description: "Software construido exactamente para los requisitos de tu negocio.",
+        features: [
+            "Análisis personalizado",
+            "Desarrollo profesional",
+            "Soporte técnico continuo",
+            "Escalabilidad garantizada",
+            "Seguridad empresarial",
+            "Capacitación incluida"
+        ],
+        highlighted: false,
+        icon: BarChart3,
         badge: null
     }
 ];
@@ -80,20 +57,23 @@ const Services = () => {
     const amount = useViewportAmount()
     return (
         <motion.section
-            id="servicios"
-            className="py-20 px-6 text-center will-change-transform relative overflow-hidden"
-            style={{ backgroundColor: '#050f12' }}
+            id="que-hacemos"
+            className="py-24 px-6 text-center will-change-transform relative overflow-hidden"
+            style={{ 
+                backgroundColor: '#f8f9fa',
+                borderTop: '1px solid rgba(32, 219, 209, 0.1)'
+            }}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount }}
         >
-            {/* Efectos decorativos de fondo */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
+            {/* Efectos decorativos de fondo sutil */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-5">
                 <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl" 
-                     style={{ backgroundColor: 'rgba(23, 165, 157, 0.1)' }}></div>
+                     style={{ backgroundColor: '#0066cc' }}></div>
                 <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl" 
-                     style={{ backgroundColor: 'rgba(32, 219, 209, 0.1)' }}></div>
+                     style={{ backgroundColor: '#1a3a52' }}></div>
             </div>
 
             <motion.div
@@ -104,101 +84,114 @@ const Services = () => {
                 viewport={{ once: true }}
             >
                 <motion.div
-                    className="inline-block px-6 py-2 rounded-full mb-4 border"
+                    className="inline-block px-6 py-2 rounded-full mb-6 border"
                     style={{ 
-                        backgroundColor: 'rgba(32, 219, 209, 0.1)', 
-                        borderColor: '#20dbd1'
+                        backgroundColor: 'rgba(0, 102, 204, 0.1)', 
+                        borderColor: '#0066cc'
                     }}
                 >
-                    <span className="text-sm font-semibold tracking-wider" style={{ color: '#20dbd1' }}>
-                        ¡WEBS PARA POTENCIAR TU MARCA!
+                    <span className="text-sm font-semibold tracking-wider" style={{ color: '#0066cc' }}>
+                        🎯 QUÉ HACEMOS
                     </span>
                 </motion.div>
 
                 <motion.h2
                     className="text-4xl md:text-5xl font-bold mb-4 will-change-transform"
-                    style={{ color: '#ffffff' }}
+                    style={{ color: '#0a1f24' }}
                 >
-                    Soluciones web <span className="gradient-text">para tu negocio</span>
+                    Sistemas para <span style={{ color: '#0066cc' }}>negocios reales</span>
                 </motion.h2>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+                <motion.p
+                    className="text-lg mb-16 max-w-2xl mx-auto"
+                    style={{ color: '#555555' }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.2, duration: 0.6 }}
+                    viewport={{ once: true }}
+                >
+                    Digitalizamos, automatizamos y profesionalizamos la operación de tu negocio con software especializado.
+                </motion.p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                     {services.map((service, idx) => {
                         const IconComponent = service.icon;
                         return (
                         <motion.div
                             key={idx}
-                            className="p-8 rounded-2xl transition-all will-change-transform flex flex-col h-full relative overflow-hidden group"
+                            className="p-8 rounded-2xl transition-all will-change-transform flex flex-col h-full relative overflow-hidden"
                             style={{ 
-                                backgroundColor: service.highlighted ? 'rgba(32, 219, 209, 0.15)' : 'rgba(18, 112, 110, 0.1)',
+                                backgroundColor: service.highlighted ? '#ffffff' : '#ffffff',
                                 borderWidth: '2px',
-                                borderColor: service.highlighted ? '#20dbd1' : 'rgba(32, 219, 209, 0.3)'
+                                borderColor: service.highlighted ? '#0066cc' : 'rgba(0, 102, 204, 0.2)',
+                                boxShadow: service.highlighted 
+                                    ? '0 8px 24px rgba(0, 102, 204, 0.15)' 
+                                    : '0 4px 12px rgba(0,0,0,0.05)'
                             }}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: idx * 0.15 }}
                             viewport={{ once: true }}
                             whileHover={{ 
-                                y: -10,
-                                borderColor: '#20dbd1',
-                                boxShadow: '0 20px 40px rgba(32, 219, 209, 0.2)'
+                                y: -8,
+                                boxShadow: '0 16px 32px rgba(32, 219, 209, 0.2)'
                             }}
                         >
                             {service.badge && (
                                 <div 
                                     className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold"
                                     style={{ 
-                                        backgroundColor: '#20dbd1',
-                                        color: '#0a1f24'
+                                        backgroundColor: '#0066cc',
+                                        color: '#ffffff'
                                     }}
                                 >
                                     {service.badge}
                                 </div>
                             )}
                             
-                            <div className="mb-4 animate-float group-hover:scale-110 transition-transform flex justify-center">
-                                <IconComponent size={56} style={{ color: '#20dbd1' }} />
+                            <div className="mb-6 flex justify-center">
+                                <div 
+                                    className="p-4 rounded-full"
+                                    style={{ 
+                                        backgroundColor: 'rgba(0, 102, 204, 0.15)'
+                                    }}
+                                >
+                                    <IconComponent size={40} style={{ color: '#0066cc' }} />
+                                </div>
                             </div>
                             
-                            <h3 className="text-2xl font-bold mb-2" style={{ color: '#ffffff' }}>
+                            <h3 className="text-2xl font-bold mb-2" style={{ color: '#0a1f24' }}>
                                 {service.title}
                             </h3>
                             
-                            <p className="text-sm mb-4 font-medium" style={{ color: '#c0c0c0' }}>
+                            <p className="text-base mb-6 font-medium" style={{ color: '#666666' }}>
                                 {service.subtitle}
                             </p>
                             
-                            <div className="mb-6">
-                                <span className="text-4xl font-bold" style={{ color: service.highlighted ? '#20dbd1' : '#17a59d' }}>
-                                    {service.price}
-                                </span>
-                                {service.price !== "Cotizar" && (
-                                    <span className="text-sm ml-2" style={{ color: '#80cbc4' }}>Desde</span>
-                                )}
-                            </div>
-
-                            <div className="w-full h-px mb-6" style={{ backgroundColor: 'rgba(32, 219, 209, 0.3)' }}></div>
+                            <p className="text-sm mb-8" style={{ color: '#888888' }}>
+                                {service.description}
+                            </p>
                             
-                            <ul className="mb-6 text-left space-y-3 flex-grow">
+                            <ul className="mb-8 text-left space-y-3 flex-grow">
                                 {service.features.map((feature, i) => (
-                                    <li key={i} className="flex items-start gap-2 text-sm" style={{ color: '#d0d0d0' }}>
-                                        <span style={{ color: '#20dbd1' }}>✓</span>
+                                    <li key={i} className="flex items-start gap-3 text-sm" style={{ color: '#555555' }}>
+                                        <span style={{ color: '#0066cc', fontSize: '18px', lineHeight: '1' }}>✓</span>
                                         <span>{feature}</span>
                                     </li>
                                 ))}
                             </ul>
                             
                             <a 
-                                href="https://api.whatsapp.com/send?phone=59895220063&text=Hola!%20Me%20interesa%20el%20servicio%20de%20" 
-                                className="w-full py-3 rounded-full font-semibold transition-all text-center block"
+                                href="https://api.whatsapp.com/send?phone=59895220063&text=Hola!%20Quiero%20saber%20m%C3%A1s%20sobre%20" 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full py-3 rounded-lg font-semibold transition-all text-center block"
                                 style={{ 
-                                    backgroundColor: service.highlighted ? '#20dbd1' : 'rgba(32, 219, 209, 0.2)',
-                                    color: service.highlighted ? '#0a1f24' : 'white',
-                                    borderWidth: '2px',
-                                    borderColor: '#20dbd1'
+                                    backgroundColor: service.highlighted ? '#0066cc' : 'rgba(0, 102, 204, 0.2)',
+                                    color: service.highlighted ? '#ffffff' : '#0066cc'
                                 }}
                             >
-                                Consultar
+                                Conocer más
                             </a>
                         </motion.div>
                     )})}

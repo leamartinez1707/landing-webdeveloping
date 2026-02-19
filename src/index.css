@@ -15,22 +15,20 @@ button {
     transition: all 0.3s ease;
 }
 
-/* Paleta de colores Martinez Studio */
+/* Paleta de colores Martinez Studio - Basada en el logo */
 :root {
-    --color-1: #12353d;
-    --color-2: #124e50;
-    --color-3: #12706e;
-    --color-4: #17a59d;
-    --color-5: #20dbd1;
-    --color-bg-dark: #0a1f24;
-    --color-bg-darker: #050f12;
-    --color-text-light: #e0f2f1;
+    --color-primary: #0066cc;      /* Azul principal (logo) */
+    --color-primary-dark: #1a3a52; /* Azul marino oscuro (logo) */
+    --color-bg-light: #f8f9fa;     /* Fondo claro */
+    --color-bg-white: #ffffff;     /* Blanco */
+    --color-text-dark: #0a1f24;    /* Texto oscuro */
+    --color-text-light: #555555;   /* Texto gris */
     --color-white: #ffffff;
 }
 
 body {
-    background-color: var(--color-bg-darker);
-    color: #ffffff;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
 }
 
 /* Animaciones suaves */
@@ -84,19 +82,16 @@ body {
 
 /* Gradientes y efectos */
 .gradient-text {
-    background: linear-gradient(135deg, var(--color-4), var(--color-5));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #0066cc;
 }
 
 .gradient-bg {
-    background: linear-gradient(135deg, var(--color-1) 0%, var(--color-2) 50%, var(--color-3) 100%);
+    background: linear-gradient(135deg, #1a3a52 0%, #0066cc 100%);
 }
 
 .gradient-border {
     position: relative;
-    background: var(--color-bg-dark);
+    background: #ffffff;
     border: 2px solid transparent;
     background-clip: padding-box;
 }
@@ -106,7 +101,7 @@ body {
     position: absolute;
     inset: -2px;
     z-index: -1;
-    background: linear-gradient(135deg, var(--color-4), var(--color-5));
+    background: linear-gradient(135deg, #1a3a52, #0066cc);
     border-radius: inherit;
 }
 
@@ -117,5 +112,22 @@ body {
 
 .card-hover:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(32, 219, 209, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 102, 204, 0.2);
+}
+
+/* Estilos adicionales para contraste */
+::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+:-moz-placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.4);
 }
