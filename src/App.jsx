@@ -1,4 +1,5 @@
 import Hero from "./components/Hero"
+import PainPoints from "./components/PainPoints"
 import Services from "./components/Services"
 import UruFix from "./components/UruFix"
 import Contact from "./components/Contact"
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <main className="pt-26">
         <Hero />
+        <PainPoints />
         <Services />
         <UruFix />
         <Contact />

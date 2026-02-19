@@ -25,7 +25,7 @@ const FloatingButtons = () => {
         <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-4">
             {/* Botón de WhatsApp */}
             <motion.a
-                href="https://api.whatsapp.com/send?phone=59895220063&text=Hola!%20Me%20interesa%20crear%20mi%20página%20web"
+                href="https://api.whatsapp.com/send?phone=59895220063&text=Hola!%20Quiero%20saber%20c%C3%B3mo%20UruFix%20puede%20ordenar%20mi%20taller"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all group"

@@ -47,8 +47,8 @@ const Hero = () => {
           className="text-5xl md:text-7xl font-bold mb-6 leading-tight will-change-transform"
           style={{ color: '#0a1f24' }}
         >
-          Software que{" "}
-          <span style={{ color: '#0066cc' }}>ordena y automatiza</span> <br /> tu negocio
+          Digitalizá tu taller y{" "}
+          <span style={{ color: '#0066cc' }}>recuperá el control</span> <br /> de tu negocio
         </motion.h1>
 
         <motion.p
@@ -58,7 +58,8 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Creamos sistemas profesionales que digitalizan procesos, ordenan negocios y profesionalizan talleres y empresas técnicas.
+          Dejá atrás el desorden, los presupuestos en papel y la falta de control. <br />
+          <strong>UruFix</strong> ordena tu taller en un solo sistema profesional.
         </motion.p>
 
         <motion.p
@@ -68,7 +69,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
         >
-          Especialistas en <strong>autogestión de talleres, gestión de servicios y automatización de procesos</strong> para negocios en Uruguay
+          Sistema de gestión diseñado para <strong>talleres, mecánicas y negocios técnicos</strong> que quieren crecer sin caos
         </motion.p>
 
         <motion.div
@@ -88,7 +89,7 @@ const Hero = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Zap className="size-5 group-hover:rotate-12 transition-transform" />
-            Ver UruFix
+            Ver cómo funciona UruFix
           </motion.a>
           <motion.a
             href="https://api.whatsapp.com/send?phone=59895220063&text=Hola!%20Quiero%20saber%20m%C3%A1s%20sobre%20sus%20sistemas"

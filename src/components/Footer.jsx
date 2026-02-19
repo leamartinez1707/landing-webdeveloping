@@ -90,7 +90,7 @@ const Footer = () => {
           whileTap={{ scale: 0.95 }}
         >
           <WhatsappIcon className="size-5 group-hover:rotate-12 transition-transform" />
-          Conversemos
+          Agendar una demo
         </motion.a>
 
         {/* Copyright */}

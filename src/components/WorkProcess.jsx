@@ -146,7 +146,7 @@ const WorkProcess = () => {
                             color: '#ffffff'
                         }}
                     >
-                        Iniciar mi proyecto
+                        Ver el sistema en acción
                     </a>
                 </motion.div>
             </div>

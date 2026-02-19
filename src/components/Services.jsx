@@ -191,7 +191,7 @@ const Services = () => {
                                     color: service.highlighted ? '#ffffff' : '#0066cc'
                                 }}
                             >
-                                Conocer más
+                                Consultar opciones
                             </a>
                         </motion.div>
                     )})}
