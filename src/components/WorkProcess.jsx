@@ -57,9 +57,9 @@ const WorkProcess = () => {
             {/* Efectos decorativos */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
                 <div className="absolute top-1/3 left-0 w-96 h-96 rounded-full blur-3xl"
-                    style={{ backgroundColor: 'rgba(23, 165, 157, 0.15)' }}></div>
+                    style={{ backgroundColor: 'rgba(0, 102, 204, 0.15)' }}></div>
                 <div className="absolute bottom-1/3 right-0 w-96 h-96 rounded-full blur-3xl"
-                    style={{ backgroundColor: 'rgba(32, 219, 209, 0.15)' }}></div>
+                    style={{ backgroundColor: 'rgba(0, 102, 204, 0.15)' }}></div>
             </div>
 
             <div className="max-w-7xl mx-auto relative z-10">
@@ -73,11 +73,11 @@ const WorkProcess = () => {
                     <motion.div
                         className="inline-block px-6 py-2 rounded-full mb-4 border"
                         style={{
-                            backgroundColor: 'rgba(32, 219, 209, 0.1)',
-                            borderColor: '#20dbd1'
+                            backgroundColor: 'rgba(0, 102, 204, 0.1)',
+                            borderColor: '#0066cc'
                         }}
                     >
-                        <span className="text-sm font-semibold tracking-wider" style={{ color: '#20dbd1' }}>
+                        <span className="text-sm font-semibold tracking-wider" style={{ color: '#0066cc' }}>
                             NUESTRO PROCESO PARA CREAR TU PÁGINA WEB OPTIMIZADA
                         </span>
                     </motion.div>
@@ -98,9 +98,9 @@ const WorkProcess = () => {
                                 key={index}
                                 className="p-8 rounded-2xl transition-all h-full"
                                 style={{
-                                    backgroundColor: 'rgba(18, 112, 110, 0.15)',
+                                    backgroundColor: 'rgba(0, 102, 204, 0.08)',
                                     borderWidth: '2px',
-                                    borderColor: 'rgba(32, 219, 209, 0.3)'
+                                    borderColor: 'rgba(0, 102, 204, 0.2)'
                                 }}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -108,22 +108,22 @@ const WorkProcess = () => {
                                 viewport={{ once: true }}
                                 whileHover={{
                                     y: -8,
-                                    borderColor: '#20dbd1',
-                                    boxShadow: '0 20px 40px rgba(32, 219, 209, 0.2)'
+                                    borderColor: '#0066cc',
+                                    boxShadow: '0 20px 40px rgba(0, 102, 204, 0.2)'
                                 }}
                             >
                                 <div className="flex items-center gap-4 mb-4">
                                     <span className="animate-float" style={{ animationDelay: `${index * 0.2}s` }}>
-                                        <IconComponent size={40} style={{ color: '#20dbd1' }} />
+                                        <IconComponent size={40} style={{ color: '#0066cc' }} />
                                     </span>
-                                    <span className="text-3xl font-bold" style={{ color: '#20dbd1' }}>
+                                    <span className="text-3xl font-bold" style={{ color: '#0066cc' }}>
                                         {step.number}
                                     </span>
                                 </div>
-                                <h3 className="text-xl font-bold mb-3" style={{ color: '#20dbd1' }}>
+                                <h3 className="text-xl font-bold mb-3" style={{ color: '#0066cc' }}>
                                     {step.title}
                                 </h3>
-                                <p style={{ color: '#b2dfdb' }}>{step.description}</p>
+                                <p style={{ color: '#c0d9ff' }}>{step.description}</p>
                             </motion.div>
                         )
                     })}
@@ -139,10 +139,11 @@ const WorkProcess = () => {
                     <a
                         href="https://api.whatsapp.com/send?phone=59895220063&text=Hola!%20Me%20gustaría%20conocer%20más%20sobre%20el%20proceso%20de%20trabajo."
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-lg font-semibold transition-all"
                         style={{
-                            backgroundColor: '#20dbd1',
-                            color: '#0a1f24'
+                            backgroundColor: '#0066cc',
+                            color: '#ffffff'
                         }}
                     >
                         Iniciar mi proyecto
