@@ -44,7 +44,7 @@ const UruFix = () => {
         >
             {/* Efectos decorativos */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-5">
-                <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full blur-3xl"
+                <div className="absolute top-0 right-1/4 w-96 h-96 rounded-md blur-3xl"
                     style={{ backgroundColor: '#0066cc' }}></div>
             </div>
 
@@ -64,14 +64,10 @@ const UruFix = () => {
                         viewport={{ once: true, amount }}
                     >
                         <motion.div
-                            className="inline-block px-6 py-2 rounded-full mb-6 border"
-                            style={{
-                                backgroundColor: 'rgba(0, 102, 204, 0.15)',
-                                borderColor: '#0066cc'
-                            }}
+                            className="inline-block px-6 py-2 rounded-md mb-6"
                         >
-                            <span className="text-sm font-semibold tracking-wider" style={{ color: '#1a3a52' }}>
-                                ⚡ NUESTRO PRODUCTO PRINCIPAL
+                            <span className="font-semibold tracking-wider" style={{ color: '#0a1f24' }}>
+                                NUESTRO PRODUCTO PRINCIPAL
                             </span>
                         </motion.div>
 
@@ -90,7 +86,7 @@ const UruFix = () => {
                         <motion.a
                             href="https://api.whatsapp.com/send?phone=59895220063&text=Hola!%20Quiero%20conocer%20m%C3%A1s%20sobre%20UruFix"
                             target="_blank"
-                            className="inline-flex items-center gap-3 px-8 py-4 rounded-lg font-semibold transition-all shadow-lg text-lg"
+                            className="inline-flex items-center gap-3 px-8 py-4 rounded-md font-semibold transition-all shadow-lg text-lg"
                             style={{
                                 backgroundColor: '#0066cc',
                                 color: '#ffffff'
@@ -98,7 +94,7 @@ const UruFix = () => {
                             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 102, 204, 0.4)' }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            Probar ahora en WhatsApp
+                            Quiero ordenar mi taller
                         </motion.a>
                     </motion.div>
 
@@ -115,7 +111,7 @@ const UruFix = () => {
                             return (
                                 <motion.div
                                     key={idx}
-                                    className="p-6 rounded-xl"
+                                    className="p-6 rounded-md"
                                     style={{
                                         backgroundColor: '#ffffff',
                                         borderWidth: '1px',
@@ -143,6 +139,46 @@ const UruFix = () => {
                         })}
                     </motion.div>
                 </div>
+
+                {/* Prueba Social - Mistyle Uruguay */}
+                <motion.div
+                    className="mt-20 p-8 md:p-12 rounded-2xl text-center"
+                    style={{
+                        background: 'linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(26, 58, 82, 0.05) 100%)',
+                        borderWidth: '2px',
+                        borderColor: 'rgba(0, 102, 204, 0.2)',
+                        boxShadow: '0 8px 24px rgba(0, 102, 204, 0.08)'
+                    }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.4 }}
+                    viewport={{ once: true, amount }}
+                >
+                    <motion.div
+                        className="inline-block px-5 py-2 rounded-md mb-6"
+                        style={{
+                            backgroundColor: 'rgba(34, 197, 94, 0.15)',
+                            borderWidth: '1px',
+                            borderColor: 'rgba(34, 197, 94, 0.3)'
+                        }}
+                    >
+                        <span className="text-sm font-semibold tracking-wider" style={{ color: '#16a34a' }}>
+                            ✓ EN PRODUCCIÓN
+                        </span>
+                    </motion.div>
+
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: '#0a1f24' }}>
+                        <span style={{ color: '#0066cc' }}>UruFix</span> ya es utilizado por <span style={{ color: '#0066cc' }}>Mistyle Uruguay</span>
+                    </h3>
+
+                    <p className="text-lg md:text-xl mb-6 max-w-3xl mx-auto" style={{ color: '#555555' }}>
+                        Una de las marcas más reconocidas de monopatines eléctricos del país confía en UruFix para gestionar su operación técnica completa.
+                    </p>
+
+                    <p className="text-base md:text-lg font-semibold max-w-2xl mx-auto" style={{ color: '#1a3a52' }}>
+                        Si una marca líder confía en el sistema, <span style={{ color: '#0066cc' }}>tu taller también puede hacerlo</span>.
+                    </p>
+                </motion.div>
             </motion.div>
         </motion.section>
     );

@@ -54,13 +54,13 @@ const Portfolio = () => {
         >
             {/* Efectos decorativos de fondo */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
-                <div className="absolute top-1/4 right-0 w-96 h-96 rounded-full blur-3xl"
+                <div className="absolute top-1/4 right-0 w-96 h-96 rounded-md blur-3xl"
                     style={{ backgroundColor: 'rgba(0, 102, 204, 0.15)' }}></div>
             </div>
 
             <motion.div className="max-w-7xl mx-auto relative z-10">
                 <motion.div
-                    className="inline-block px-6 py-2 rounded-full mb-4 border"
+                    className="inline-block px-6 py-2 rounded-md mb-4 border"
                     style={{
                         backgroundColor: 'rgba(0, 102, 204, 0.1)',
                         borderColor: '#0066cc'
@@ -117,7 +117,7 @@ const Portfolio = () => {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 <span
-                                    className="absolute top-4 left-4 px-4 py-2 rounded-full text-xs font-bold tracking-wider"
+                                    className="absolute top-4 left-4 px-4 py-2 rounded-md text-xs font-bold tracking-wider"
                                     style={{
                                         backgroundColor: '#0066cc',
                                         color: '#ffffff'
@@ -139,7 +139,7 @@ const Portfolio = () => {
                                     href={project.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="w-full py-3 rounded-full font-semibold transition-all text-center block group-hover:scale-105"
+                                    className="w-full py-3 rounded-md font-semibold transition-all text-center block group-hover:scale-105"
                                     style={{
                                         backgroundColor: 'rgba(0, 102, 204, 0.2)',
                                         color: '#0066cc',
