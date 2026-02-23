@@ -1,0 +1,23 @@
+# Robots.txt para Martínez Studio - Soluciones Digitales
+# Optimizado para SEO en Uruguay y Latinoamérica
+
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /*.json$
+
+# Velocidad de rastreo
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://www.martinezstudio.com.uy/sitemap.xml
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
