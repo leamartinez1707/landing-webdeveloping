@@ -56,9 +56,9 @@ const WorkProcess = () => {
         >
             {/* Efectos decorativos */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
-                <div className="absolute top-1/3 left-0 w-96 h-96 rounded-full blur-3xl"
+                <div className="absolute top-1/3 left-0 w-96 h-96 rounded-md blur-3xl"
                     style={{ backgroundColor: 'rgba(0, 102, 204, 0.15)' }}></div>
-                <div className="absolute bottom-1/3 right-0 w-96 h-96 rounded-full blur-3xl"
+                <div className="absolute bottom-1/3 right-0 w-96 h-96 rounded-md blur-3xl"
                     style={{ backgroundColor: 'rgba(0, 102, 204, 0.15)' }}></div>
             </div>
 
@@ -71,7 +71,7 @@ const WorkProcess = () => {
                     viewport={{ once: true }}
                 >
                     <motion.div
-                        className="inline-block px-6 py-2 rounded-full mb-4 border"
+                        className="inline-block px-6 py-2 rounded-md mb-4 border"
                         style={{
                             backgroundColor: 'rgba(0, 102, 204, 0.1)',
                             borderColor: '#0066cc'
@@ -140,7 +140,7 @@ const WorkProcess = () => {
                         href="https://api.whatsapp.com/send?phone=59895220063&text=Hola!%20Me%20gustaría%20conocer%20más%20sobre%20el%20proceso%20de%20trabajo."
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-lg font-semibold transition-all"
+                        className="inline-flex items-center gap-2 px-8 py-4 rounded-md text-lg font-semibold transition-all"
                         style={{
                             backgroundColor: '#0066cc',
                             color: '#ffffff'

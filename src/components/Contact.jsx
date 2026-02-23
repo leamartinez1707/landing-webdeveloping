@@ -34,7 +34,7 @@ const Contact = () => {
     <motion.section
       id="contacto"
       className="py-24 px-6 will-change-transform relative overflow-hidden"
-      style={{ 
+      style={{
         backgroundColor: '#f8f9fa',
         borderTop: '1px solid rgba(0, 102, 204, 0.1)'
       }}
@@ -45,16 +45,14 @@ const Contact = () => {
     >
       {/* Efectos decorativos */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-5">
-        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full blur-3xl"
+        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-md blur-3xl"
           style={{ backgroundColor: '#20dbd1' }}></div>
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
-          className="inline-block px-6 py-2 rounded-full mb-6 border mx-auto"
+          className="inline-block px-6 py-2 rounded-md mb-6 mx-auto"
           style={{
-            backgroundColor: 'rgba(0, 102, 204, 0.15)',
-            borderColor: '#0066cc',
             display: 'table'
           }}
           initial={{ opacity: 0, y: -20 }}
@@ -62,8 +60,8 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <span className="text-sm font-semibold tracking-wider" style={{ color: '#1a3a52' }}>
-            💬 PONTE EN CONTACTO
+          <span className="font-semibold tracking-wider" style={{ color: '#1a3a52' }}>
+            PONTE EN CONTACTO
           </span>
         </motion.div>
 
@@ -115,7 +113,7 @@ const Contact = () => {
             name="name"
             placeholder="Tu nombre"
             required
-            className="p-4 rounded-lg focus:outline-none transition will-change-transform"
+            className="p-4 rounded-md focus:outline-none transition will-change-transform"
             style={{
               backgroundColor: '#f8f9fa',
               borderWidth: '1px',
@@ -152,7 +150,7 @@ const Contact = () => {
             name="email"
             placeholder="Tu email"
             required
-            className="p-4 rounded-lg focus:outline-none transition will-change-transform"
+            className="p-4 rounded-md focus:outline-none transition will-change-transform"
             style={{
               backgroundColor: '#f8f9fa',
               borderWidth: '1px',
@@ -181,7 +179,7 @@ const Contact = () => {
             placeholder="Tu mensaje"
             rows="5"
             required
-            className="p-4 rounded-lg focus:outline-none transition resize-none will-change-transform"
+            className="p-4 rounded-md focus:outline-none transition resize-none will-change-transform"
             style={{
               backgroundColor: '#f8f9fa',
               borderWidth: '1px',
@@ -196,7 +194,7 @@ const Contact = () => {
 
           <motion.button
             type="submit"
-            className="py-4 rounded-lg font-semibold transition will-change-transform"
+            className="py-4 rounded-md font-semibold transition will-change-transform"
             style={{
               backgroundColor: '#0066cc',
               color: '#ffffff'

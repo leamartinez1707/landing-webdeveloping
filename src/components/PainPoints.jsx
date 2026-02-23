@@ -66,7 +66,7 @@ const PainPoints = () => {
             return (
               <motion.div
                 key={idx}
-                className="flex items-start gap-4 p-6 rounded-xl text-left"
+                className="flex items-start gap-4 p-6 rounded-md text-left"
                 style={{
                   backgroundColor: '#ffffff',
                   borderWidth: '1px',

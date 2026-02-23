@@ -7,7 +7,7 @@ const Hero = () => {
     <motion.section
       id="inicio"
       className="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden will-change-transform"
-      style={{ 
+      style={{
         background: 'linear-gradient(135deg, #f8f9fa 0%, #f0f4f8 100%)'
       }}
       initial={{ opacity: 0 }}
@@ -16,9 +16,9 @@ const Hero = () => {
     >
       {/* Efectos de fondo sutiles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-32 left-1/4 w-96 h-96 rounded-full opacity-5 blur-3xl"
+        <div className="absolute top-32 left-1/4 w-96 h-96 rounded-md opacity-5 blur-3xl"
           style={{ backgroundColor: '#0066cc' }}></div>
-        <div className="absolute bottom-32 right-1/4 w-96 h-96 rounded-full opacity-5 blur-3xl"
+        <div className="absolute bottom-32 right-1/4 w-96 h-96 rounded-md opacity-5 blur-3xl"
           style={{ backgroundColor: '#1a3a52' }}></div>
       </div>
 
@@ -28,8 +28,8 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.8 }}
       >
-        <motion.div
-          className="inline-block px-6 py-2 rounded-full mb-6 border"
+        {/* <motion.div
+          className="inline-block px-6 py-2 rounded-md mb-6 border"
           style={{
             backgroundColor: 'rgba(0, 102, 204, 0.15)',
             borderColor: '#0066cc'
@@ -39,16 +39,18 @@ const Hero = () => {
           transition={{ delay: 0.5, duration: 0.6 }}
         >
           <span className="text-sm font-semibold tracking-wider" style={{ color: '#1a3a52' }}>
-            ⚙️ SISTEMAS PARA NEGOCIOS REALES
+            SISTEMAS PARA NEGOCIOS REALES
           </span>
-        </motion.div>
+        </motion.div> */}
 
         <motion.h1
           className="text-5xl md:text-7xl font-bold mb-6 leading-tight will-change-transform"
           style={{ color: '#0a1f24' }}
         >
-          Digitalizá tu taller y{" "}
-          <span style={{ color: '#0066cc' }}>recuperá el control</span> <br /> de tu negocio
+          Digitalizá tu taller{" "}
+          <br />
+          <span style={{ color: '#0066cc' }}>Recuperá el control</span> <br /> 
+          de tu negocio
         </motion.h1>
 
         <motion.p
@@ -80,7 +82,7 @@ const Hero = () => {
         >
           <motion.a
             href="#urufix"
-            className="flex items-center gap-3 px-8 py-4 rounded-lg font-semibold transition-all shadow-lg will-change-transform text-lg group"
+            className="flex items-center gap-3 px-8 py-4 rounded-md font-semibold transition-all shadow-lg will-change-transform text-lg group"
             style={{
               backgroundColor: '#0066cc',
               color: '#ffffff'
@@ -94,7 +96,7 @@ const Hero = () => {
           <motion.a
             href="https://api.whatsapp.com/send?phone=59895220063&text=Hola!%20Quiero%20saber%20m%C3%A1s%20sobre%20sus%20sistemas"
             target="_blank"
-            className="flex items-center gap-3 px-8 py-4 rounded-lg font-semibold transition-all border-2 text-lg"
+            className="flex items-center gap-3 px-8 py-4 rounded-md font-semibold transition-all border-2 text-lg"
             style={{
               borderColor: '#0066cc',
               color: '#0066cc',
@@ -127,7 +129,7 @@ const Hero = () => {
             return (
               <motion.div
                 key={idx}
-                className="p-6 rounded-xl text-center backdrop-blur-sm"
+                className="p-6 rounded-md text-center backdrop-blur-sm"
                 style={{
                   backgroundColor: '#ffffff',
                   borderWidth: '1px',
