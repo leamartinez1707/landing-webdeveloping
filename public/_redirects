@@ -1,0 +1,10 @@
+# Redirects para SEO (Netlify/Vercel)
+# Redirige www a no-www
+https://www.leandromartinez.dev/* https://leandromartinez.dev/:splat 301
+
+# Redirige HTTP a HTTPS
+http://leandromartinez.dev/* https://leandromartinez.dev/:splat 301
+http://www.leandromartinez.dev/* https://leandromartinez.dev/:splat 301
+
+# SPA - Redirige todas las rutas a index.html para preservar anchor links
+/*    /index.html   200
