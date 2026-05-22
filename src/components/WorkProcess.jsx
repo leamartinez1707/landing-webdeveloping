@@ -4,27 +4,27 @@ import useViewportAmount from "../hooks/useViewportAmount";
 const steps = [
     {
         number: "01",
-        title: "Consulta Inicial",
-        description: "Analizamos tus necesidades y objetivos para entender mejor tu proyecto y proponer la mejor solución.",
-        icon: "💬"
+        title: "Diagnostico comercial",
+        description: "Revisamos tu oferta, mercado y objetivo del sitio para priorizar lo que realmente impacta en conversion.",
+        time: "Dia 1"
     },
     {
         number: "02",
-        title: "Planificación",
-        description: "Desarrollamos una estrategia detallada y un plan de acción personalizado para tu proyecto.",
-        icon: "📋"
+        title: "Arquitectura y diseño",
+        description: "Defino estructura, tono visual y jerarquia de contenidos para que la navegacion sea clara y confiable.",
+        time: "Dias 2-4"
     },
     {
         number: "03",
-        title: "Desarrollo",
-        description: "Creamos tu solución digital con las mejores prácticas y tecnologías actuales.",
-        icon: "⚡"
+        title: "Desarrollo y QA",
+        description: "Construyo cada seccion con foco en velocidad, accesibilidad y escalabilidad, incluyendo revisiones en distintos dispositivos.",
+        time: "Semana 2"
     },
     {
         number: "04",
-        title: "Entrega y Soporte",
-        description: "Implementamos tu proyecto y te brindamos soporte continuo para asegurar su éxito.",
-        icon: "🚀"
+        title: "Lanzamiento y mejora",
+        description: "Publicamos, medimos comportamiento real y dejamos un plan de mejoras para iterar con datos.",
+        time: "Semana 3"
     }
 ];
 
@@ -34,71 +34,59 @@ const WorkProcess = () => {
     return (
         <motion.section
             id="proceso"
-            className="py-20 px-6 bg-white"
+            className="border-b border-[var(--line)] py-20 md:py-24"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true, amount }}
         >
-            <div className="max-w-6xl mx-auto">
+            <div className="site-container grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
                 <motion.div
-                    className="text-center mb-16"
+                    className="lg:sticky lg:top-32"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="text-4xl font-extrabold mb-4 text-gray-800">
-                        Cómo trabajamos juntos
-                    </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Un proceso claro y transparente para asegurar el éxito de tu proyecto
+                    <span className="eyebrow">metodologia</span>
+                    <h2 className="section-title mt-4 text-[var(--ink)]">Un proceso preciso, sin friccion ni ruido</h2>
+                    <p className="section-lead">
+                        Trabajo con hitos semanales para que siempre sepas en que etapa estamos, que se va a entregar y como se mide el avance.
                     </p>
+
+                    <div className="frosted mt-8 rounded-[var(--radius-sm)] p-5 text-left">
+                        <p className="text-sm uppercase tracking-[0.08em] text-[var(--muted)]">Incluye</p>
+                        <ul className="mt-3 space-y-2 text-sm text-[var(--muted)]">
+                            <li>Sesion inicial de enfoque comercial</li>
+                            <li>Feedback estructurado por entregables</li>
+                            <li>Checklist de lanzamiento y soporte post entrega</li>
+                        </ul>
+                    </div>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="space-y-5">
                     {steps.map((step, index) => (
                         <motion.div
                             key={index}
-                            className="relative"
+                            className="relative rounded-[var(--radius-sm)] border border-[var(--line)] bg-[rgba(248,248,243,0.72)] p-6"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: index * 0.2 }}
+                            transition={{ duration: 0.5, delay: index * 0.12 }}
                             viewport={{ once: true }}
                         >
-                            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 h-full">
-                                <div className="flex items-center gap-4 mb-4">
-                                    <span className="text-4xl">{step.icon}</span>
-                                    <span className="text-2xl font-bold text-blue-600">{step.number}</span>
-                                </div>
-                                <h3 className="text-xl font-semibold mb-3 text-gray-900">{step.title}</h3>
-                                <p className="text-gray-600">{step.description}</p>
+                            <div className="absolute right-6 top-6 rounded border border-[var(--line)] px-3 py-1 text-xs font-medium text-[var(--muted)]">
+                                {step.time}
                             </div>
-                            
-                            {index < steps.length - 1 && (
-                                <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-blue-200">
-                                    <div className="w-2 h-2 bg-blue-500 rounded-full absolute -top-1 right-0"></div>
+                            <div className="pr-20">
+                                <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded bg-[rgba(44,111,100,0.16)] text-lg font-semibold text-[var(--accent-strong)]">
+                                    {step.number}
                                 </div>
-                            )}
+                                <h3 className="text-3xl leading-tight text-[var(--ink)]">{step.title}</h3>
+                                <p className="mt-3 text-sm text-[var(--muted)]">{step.description}</p>
+                            </div>
                         </motion.div>
                     ))}
                 </div>
-
-                <motion.div
-                    className="mt-16 text-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 }}
-                    viewport={{ once: true }}
-                >
-                    <a
-                        href="https://api.whatsapp.com/send?phone=59895220063&text=Hola%20Leandro!%20Me%20gustaría%20conocer%20más%20sobre%20tu%20proceso%20de%20trabajo."
-                        target="_blank"
-                        className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-lg font-medium transition-colors"
-                    >
-                        Iniciar mi proyecto
-                    </a>
-                </motion.div>
             </div>
         </motion.section>
     );

@@ -1,167 +1,218 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
 import emailjs from "@emailjs/browser";
 import SocialMedia from "./SocialMedia";
 import useViewportAmount from "../hooks/useViewportAmount";
 
 const Contact = () => {
-  const form = useRef();
-  const [status, setStatus] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    service: "",
+    budget: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState({ type: "idle", message: "" });
+  const [submitting, setSubmitting] = useState(false);
 
-  const sendEmail = (e) => {
+  const validate = () => {
+    const nextErrors = {};
+
+    if (!formData.name.trim() || formData.name.trim().length < 2) {
+      nextErrors.name = "Escribi un nombre valido.";
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      nextErrors.email = "Ingresa un email valido.";
+    }
+
+    if (!formData.service) {
+      nextErrors.service = "Selecciona el tipo de proyecto.";
+    }
+
+    if (!formData.message.trim() || formData.message.trim().length < 20) {
+      nextErrors.message = "Contame un poco mas. Minimo 20 caracteres.";
+    }
+
+    setErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
+  };
+
+  const sendEmail = async (e) => {
     e.preventDefault();
-    setStatus("Enviando...");
 
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_SERVICE_ID,
-        import.meta.env.VITE_TEMPLATE_ID,
-        form.current,
-        import.meta.env.VITE_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setStatus("Mensaje enviado con éxito 🎉");
-          form.current.reset();
-        },
-        () => {
-          setStatus("Error al enviar. Probá nuevamente.");
-        }
-      );
+    if (!validate()) {
+      return;
+    }
+
+    setSubmitting(true);
+    setStatus({ type: "loading", message: "Enviando mensaje..." });
+
+    try {
+      const serviceId = import.meta.env.VITE_SERVICE_ID;
+      const templateId = import.meta.env.VITE_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("EmailJS no esta configurado en este entorno.");
+      }
+
+      await emailjs.send(serviceId, templateId, {
+        name: formData.name,
+        email: formData.email,
+        service: formData.service,
+        budget: formData.budget || "No especificado",
+        message: formData.message,
+        date: new Date().toISOString().split("T")[0],
+      }, publicKey);
+
+      setStatus({ type: "success", message: "Mensaje enviado. Te respondere dentro de las proximas 24 horas." });
+      setFormData({
+        name: "",
+        email: "",
+        service: "",
+        budget: "",
+        message: "",
+      });
+      setErrors({});
+    } catch {
+      setStatus({ type: "error", message: "No se pudo enviar el formulario. Escribime por WhatsApp para una respuesta inmediata." });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const amount = useViewportAmount();
+
   return (
     <motion.section
       id="contacto"
-      className="py-20 bg-white px-6 will-change-transform border-b border-gray-200"
+      className="border-b border-[var(--line)] py-20 md:py-24"
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true, amount }}
     >
-      <motion.h2
-        className="text-4xl font-bold mb-4 text-center text-gray-900 will-change-transform"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        Contactame
-      </motion.h2>
-      <motion.p
-        className="max-w-xl mx-auto text-center mb-12 text-gray-600 text-lg will-change-transform"
-        initial={{ opacity: 0, y: -10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        viewport={{ once: true }}
-      >
-        ¿Tenés alguna idea, consulta o proyecto? ¡No dudes en escribirme! Estoy para ayudarte a darle vida a tu presencia online.
-      </motion.p>
-
-      <form
-        ref={form}
-        onSubmit={sendEmail}
-        className="max-w-2xl mx-auto grid gap-6 bg-white p-10 rounded-2xl shadow-lg"
-      >
-        <motion.label
-          htmlFor="name"
-          className="font-semibold text-gray-700 will-change-transform"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          Nombre
-        </motion.label>
-        <motion.input
-          type="text"
-          name="name"
-          placeholder="Tu nombre"
-          required
-          className="border border-gray-300 p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition will-change-transform"
-          initial={{ opacity: 0, y: 10 }}
+      <div className="site-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          viewport={{ once: true }}
-        />
-
-        <input
-          type="date"
-          name="date"
-          value={new Date().toISOString().split("T")[0]}
-          className="hidden"
-          readOnly
-        />
-
-        <motion.label
-          htmlFor="email"
-          className="font-semibold text-gray-700 will-change-transform"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          Email
-        </motion.label>
-        <motion.input
-          type="email"
-          name="email"
-          placeholder="Tu email"
-          required
-          className="border border-gray-300 p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition will-change-transform"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.35 }}
-          viewport={{ once: true }}
-        />
+          <span className="eyebrow">contacto</span>
+          <h2 className="section-title mt-4 text-[var(--ink)]">Contame que estas construyendo</h2>
+          <p className="section-lead">
+            Si ya tenes objetivo comercial, te propongo la mejor estructura. Si estas arrancando, te ayudo a definir alcance, tiempos y prioridad de inversion.
+          </p>
 
-        <motion.label
-          htmlFor="message"
-          className="font-semibold text-gray-700 will-change-transform"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          viewport={{ once: true }}
+          <div className="frosted mt-8 rounded-[var(--radius-sm)] p-6">
+            <p className="text-sm uppercase tracking-[0.08em] text-[var(--muted)]">Canales directos</p>
+            <ul className="mt-4 space-y-3 text-sm text-[var(--muted)]">
+              <li>Email: leandromartinez.dev@gmail.com</li>
+              <li>Telefono: +598 95 220 063</li>
+              <li>Horario: lunes a viernes, 09:00 - 18:00 UY</li>
+            </ul>
+          </div>
+        </motion.div>
+
+        <form
+          onSubmit={sendEmail}
+          noValidate
+          className="frosted grid gap-4 rounded-[var(--radius-sm)] p-7"
         >
-          Mensaje breve
-        </motion.label>
-        <motion.textarea
-          name="message"
-          placeholder="Tu mensaje"
-          rows="5"
-          required
-          className="border border-gray-300 p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none will-change-transform"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.45 }}
-          viewport={{ once: true }}
-        />
+          <label htmlFor="name" className="text-sm font-semibold text-[var(--ink)]">Nombre</label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Ejemplo: Lucia Fernandez"
+            className="rounded border border-[var(--line)] bg-[rgba(255,255,255,0.76)] px-4 py-3 text-sm"
+          />
+          {errors.name && <p className="text-sm text-red-700">{errors.name}</p>}
 
-        <motion.button
-          type="submit"
-          className="bg-blue-800 text-white py-4 rounded font-semibold hover:bg-blue-900 transition will-change-transform border border-blue-900"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3, delay: 0.5 }}
-          viewport={{ once: true }}
-        >
-          Enviar mensaje
-        </motion.button>
+          <label htmlFor="email" className="text-sm font-semibold text-[var(--ink)]">Email</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="tuemail@empresa.com"
+            className="rounded border border-[var(--line)] bg-[rgba(255,255,255,0.76)] px-4 py-3 text-sm"
+          />
+          {errors.email && <p className="text-sm text-red-700">{errors.email}</p>}
 
-        {status && (
-          <motion.p
-            className="text-center mt-4 text-green-600 font-medium will-change-transform"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+          <label htmlFor="service" className="text-sm font-semibold text-[var(--ink)]">Tipo de proyecto</label>
+          <select
+            id="service"
+            name="service"
+            value={formData.service}
+            onChange={handleChange}
+            className="rounded border border-[var(--line)] bg-[rgba(255,255,255,0.76)] px-4 py-3 text-sm"
           >
-            {status}
-          </motion.p>
-        )}
-      </form>
-      <SocialMedia />
+            <option value="">Selecciona una opcion</option>
+            <option value="Landing de una pagina">Landing de una pagina</option>
+            <option value="Sitio de multiples paginas">Sitio de multiples paginas</option>
+            <option value="Software a medida">Software a medida</option>
+            <option value="No estoy seguro">No estoy seguro</option>
+          </select>
+          {errors.service && <p className="text-sm text-red-700">{errors.service}</p>}
+
+          <label htmlFor="budget" className="text-sm font-semibold text-[var(--ink)]">Presupuesto estimado (opcional)</label>
+          <select
+            id="budget"
+            name="budget"
+            value={formData.budget}
+            onChange={handleChange}
+            className="rounded border border-[var(--line)] bg-[rgba(255,255,255,0.76)] px-4 py-3 text-sm"
+          >
+            <option value="">Prefiero definirlo en llamada</option>
+            <option value="USD 350 - 900">USD 350 - 900</option>
+            <option value="USD 500 - 1.800">USD 500 - 1.800</option>
+            <option value="Mas de USD 1.800">Mas de USD 1.800</option>
+          </select>
+
+          <label htmlFor="message" className="text-sm font-semibold text-[var(--ink)]">Necesidad principal</label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Contame objetivos, plazos y contexto de tu negocio"
+            rows="5"
+            className="resize-none rounded border border-[var(--line)] bg-[rgba(255,255,255,0.76)] px-4 py-3 text-sm"
+          />
+          {errors.message && <p className="text-sm text-red-700">{errors.message}</p>}
+
+          <button
+            type="submit"
+            disabled={submitting}
+            className="mt-2 rounded bg-[var(--accent)] px-5 py-3 text-sm font-semibold text-white hover:bg-[var(--accent-strong)] disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            {submitting ? "Enviando..." : "Enviar consulta"}
+          </button>
+
+          {status.message && (
+            <p className={`text-sm font-medium ${status.type === "error" ? "text-red-700" : "text-[var(--accent-strong)]"}`}>
+              {status.message}
+            </p>
+          )}
+        </form>
+      </div>
+
+      <div className="site-container">
+        <SocialMedia />
+      </div>
     </motion.section>
 
   );

@@ -8,9 +8,15 @@ import WorkProcess from "./components/WorkProcess"
 
 function App() {
   return (
-    <div>
+    <div className="relative min-h-screen">
+      <a
+        href="#contenido"
+        className="skip-link"
+      >
+        Saltar al contenido
+      </a>
       <Header />
-      <main className="pt-20">
+      <main id="contenido" className="pt-24 md:pt-28">
         <Hero />
         <Services />
         <WorkProcess />

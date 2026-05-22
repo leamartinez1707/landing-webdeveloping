@@ -1,132 +1,158 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import MailIcon from './Icons/Mail';
-import PhoneIcon from './Icons/PhoneIcon';
+import { motion, AnimatePresence } from "motion/react";
+
+const sections = [
+  { id: "inicio", label: "Inicio" },
+  { id: "servicios", label: "Servicios y precios" },
+  { id: "proceso", label: "Proceso" },
+  { id: "proyectos", label: "Proyectos" },
+  { id: "contacto", label: "Contacto" },
+];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeId, setActiveId] = useState("inicio");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Para cerrar menú al hacer click en link (en móvil)
+  useEffect(() => {
+    const observers = sections
+      .map(({ id }) => document.getElementById(id))
+      .filter(Boolean)
+      .map((element) => {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              setActiveId(entry.target.id);
+            }
+          },
+          { threshold: 0.45 }
+        );
+
+        observer.observe(element);
+        return observer;
+      });
+
+    return () => observers.forEach((observer) => observer.disconnect());
+  }, []);
+
   const handleLinkClick = () => setMenuOpen(false);
 
   return (
     <motion.header
-      initial={{ backgroundColor: "rgba(255, 255, 255, 0)", boxShadow: "0px 0px 0px rgba(0,0,0,0)" }}
-      animate={{
-        backgroundColor: scrolled ? "#1e3a8a" : "#fff",
-        color: scrolled && "#ffff",
-        boxShadow: scrolled ? "0 4px 12px rgba(30,58,138,0.12)" : "0px 0px 0px rgba(0,0,0,0)",
-      }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="fixed top-0 left-0 w-full z-50 will-change-transform border-b border-blue-900"
+      initial={{ y: -32, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      className="fixed top-0 left-0 w-full z-20"
     >
-      <AnimatePresence>
-        {!scrolled && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="bg-black will-change-transform"
-          >
-            <div className="flex items-center text-white max-w-6xl justify-center md:justify-normal mx-auto py-1 px-6 gap-x-2">
-              <MailIcon className="hidden sm:block w-5 h-5" />
-              <p className="text-sm md:text-lg">leandromartinez.dev@gmail.com</p>
-              <span className="text-sm md:text-base">|</span>
-              <PhoneIcon className="hidden sm:block w-5 h-5" />
-              <p className="text-sm md:text-lg">095220063</p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className="border-b border-[var(--line)] bg-[rgba(244,244,239,0.92)] backdrop-blur-lg">
+        <div className="site-container flex h-9 items-center justify-between text-xs text-[var(--muted)]">
+          <p>Leandro Martinez · Desarrollo web y software a medida</p>
+          <p className="hidden sm:block metric-number">Respuesta inicial: &lt; 24h</p>
+        </div>
+      </div>
 
       <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center will-change-transform"
-      >
-        <a href="/">
-          <h1 className="text-xl font-bold text-blue-600 cursor-pointer">Leandro Martínez</h1>
-        </a>
+      animate={{
+        backgroundColor: scrolled ? "rgba(244,244,239,0.96)" : "rgba(244,244,239,0.78)",
+        boxShadow: scrolled
+          ? "0 10px 30px rgba(24, 46, 42, 0.12)"
+          : "0 0 0 rgba(24, 46, 42, 0)",
+      }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="border-b border-[var(--line)]"
+    >
+        <div className="site-container flex items-center justify-between py-4">
+          <a href="#inicio" className="group">
+            <p className="text-xl font-semibold tracking-[-0.02em] text-[var(--ink)]">
+              Leandro
+              <span className="ml-1 text-[var(--accent)]">Martinez</span>
+            </p>
+            <p className="text-xs tracking-[0.08em] uppercase text-[var(--muted)]">Web & software studio</p>
+          </a>
 
-        {/* Menú desktop */}
-        <nav className="space-x-4 hidden md:flex">
-          {["inicio", "servicios", "portfolio", "contacto"].map((section) => (
+          <nav className="hidden lg:flex items-center gap-2">
+            {sections.map((section) => (
+              <a
+                key={section.id}
+                href={`#${section.id}`}
+                onClick={handleLinkClick}
+                aria-current={activeId === section.id ? "page" : undefined}
+                className={`rounded px-4 py-2 text-sm font-medium ${
+                  activeId === section.id
+                    ? "bg-[var(--accent)] text-white"
+                    : "text-[var(--muted)] hover:bg-[rgba(44,111,100,0.12)] hover:text-[var(--ink)]"
+                }`}
+              >
+                {section.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-3">
             <a
-              key={section}
-              href={`#${section}`}
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              onClick={handleLinkClick}
+              href="#contacto"
+              className="hidden md:inline-flex rounded border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent-strong)] hover:bg-[var(--accent)] hover:text-white"
             >
-              {section.charAt(0).toUpperCase() + section.slice(1)}
+              Pedir propuesta
             </a>
-          ))}
-        </nav>
 
-        {/* Botón hamburguesa móvil */}
-        <button
-          className="md:hidden text-gray-700 focus:outline-none"
-          onClick={() => setMenuOpen((prev) => !prev)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? (
-            // <XIcon className="w-6 h-6" />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
+            <button
+              className="inline-flex h-10 w-10 items-center justify-center rounded border border-[var(--line)] text-[var(--ink)] lg:hidden"
+              onClick={() => setMenuOpen((prev) => !prev)}
+              aria-label="Abrir o cerrar menu"
+              aria-expanded={menuOpen}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            // <MenuIcon className="w-6 h-6" />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-
-          )}
-        </button>
+              {menuOpen ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
       </motion.div>
 
-      {/* Menú móvil desplegable */}
       <AnimatePresence>
         {menuOpen && (
           <motion.nav
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden bg-white shadow-lg overflow-hidden will-change-transform "
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            className="border-b border-[var(--line)] bg-[rgba(248,248,243,0.98)] px-4 py-4 lg:hidden"
           >
-            <div className="flex flex-col max-w-6xl mx-auto px-6 py-4 space-y-4">
-              {["inicio", "servicios", "portfolio", "contacto"].map((section) => (
+            <div className="site-container flex flex-col gap-2">
+              {sections.map((section) => (
                 <a
-                  key={section}
-                  href={`#${section}`}
-                  className="text-gray-700 hover:text-blue-600 text-lg"
+                  key={section.id}
+                  href={`#${section.id}`}
+                  className={`rounded px-3 py-2 text-sm ${
+                    activeId === section.id
+                      ? "bg-[rgba(44,111,100,0.18)] font-semibold text-[var(--ink)]"
+                      : "text-[var(--muted)]"
+                  }`}
                   onClick={handleLinkClick}
                 >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                  {section.label}
                 </a>
               ))}
+
+              <a
+                href="#contacto"
+                className="mt-2 inline-flex justify-center rounded bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-white"
+                onClick={handleLinkClick}
+              >
+                Agendar llamada de 20 min
+              </a>
             </div>
           </motion.nav>
         )}
