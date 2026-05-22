@@ -1,31 +1,29 @@
-import { useEffect } from 'react'
 import Hero from "./components/Hero"
-import PainPoints from "./components/PainPoints"
 import Services from "./components/Services"
-import UruFix from "./components/UruFix"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
-import FloatingButtons from "./components/FloatingButtons"
+import Portfolio from "./components/Portfolio"
+import WorkProcess from "./components/WorkProcess"
 
 function App() {
-  useEffect(() => {
-    // Configurar idioma para SEO
-    document.documentElement.lang = 'es'
-  }, [])
-
   return (
-    <div>
+    <div className="relative min-h-screen">
+      <a
+        href="#contenido"
+        className="skip-link"
+      >
+        Saltar al contenido
+      </a>
       <Header />
-      <main className="pt-26">
+      <main id="contenido" className="pt-24 md:pt-28">
         <Hero />
-        <PainPoints />
         <Services />
-        <UruFix />
+        <WorkProcess />
+        <Portfolio />
         <Contact />
       </main>
       <Footer />
-      <FloatingButtons />
     </div>
   )
 }

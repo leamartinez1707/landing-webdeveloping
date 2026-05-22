@@ -3,40 +3,29 @@ import useViewportAmount from "../hooks/useViewportAmount";
 
 const projects = [
     {
-        title: "UruFix",
-        description: "Plataforma personalizada para automatizar procesos y gestionar servicios técnicos de forma eficiente. Integración de reportes y panel de administración.",
-        image: "/projects/urufix.webp",
-        link: "https://urufixuy.vercel.app/",
+        title: "Plataforma de operaciones para servicios tecnicos",
+        description: "Sistema interno para turnos, historial tecnico y seguimiento de clientes en tiempo real.",
+        image: "https://res.cloudinary.com/dofgqtm9r/image/upload/v1747969872/monopatines_project_unfd1k.png",
+        link: "https://avelinoacevedo.com.uy/",
         type: "Software a medida",
+        result: "+47.2% de tareas cerradas por semana",
     },
     {
-        title: "ServyFix",
-        description: "Guía de servicios técnicos en todo el país, con búsqueda avanzada y contacto directo vía WhatsApp para facilitar la conexión entre usuarios y profesionales.",
-        image: "/projects/servyfix.webp",
-        link: "https://servyfix.com/",
-        type: "Software a medida",
-    },
-    {
-        title: "Todo Muebles",
-        description: "Landing Page con catálogo de productos, integración con WhatsApp y formulario de contacto optimizado para contacto directo.",
-        image: "/projects/todomuebles.webp",
+        title: "Landing comercial para estudio de interiores",
+        description: "Sitio de una pagina con portfolio visual, formulario filtrado y llamado a accion directo.",
+        image: "https://res.cloudinary.com/dofgqtm9r/image/upload/v1747969105/todomuebles_project.png",
         link: "https://todomueblesuy.vercel.app/home",
         type: "Landing Page",
+        result: "+31.8% de consultas calificadas",
     },
     {
-        title: "Mistyle",
-        description: "E-commerce para tienda de monopatines y bicicletas eléctricas.",
-        image: "/projects/mistyle.webp",
+        title: "E-commerce para movilidad electrica",
+        description: "Rediseño completo con catalogo optimizado y experiencia mobile-first orientada a cierre.",
+        image: "https://res.cloudinary.com/dofgqtm9r/image/upload/v1747969519/wix_project.png",
         link: "https://www.mistyle.com.uy/",
         type: "E-commerce",
+        result: "Tiempo promedio en pagina: 3m 18s",
     },
-    {
-        title: "NM Masajes",
-        description: "Landing Page para servicios de masajes terapéuticos, con diseño atractivo y formulario de contacto.",
-        image: "/projects/nmmasajes.webp",
-        link: "https://nmasajes.vercel.app/",
-        type: "Landing Page",
-    }
 ];
 
 const Portfolio = () => {
@@ -44,116 +33,75 @@ const Portfolio = () => {
     const amount = useViewportAmount();
     return (
         <motion.section
-            id="portfolio"
-            className="py-20 px-4 text-center will-change-transform relative overflow-hidden"
-            style={{ backgroundColor: '#0a1f24' }}
+            id="proyectos"
+            className="border-b border-[var(--line)] py-20 md:py-24"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true, amount }}
         >
-            {/* Efectos decorativos de fondo */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
-                <div className="absolute top-1/4 right-0 w-96 h-96 rounded-md blur-3xl"
-                    style={{ backgroundColor: 'rgba(0, 102, 204, 0.15)' }}></div>
-            </div>
-
-            <motion.div className="max-w-7xl mx-auto relative z-10">
+            <div className="site-container">
                 <motion.div
-                    className="inline-block px-6 py-2 rounded-md mb-4 border"
-                    style={{
-                        backgroundColor: 'rgba(0, 102, 204, 0.1)',
-                        borderColor: '#0066cc'
-                    }}
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
+                    className="max-w-3xl"
                 >
-                    <span className="text-sm font-semibold tracking-wider" style={{ color: '#0066cc' }}>
-                        PÁGINAS WEB QUE HABLAN POR SÍ SOLAS
-                    </span>
+                    <span className="eyebrow">proyectos</span>
+                    <h2 className="section-title mt-4 text-[var(--ink)]">Resultados visibles en negocios de distintos rubros</h2>
+                    <p className="section-lead">
+                        Estos proyectos reflejan el tipo de trabajo que hago: objetivos concretos, decisiones de UX claras y ejecucion tecnica sin ruido.
+                    </p>
                 </motion.div>
 
-                <motion.h2
-                    className="text-4xl md:text-5xl font-bold mb-4 will-change-transform"
-                    style={{ color: '#ffffff' }}
-                    initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                >
-                    Trabajos <span className="gradient-text">realizados</span>
-                </motion.h2>
-                <p className="text-lg max-w-2xl mx-auto mb-10" style={{ color: '#c0c0c0' }}>
-                    Cada proyecto refleja nuestro compromiso con la calidad y la innovación.
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                <div className="mt-12 grid gap-6 md:grid-cols-2">
                     {projects.map((project, idx) => (
-                        <motion.div
+                        <motion.article
                             key={idx}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: idx * 0.2 }}
+                            transition={{ duration: 0.6, delay: idx * 0.16 }}
                             viewport={{ once: true, amount }}
-                            className="rounded-2xl overflow-hidden transition-all flex flex-col h-full group"
-                            style={{
-                                backgroundColor: 'rgba(0, 102, 204, 0.08)',
-                                borderWidth: '2px',
-                                borderColor: 'rgba(0, 102, 204, 0.2)'
-                            }}
-                            whileHover={{
-                                y: -10,
-                                borderColor: '#0066cc',
-                                boxShadow: '0 20px 40px rgba(0, 102, 204, 0.2)'
-                            }}
+                            className={`overflow-hidden rounded-[var(--radius-sm)] border border-[var(--line)] bg-[rgba(248,248,243,0.75)] ${
+                                idx === 0 ? "md:col-span-2" : ""
+                            }`}
                         >
-                            <div className="relative overflow-hidden">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                <span
-                                    className="absolute top-4 left-4 px-4 py-2 rounded-md text-xs font-bold tracking-wider"
-                                    style={{
-                                        backgroundColor: '#0066cc',
-                                        color: '#ffffff'
-                                    }}
-                                >
-                                    {project.type}
-                                </span>
-                            </div>
-                            <div className="p-6 flex flex-col flex-1 justify-between">
-                                <div>
-                                    <h3 className="text-xl font-bold mb-3" style={{ color: '#ffffff' }}>
-                                        {project.title}
-                                    </h3>
-                                    <p className="text-base mb-6" style={{ color: '#c0c0c0' }}>
-                                        {project.description}
-                                    </p>
+                            <div className={`grid ${idx === 0 ? "lg:grid-cols-[1.2fr_0.8fr]" : ""}`}>
+                                <div className="relative overflow-hidden">
+                                    <img
+                                        src={project.image}
+                                        alt={`Captura del proyecto ${project.title}`}
+                                        className={`w-full object-cover transition-transform duration-500 hover:scale-[1.03] ${idx === 0 ? "h-80" : "h-64"}`}
+                                    />
+                                    <span className="absolute left-4 top-4 rounded bg-[rgba(31,90,80,0.9)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.07em] text-white">
+                                        {project.type}
+                                    </span>
                                 </div>
-                                <a
-                                    href={project.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-full py-3 rounded-md font-semibold transition-all text-center block group-hover:scale-105"
-                                    style={{
-                                        backgroundColor: 'rgba(0, 102, 204, 0.2)',
-                                        color: '#0066cc',
-                                        borderWidth: '2px',
-                                        borderColor: '#0066cc'
-                                    }}
-                                >
-                                    Ver proyecto →
-                                </a>
+
+                                <div className="flex h-full flex-col p-6">
+                                    <p className="text-xs uppercase tracking-[0.09em] text-[var(--muted)]">Caso real</p>
+                                    <h3 className="mt-2 text-3xl leading-tight text-[var(--ink)]">{project.title}</h3>
+                                    <p className="mt-3 text-sm text-[var(--muted)]">{project.description}</p>
+
+                                    <p className="metric-number mt-5 rounded border border-[var(--line)] bg-[rgba(255,255,255,0.72)] px-4 py-3 text-sm font-medium text-[var(--ink)]">
+                                        {project.result}
+                                    </p>
+
+                                    <a
+                                        href={project.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-auto inline-flex w-fit items-center rounded border border-[var(--accent)] px-5 py-2 text-sm font-semibold text-[var(--accent-strong)] hover:bg-[var(--accent)] hover:text-white"
+                                    >
+                                        Ver proyecto
+                                    </a>
+                                </div>
                             </div>
-                        </motion.div>
+                        </motion.article>
                     ))}
                 </div>
-            </motion.div>
+            </div>
         </motion.section>
 
     );

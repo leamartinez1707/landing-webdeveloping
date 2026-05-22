@@ -1,229 +1,221 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
 import emailjs from "@emailjs/browser";
+import SocialMedia from "./SocialMedia";
 import useViewportAmount from "../hooks/useViewportAmount";
 
 const Contact = () => {
-  const form = useRef();
-  const [status, setStatus] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    service: "",
+    budget: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState({ type: "idle", message: "" });
+  const [submitting, setSubmitting] = useState(false);
 
-  const sendEmail = (e) => {
+  const validate = () => {
+    const nextErrors = {};
+
+    if (!formData.name.trim() || formData.name.trim().length < 2) {
+      nextErrors.name = "Escribi un nombre valido.";
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      nextErrors.email = "Ingresa un email valido.";
+    }
+
+    if (!formData.service) {
+      nextErrors.service = "Selecciona el tipo de proyecto.";
+    }
+
+    if (!formData.message.trim() || formData.message.trim().length < 20) {
+      nextErrors.message = "Contame un poco mas. Minimo 20 caracteres.";
+    }
+
+    setErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
+  };
+
+  const sendEmail = async (e) => {
     e.preventDefault();
-    setStatus("Enviando...");
 
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_SERVICE_ID,
-        import.meta.env.VITE_TEMPLATE_ID,
-        form.current,
-        import.meta.env.VITE_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setStatus("Mensaje enviado con éxito 🎉");
-          form.current.reset();
-        },
-        () => {
-          setStatus("Error al enviar. Probá nuevamente.");
-        }
-      );
+    if (!validate()) {
+      return;
+    }
+
+    setSubmitting(true);
+    setStatus({ type: "loading", message: "Enviando mensaje..." });
+
+    try {
+      const serviceId = import.meta.env.VITE_SERVICE_ID;
+      const templateId = import.meta.env.VITE_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("EmailJS no esta configurado en este entorno.");
+      }
+
+      await emailjs.send(serviceId, templateId, {
+        name: formData.name,
+        email: formData.email,
+        service: formData.service,
+        budget: formData.budget || "No especificado",
+        message: formData.message,
+        date: new Date().toISOString().split("T")[0],
+      }, publicKey);
+
+      setStatus({ type: "success", message: "Mensaje enviado. Te respondere dentro de las proximas 24 horas." });
+      setFormData({
+        name: "",
+        email: "",
+        service: "",
+        budget: "",
+        message: "",
+      });
+      setErrors({});
+    } catch {
+      setStatus({ type: "error", message: "No se pudo enviar el formulario. Escribime por WhatsApp para una respuesta inmediata." });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const amount = useViewportAmount();
+
   return (
     <motion.section
       id="contacto"
-      className="py-24 px-6 will-change-transform relative overflow-hidden"
-      style={{
-        backgroundColor: '#f8f9fa',
-        borderTop: '1px solid rgba(0, 102, 204, 0.1)'
-      }}
+      className="border-b border-[var(--line)] py-20 md:py-24"
       initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true, amount }}
     >
-      {/* Efectos decorativos */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-5">
-        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-md blur-3xl"
-          style={{ backgroundColor: '#20dbd1' }}></div>
-      </div>
-
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="site-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <motion.div
-          className="inline-block px-6 py-2 rounded-md mb-6 mx-auto"
-          style={{
-            display: 'table'
-          }}
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <span className="font-semibold tracking-wider" style={{ color: '#1a3a52' }}>
-            PONTE EN CONTACTO
-          </span>
+          <span className="eyebrow">contacto</span>
+          <h2 className="section-title mt-4 text-[var(--ink)]">Contame que estas construyendo</h2>
+          <p className="section-lead">
+            Si ya tenes objetivo comercial, te propongo la mejor estructura. Si estas arrancando, te ayudo a definir alcance, tiempos y prioridad de inversion.
+          </p>
+
+          <div className="frosted mt-8 rounded-[var(--radius-sm)] p-6">
+            <p className="text-sm uppercase tracking-[0.08em] text-[var(--muted)]">Canales directos</p>
+            <ul className="mt-4 space-y-3 text-sm text-[var(--muted)]">
+              <li>Email: leandromartinez.dev@gmail.com</li>
+              <li>Telefono: +598 95 220 063</li>
+              <li>Horario: lunes a viernes, 09:00 - 18:00 UY</li>
+            </ul>
+          </div>
         </motion.div>
 
-        <motion.h2
-          className="text-4xl md:text-5xl font-bold mb-4 text-center will-change-transform"
-          style={{ color: '#0a1f24' }}
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          Empecemos tu <span style={{ color: '#0066cc' }}>transformación digital</span>
-        </motion.h2>
-        <motion.p
-          className="max-w-2xl mx-auto text-center mb-12 text-lg will-change-transform"
-          style={{ color: '#555555' }}
-          initial={{ opacity: 0, y: -10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: true }}
-        >
-          Cuéntanos qué necesita tu negocio. Nos reuniremos para entender tu situación y proponer la solución ideal.
-        </motion.p>
-
         <form
-          ref={form}
           onSubmit={sendEmail}
-          className="grid gap-6 p-10 rounded-2xl"
-          style={{
-            backgroundColor: '#ffffff',
-            borderWidth: '1px',
-            borderColor: 'rgba(32, 219, 209, 0.2)',
-            boxShadow: '0 8px 24px rgba(0,0,0,0.08)'
-          }}
+          noValidate
+          className="frosted grid gap-4 rounded-[var(--radius-sm)] p-7"
         >
-          <motion.label
-            htmlFor="name"
-            className="font-semibold will-change-transform"
-            style={{ color: '#0a1f24' }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            Nombre
-          </motion.label>
-          <motion.input
+          <label htmlFor="name" className="text-sm font-semibold text-[var(--ink)]">Nombre</label>
+          <input
+            id="name"
             type="text"
             name="name"
-            placeholder="Tu nombre"
-            required
-            className="p-4 rounded-md focus:outline-none transition will-change-transform"
-            style={{
-              backgroundColor: '#f8f9fa',
-              borderWidth: '1px',
-              borderColor: 'rgba(32, 219, 209, 0.3)',
-              color: '#0a1f24'
-            }}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            viewport={{ once: true }}
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Ejemplo: Lucia Fernandez"
+            className="rounded border border-[var(--line)] bg-[rgba(255,255,255,0.76)] px-4 py-3 text-sm"
           />
+          {errors.name && <p className="text-sm text-red-700">{errors.name}</p>}
 
+          <label htmlFor="email" className="text-sm font-semibold text-[var(--ink)]">Email</label>
           <input
-            type="date"
-            name="date"
-            value={new Date().toISOString().split("T")[0]}
-            className="hidden"
-            readOnly
-          />
-
-          <motion.label
-            htmlFor="email"
-            className="font-semibold will-change-transform"
-            style={{ color: '#0a1f24' }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            Email
-          </motion.label>
-          <motion.input
+            id="email"
             type="email"
             name="email"
-            placeholder="Tu email"
-            required
-            className="p-4 rounded-md focus:outline-none transition will-change-transform"
-            style={{
-              backgroundColor: '#f8f9fa',
-              borderWidth: '1px',
-              borderColor: 'rgba(32, 219, 209, 0.3)',
-              color: '#0a1f24'
-            }}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.35 }}
-            viewport={{ once: true }}
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="tuemail@empresa.com"
+            className="rounded border border-[var(--line)] bg-[rgba(255,255,255,0.76)] px-4 py-3 text-sm"
           />
+          {errors.email && <p className="text-sm text-red-700">{errors.email}</p>}
 
-          <motion.label
-            htmlFor="message"
-            className="font-semibold will-change-transform"
-            style={{ color: '#0a1f24' }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
+          <label htmlFor="service" className="text-sm font-semibold text-[var(--ink)]">Tipo de proyecto</label>
+          <select
+            id="service"
+            name="service"
+            value={formData.service}
+            onChange={handleChange}
+            className="rounded border border-[var(--line)] bg-[rgba(255,255,255,0.76)] px-4 py-3 text-sm"
           >
-            Mensaje breve
-          </motion.label>
-          <motion.textarea
+            <option value="">Selecciona una opcion</option>
+            <option value="Landing de una pagina">Landing de una pagina</option>
+            <option value="Sitio de multiples paginas">Sitio de multiples paginas</option>
+            <option value="Software a medida">Software a medida</option>
+            <option value="No estoy seguro">No estoy seguro</option>
+          </select>
+          {errors.service && <p className="text-sm text-red-700">{errors.service}</p>}
+
+          <label htmlFor="budget" className="text-sm font-semibold text-[var(--ink)]">Presupuesto estimado (opcional)</label>
+          <select
+            id="budget"
+            name="budget"
+            value={formData.budget}
+            onChange={handleChange}
+            className="rounded border border-[var(--line)] bg-[rgba(255,255,255,0.76)] px-4 py-3 text-sm"
+          >
+            <option value="">Prefiero definirlo en llamada</option>
+            <option value="USD 350 - 900">USD 350 - 900</option>
+            <option value="USD 500 - 1.800">USD 500 - 1.800</option>
+            <option value="Mas de USD 1.800">Mas de USD 1.800</option>
+          </select>
+
+          <label htmlFor="message" className="text-sm font-semibold text-[var(--ink)]">Necesidad principal</label>
+          <textarea
+            id="message"
             name="message"
-            placeholder="Tu mensaje"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Contame objetivos, plazos y contexto de tu negocio"
             rows="5"
-            required
-            className="p-4 rounded-md focus:outline-none transition resize-none will-change-transform"
-            style={{
-              backgroundColor: '#f8f9fa',
-              borderWidth: '1px',
-              borderColor: 'rgba(32, 219, 209, 0.3)',
-              color: '#0a1f24'
-            }}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.45 }}
-            viewport={{ once: true }}
+            className="resize-none rounded border border-[var(--line)] bg-[rgba(255,255,255,0.76)] px-4 py-3 text-sm"
           />
+          {errors.message && <p className="text-sm text-red-700">{errors.message}</p>}
 
-          <motion.button
+          <button
             type="submit"
-            className="py-4 rounded-md font-semibold transition will-change-transform"
-            style={{
-              backgroundColor: '#0066cc',
-              color: '#ffffff'
-            }}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 102, 204, 0.4)' }}
-            transition={{ duration: 0.3, delay: 0.5 }}
-            viewport={{ once: true }}
+            disabled={submitting}
+            className="mt-2 rounded bg-[var(--accent)] px-5 py-3 text-sm font-semibold text-white hover:bg-[var(--accent-strong)] disabled:cursor-not-allowed disabled:opacity-70"
           >
-            Enviar mensaje
-          </motion.button>
+            {submitting ? "Enviando..." : "Enviar consulta"}
+          </button>
 
-          {status && (
-            <motion.p
-              className="text-center mt-4 font-medium will-change-transform"
-              style={{ color: '#0066cc' }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              {status}
-            </motion.p>
+          {status.message && (
+            <p className={`text-sm font-medium ${status.type === "error" ? "text-red-700" : "text-[var(--accent-strong)]"}`}>
+              {status.message}
+            </p>
           )}
         </form>
       </div>
+
+      <div className="site-container">
+        <SocialMedia />
+      </div>
     </motion.section>
+
   );
 };
 
 export default Contact;
-

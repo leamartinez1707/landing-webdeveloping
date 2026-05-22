@@ -1,156 +1,93 @@
 import { motion } from "motion/react";
-import { Zap, Code, BarChart3 } from "lucide-react";
-import WhatsappIcon from "./Icons/WhatsApp"
+import WhatsappIcon from "./Icons/WhatsApp";
 
 const Hero = () => {
+  // const highlights = [
+  //   { value: "32", label: "proyectos entregados" },
+  //   { value: "4.9/5", label: "promedio de valoracion" },
+  //   { value: "7 dias", label: "primer MVP funcional" },
+  // ];
+
   return (
     <motion.section
       id="inicio"
-      className="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden will-change-transform"
-      style={{
-        background: 'linear-gradient(135deg, #f8f9fa 0%, #f0f4f8 100%)'
-      }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      className="relative overflow-hidden border-b border-[var(--line)] pb-24 pt-20 md:pb-28 md:pt-28"
+      initial={{ opacity: 0, y: 14 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
     >
-      {/* Efectos de fondo sutiles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-32 left-1/4 w-96 h-96 rounded-md opacity-5 blur-3xl"
-          style={{ backgroundColor: '#0066cc' }}></div>
-        <div className="absolute bottom-32 right-1/4 w-96 h-96 rounded-md opacity-5 blur-3xl"
-          style={{ backgroundColor: '#1a3a52' }}></div>
+      <div className="pointer-events-none absolute -left-14 top-16 h-56 w-56 rounded bg-[rgba(44,111,100,0.18)] blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-8 h-72 w-72 rounded bg-[rgba(31,90,80,0.14)] blur-3xl" />
+
+      <div className="site-container relative grid min-h-[72dvh] gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.55, delay: 0.1 }}
+        >
+          <span className="eyebrow">soluciones digitales para negocios reales</span>
+          <h1 className="section-title mt-5 text-[var(--ink)]">
+            Diseño y desarrollo experiencias web que
+            <span className="text-[var(--accent)]"> generan confianza y ventas</span>.
+          </h1>
+          <p className="section-lead">
+            Mi nombre es Leandro Martinez. <br /> Trabajo con independientes y negocios chicos que necesitan una landing de alto impacto o un software a medida para ordenar operaciones, captar leads (clientes) y escalar sin perder claridad.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a
+              href="#contacto"
+              className="inline-flex items-center justify-center rounded bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-white hover:bg-[var(--accent-strong)]"
+            >
+              Quiero una propuesta
+            </a>
+            <a
+              href="https://api.whatsapp.com/send?phone=59895220063&text=Hola%20Leandro,%20quiero%20consultar%20por%20una%20landing%20o%20software%20a%20medida."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded border border-[var(--line)] px-6 py-3 text-sm font-semibold text-[var(--ink)] hover:border-[var(--accent)] hover:bg-[rgba(44,111,100,0.1)]"
+            >
+              <WhatsappIcon className="h-6 w-6" />
+              Escribir por WhatsApp
+            </a>
+          </div>
+
+          {/* <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            {highlights.map((item) => (
+              <article key={item.label} className="rounded border border-[var(--line)] bg-[rgba(248,248,243,0.66)] p-4">
+                <p className="metric-number text-xl font-semibold text-[var(--ink)]">{item.value}</p>
+                <p className="mt-1 text-sm text-[var(--muted)]">{item.label}</p>
+              </article>
+            ))}
+          </div> */}
+        </motion.div>
+
+        <motion.aside
+          className="frosted rounded-[var(--radius-sm)] p-7"
+          initial={{ opacity: 0, x: 24 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.55, delay: 0.2 }}
+        >
+          <p className="text-sm uppercase tracking-[0.08em] text-[var(--muted)]">Disponibilidad actual</p>
+          <p className="mt-2 text-3xl font-semibold leading-tight text-[var(--ink)]">2 cupos para iniciar en junio</p>
+          <p className="mt-4 text-sm text-[var(--muted)]">
+            Trabajo en bloques semanales. Cada entrega incluye objetivos de negocio, decisiones de UX y soporte para lanzamiento.
+          </p>
+
+          <div className="mt-7 space-y-4">
+            <div className="rounded border border-[var(--line)] bg-[rgba(255,255,255,0.62)] p-4">
+              <p className="text-sm font-medium text-[var(--muted)]">Landing page desde</p>
+              <p className="metric-number mt-1 text-2xl font-semibold text-[var(--ink)]">USD 350</p>
+              <p className="mt-1 text-sm text-[var(--muted)]">Entrega estimada: 7 a 14 dias</p>
+            </div>
+            <div className="rounded border border-[var(--line)] bg-[rgba(255,255,255,0.62)] p-4">
+              <p className="text-sm font-medium text-[var(--muted)]">Software a medida desde</p>
+              <p className="metric-number mt-1 text-2xl font-semibold text-[var(--ink)]">USD 1.800</p>
+              <p className="mt-1 text-sm text-[var(--muted)]">Roadmap en fases y release continuo</p>
+            </div>
+          </div>
+        </motion.aside>
       </div>
-
-      <motion.div
-        className="max-w-6xl mx-auto relative z-10 mt-4"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
-      >
-        {/* <motion.div
-          className="inline-block px-6 py-2 rounded-md mb-6 border"
-          style={{
-            backgroundColor: 'rgba(0, 102, 204, 0.15)',
-            borderColor: '#0066cc'
-          }}
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-        >
-          <span className="text-sm font-semibold tracking-wider" style={{ color: '#1a3a52' }}>
-            SISTEMAS PARA NEGOCIOS REALES
-          </span>
-        </motion.div> */}
-
-        <motion.h1
-          className="text-5xl md:text-7xl font-bold mb-6 leading-tight will-change-transform"
-          style={{ color: '#0a1f24' }}
-        >
-          Digitalizá tu taller{" "}
-          <br />
-          <span style={{ color: '#0066cc' }}>Recuperá el control</span> <br /> 
-          de tu negocio
-        </motion.h1>
-
-        <motion.p
-          className="text-xl md:text-2xl mb-4 max-w-4xl mx-auto font-light"
-          style={{ color: '#333333' }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-        >
-          Dejá atrás el desorden, los presupuestos en papel y la falta de control. <br />
-          <strong>UruFix</strong> ordena tu taller en un solo sistema profesional.
-        </motion.p>
-
-        <motion.p
-          className="text-base md:text-lg mb-10 max-w-2xl mx-auto"
-          style={{ color: '#555555' }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.8 }}
-        >
-          Sistema de gestión diseñado para <strong>talleres, mecánicas y negocios técnicos</strong> que quieren crecer sin caos
-        </motion.p>
-
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.9, duration: 0.5 }}
-        >
-          <motion.a
-            href="#urufix"
-            className="flex items-center gap-3 px-8 py-4 rounded-md font-semibold transition-all shadow-lg will-change-transform text-lg group"
-            style={{
-              backgroundColor: '#0066cc',
-              color: '#ffffff'
-            }}
-            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 102, 204, 0.4)' }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Zap className="size-5 group-hover:rotate-12 transition-transform" />
-            Ver cómo funciona UruFix
-          </motion.a>
-          <motion.a
-            href="https://api.whatsapp.com/send?phone=59895220063&text=Hola!%20Quiero%20saber%20m%C3%A1s%20sobre%20sus%20sistemas"
-            target="_blank"
-            className="flex items-center gap-3 px-8 py-4 rounded-md font-semibold transition-all border-2 text-lg"
-            style={{
-              borderColor: '#0066cc',
-              color: '#0066cc',
-              backgroundColor: 'transparent'
-            }}
-            whileHover={{
-              backgroundColor: 'rgba(0, 102, 204, 0.1)',
-              scale: 1.05
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <WhatsappIcon className="size-5 group-hover:rotate-12 transition-transform" />
-            Hablar por WhatsApp
-          </motion.a>
-        </motion.div>
-
-        {/* Features destacadas */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1, duration: 0.8 }}
-        >
-          {[
-            { icon: Code, label: 'Software a medida', desc: 'Adaptado a tu negocio' },
-            { icon: Zap, label: 'Automatización', desc: 'Menos manual, más eficiencia' },
-            { icon: BarChart3, label: 'Métricas reales', desc: 'Control y visibilidad' }
-          ].map((feature, idx) => {
-            const IconComponent = feature.icon;
-            return (
-              <motion.div
-                key={idx}
-                className="p-6 rounded-md text-center backdrop-blur-sm"
-                style={{
-                  backgroundColor: '#ffffff',
-                  borderWidth: '1px',
-                  borderColor: 'rgba(0, 102, 204, 0.2)',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
-                }}
-                whileHover={{
-                  boxShadow: '0 12px 24px rgba(32, 219, 209, 0.15)',
-                  y: -5
-                }}
-              >
-                <div className="mb-3 flex justify-center">
-                  <IconComponent size={40} style={{ color: '#0066cc' }} />
-                </div>
-                <h3 className="font-bold text-lg" style={{ color: '#0a1f24' }}>{feature.label}</h3>
-                <p className="text-sm mt-2" style={{ color: '#666666' }}>{feature.desc}</p>
-              </motion.div>
-            )
-          })}
-        </motion.div>
-      </motion.div>
     </motion.section>
   );
 };

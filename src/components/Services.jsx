@@ -1,197 +1,110 @@
 import { motion } from "motion/react"
-import { Wrench, Zap, BarChart3 } from "lucide-react";
 import useViewportAmount from "../hooks/useViewportAmount";
 
 const services = [
     {
-        title: "Sistemas para talleres",
-        subtitle: "Control total de tu operación",
-        description: "Ordena clientes, tareas, inventario y presupuestos en un solo lugar.",
-        features: [
-            "Gestión de clientes y contactos",
-            "Control de trabajos y órdenes",
-            "Seguimiento en tiempo real",
-            "Reportes de rentabilidad",
-            "Notificaciones automáticas",
-            "Acceso desde cualquier dispositivo"
-        ],
-        highlighted: true,
-        icon: Wrench,
-        badge: "POPULAR"
+        title: "Landing Start",
+        description: "Una pagina enfocada en conversion. Ideal para validar oferta, captar contactos y mostrar autoridad.",
+        price: "USD 350",
+        delivery: "7 a 14 dias",
+        benefits: ["Copy y estructura orientada a ventas", "Diseño responsive premium", "Formulario y WhatsApp integrados"],
+        featured: false,
     },
     {
-        title: "Automatización de procesos",
-        subtitle: "Reduce trabajo manual",
-        description: "Automatiza tareas repetitivas y ahorra tiempo en operaciones diarias.",
-        features: [
-            "Workflow personalizado",
-            "Integración con tus herramientas",
-            "Generación automática de reportes",
-            "Notificaciones y alertas",
-            "Sincronización de datos",
-            "Backups automáticos"
-        ],
-        highlighted: false,
-        icon: Zap,
-        badge: null
+        title: "Landing Growth",
+        description: "Sitio multipagina para empresas que necesitan profundidad comercial y narrativa completa del servicio.",
+        price: "USD 550",
+        delivery: "2 a 4 semanas",
+        benefits: ["Arquitectura de 4 a 6 secciones clave", "SEO tecnico base y performance", "Panel editable para contenidos"],
+        featured: true,
     },
     {
-        title: "Desarrollo de software a medida",
-        subtitle: "Soluciones específicas",
-        description: "Software construido exactamente para los requisitos de tu negocio.",
-        features: [
-            "Análisis personalizado",
-            "Desarrollo profesional",
-            "Soporte técnico continuo",
-            "Escalabilidad garantizada",
-            "Seguridad empresarial",
-            "Capacitación incluida"
-        ],
-        highlighted: false,
-        icon: BarChart3,
-        badge: null
-    }
+        title: "Software a medida",
+        description: "Construccion de herramientas internas o productos SaaS para automatizar procesos y escalar operaciones.",
+        price: "Desde USD 1.800",
+        delivery: "Roadmap por fases",
+        benefits: ["Discovery funcional y tecnico", "MVP y mejoras incrementales", "Soporte de evolucion y mantenimiento"],
+        featured: false,
+    },
 ];
 
 const Services = () => {
     const amount = useViewportAmount()
+
     return (
         <motion.section
-            id="que-hacemos"
-            className="py-24 px-6 text-center will-change-transform relative overflow-hidden"
-            style={{
-                backgroundColor: '#f8f9fa',
-                borderTop: '1px solid rgba(32, 219, 209, 0.1)'
-            }}
+            id="servicios"
+            className="border-b border-[var(--line)] py-20 md:py-24"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount }}
         >
-            {/* Efectos decorativos de fondo sutil */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-5">
-                <div className="absolute top-0 left-1/4 w-96 h-96 rounded-md blur-3xl"
-                    style={{ backgroundColor: '#0066cc' }}></div>
-                <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-md blur-3xl"
-                    style={{ backgroundColor: '#1a3a52' }}></div>
-            </div>
-
             <motion.div
-                className="max-w-7xl mx-auto relative z-10"
+                className="site-container"
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
             >
-                <motion.div
-                    className="inline-block px-6 py-2 rounded-md mb-6"                >
-                    <span className="font-semibold tracking-wider" style={{ color: '#0066cc' }}>
-                        QUÉ HACEMOS
-                    </span>
-                </motion.div>
-
-                <motion.h2
-                    className="text-4xl md:text-5xl font-bold mb-4 will-change-transform"
-                    style={{ color: '#0a1f24' }}
-                >
-                    Sistemas para <span style={{ color: '#0066cc' }}>negocios reales</span>
-                </motion.h2>
-
-                <motion.p
-                    className="text-lg mb-16 max-w-2xl mx-auto"
-                    style={{ color: '#555555' }}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.2, duration: 0.6 }}
-                    viewport={{ once: true }}
-                >
-                    Digitalizamos, automatizamos y profesionalizamos la operación de tu negocio con software especializado.
-                </motion.p>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                    {services.map((service, idx) => {
-                        const IconComponent = service.icon;
-                        return (
-                            <motion.div
-                                key={idx}
-                                className="p-8 rounded-2xl transition-all will-change-transform flex flex-col h-full relative overflow-hidden"
-                                style={{
-                                    backgroundColor: service.highlighted ? '#ffffff' : '#ffffff',
-                                    borderWidth: '2px',
-                                    borderColor: service.highlighted ? '#0066cc' : 'rgba(0, 102, 204, 0.2)',
-                                    boxShadow: service.highlighted
-                                        ? '0 8px 24px rgba(0, 102, 204, 0.15)'
-                                        : '0 4px 12px rgba(0,0,0,0.05)'
-                                }}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: idx * 0.15 }}
-                                viewport={{ once: true }}
-                                whileHover={{
-                                    y: -8,
-                                    boxShadow: '0 16px 32px rgba(32, 219, 209, 0.2)'
-                                }}
-                            >
-                                {service.badge && (
-                                    <div
-                                        className="absolute top-4 right-4 px-3 py-1 rounded-md text-xs font-bold"
-                                        style={{
-                                            backgroundColor: '#0066cc',
-                                            color: '#ffffff'
-                                        }}
-                                    >
-                                        {service.badge}
-                                    </div>
-                                )}
-
-                                <div className="mb-6 flex justify-center">
-                                    <div
-                                        className="p-4 rounded-md"
-                                        style={{
-                                            backgroundColor: 'rgba(0, 102, 204, 0.15)'
-                                        }}
-                                    >
-                                        <IconComponent size={40} style={{ color: '#0066cc' }} />
-                                    </div>
-                                </div>
-
-                                <h3 className="text-2xl font-bold mb-2" style={{ color: '#0a1f24' }}>
-                                    {service.title}
-                                </h3>
-
-                                <p className="text-base mb-6 font-medium" style={{ color: '#666666' }}>
-                                    {service.subtitle}
-                                </p>
-
-                                <p className="text-sm mb-8" style={{ color: '#888888' }}>
-                                    {service.description}
-                                </p>
-
-                                <ul className="mb-8 text-left space-y-3 flex-grow">
-                                    {service.features.map((feature, i) => (
-                                        <li key={i} className="flex items-start gap-3 text-sm" style={{ color: '#555555' }}>
-                                            <span style={{ color: '#0066cc', fontSize: '18px', lineHeight: '1' }}>✓</span>
-                                            <span>{feature}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-
-                                <a
-                                    href="https://api.whatsapp.com/send?phone=59895220063&text=Hola!%20Quiero%20saber%20m%C3%A1s%20sobre%20"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-full py-3 rounded-md font-semibold transition-all text-center block"
-                                    style={{
-                                        backgroundColor: service.highlighted ? '#0066cc' : 'rgba(0, 102, 204, 0.2)',
-                                        color: service.highlighted ? '#ffffff' : '#0066cc'
-                                    }}
-                                >
-                                    Consultar opciones
-                                </a>
-                            </motion.div>
-                        )
-                    })}
+                <div className="max-w-3xl">
+                    <span className="eyebrow">servicios</span>
+                    <h2 className="section-title mt-4 text-[var(--ink)]">Paquetes claros para decidir rapido</h2>
+                    <p className="section-lead">
+                        Cada propuesta tiene alcance definido, tiempos reales y precio transparente. Si tu proyecto necesita algo fuera de paquete, armamos una cotizacion especifica.
+                    </p>
                 </div>
+
+                <div className="mt-12 grid gap-6 lg:grid-cols-3">
+                    {services.map((service, idx) => (
+                        <motion.div
+                            key={idx}
+                            className={`group flex h-full flex-col rounded-[var(--radius-sm)] border p-7 transition-all ${service.featured
+                                ? "border-[var(--accent)] bg-[rgba(44,111,100,0.12)] shadow-[0_20px_35px_rgba(31,90,80,0.18)]"
+                                : "border-[var(--line)] bg-[rgba(248,248,243,0.76)] hover:-translate-y-1 hover:shadow-[0_16px_28px_rgba(24,46,42,0.12)]"
+                                }`}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: idx * 0.2 }}
+                            viewport={{ once: true }}
+                        >
+                            {service.featured && (
+                                <p className="mb-4 inline-flex w-fit rounded bg-[var(--accent)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-white">
+                                    recomendada
+                                </p>
+                            )}
+
+                            <h3 className="text-3xl leading-tight text-[var(--ink)]">{service.title}</h3>
+                            <p className="mt-3 text-sm text-[var(--muted)]">{service.description}</p>
+
+                            <div className="mt-5 rounded border border-[var(--line)] bg-[rgba(255,255,255,0.72)] p-4">
+                                <p className="text-sm text-[var(--muted)]">Inversion</p>
+                                <p className="metric-number mt-1 text-2xl font-semibold text-[var(--ink)]">{service.price}</p>
+                                <p className="mt-1 text-sm text-[var(--muted)]">Entrega: {service.delivery}</p>
+                            </div>
+
+                            <ul className="mt-5 space-y-2 text-sm text-[var(--muted)]">
+                                {service.benefits.map((b, i) => (
+                                    <li key={i} className="flex items-start gap-2">
+                                        <span className="mt-1 h-2 w-2 rounded bg-[var(--accent)]" />
+                                        <span>{b}</span>
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <a
+                                href="#contacto"
+                                className="mt-auto inline-flex items-center justify-center rounded border border-[var(--accent)] px-5 py-2 text-sm font-semibold text-[var(--accent-strong)] hover:bg-[var(--accent)] hover:text-white"
+                            >
+                                Solicitar propuesta
+                            </a>
+                        </motion.div>
+                    ))}
+                </div>
+
+                <p className="mt-6 text-sm text-[var(--muted)]">
+                    Precios de referencia en USD. Incluyen discovery inicial, desarrollo, QA y acompanamiento en el lanzamiento.
+                </p>
             </motion.div>
         </motion.section>
     );
