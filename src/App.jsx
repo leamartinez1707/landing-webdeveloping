@@ -1,3 +1,4 @@
+import { MotionConfig } from "motion/react"
 import Hero from "./components/Hero"
 import Services from "./components/Services"
 import Contact from "./components/Contact"
@@ -8,23 +9,25 @@ import WorkProcess from "./components/WorkProcess"
 
 function App() {
   return (
-    <div className="relative min-h-screen">
-      <a
-        href="#contenido"
-        className="skip-link"
-      >
-        Saltar al contenido
-      </a>
-      <Header />
-      <main id="contenido" className="pt-24 md:pt-28">
-        <Hero />
-        <Services />
-        <WorkProcess />
-        <Portfolio />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <MotionConfig reducedMotion="user">
+      <div className="relative min-h-screen">
+        <a
+          href="#contenido"
+          className="skip-link"
+        >
+          Saltar al contenido
+        </a>
+        <Header />
+        <main id="contenido" className="pt-24 md:pt-28">
+          <Hero />
+          <Services />
+          <WorkProcess />
+          <Portfolio />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </MotionConfig>
   )
 }
 

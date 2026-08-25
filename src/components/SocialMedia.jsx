@@ -1,15 +1,16 @@
 import { motion } from "motion/react";
+import { CONFIG } from "../../CONFIG";
 
 const SocialMedia = () => {
 
     const iconVariants = {
-        hover: { scale: 1.12, color: "#1f5a50", transition: { duration: 0.25 } },
+        hover: { scale: 1.12, color: "var(--accent-strong)", transition: { duration: 0.25 } },
         tap: { scale: 0.96 },
     };
 
     const links = [
         {
-            href: "https://www.linkedin.com/in/leandromartinezuy",
+            href: CONFIG.SOCIAL.LINKEDIN,
             label: "LinkedIn",
             icon: (
                 <svg className="size-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

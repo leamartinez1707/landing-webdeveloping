@@ -3,8 +3,8 @@ import useViewportAmount from "../hooks/useViewportAmount";
 
 const projects = [
     {
-        title: "Plataforma de operaciones para servicios tecnicos",
-        description: "Sistema interno para turnos, historial tecnico y seguimiento de clientes en tiempo real.",
+        title: "Plataforma de operaciones para servicios técnicos",
+        description: "Sistema interno para turnos, historial técnico y seguimiento de clientes en tiempo real.",
         image: "https://res.cloudinary.com/dofgqtm9r/image/upload/v1747969872/monopatines_project_unfd1k.png",
         link: "https://avelinoacevedo.com.uy/",
         type: "Software a medida",
@@ -12,19 +12,19 @@ const projects = [
     },
     {
         title: "Landing comercial para estudio de interiores",
-        description: "Sitio de una pagina con portfolio visual, formulario filtrado y llamado a accion directo.",
+        description: "Sitio de una página con portfolio visual, formulario filtrado y llamado a acción directo.",
         image: "https://res.cloudinary.com/dofgqtm9r/image/upload/v1747969105/todomuebles_project.png",
         link: "https://todomueblesuy.vercel.app/home",
         type: "Landing Page",
         result: "+31.8% de consultas calificadas",
     },
     {
-        title: "E-commerce para movilidad electrica",
-        description: "Rediseño completo con catalogo optimizado y experiencia mobile-first orientada a cierre.",
+        title: "E-commerce para movilidad eléctrica",
+        description: "Rediseño completo con catálogo optimizado y experiencia mobile-first orientada a cierre.",
         image: "https://res.cloudinary.com/dofgqtm9r/image/upload/v1747969519/wix_project.png",
         link: "https://www.mistyle.com.uy/",
         type: "E-commerce",
-        result: "Tiempo promedio en pagina: 3m 18s",
+        result: "Tiempo promedio en página: 3m 18s",
     },
 ];
 
@@ -51,7 +51,7 @@ const Portfolio = () => {
                     <span className="eyebrow">proyectos</span>
                     <h2 className="section-title mt-4 text-[var(--ink)]">Resultados visibles en negocios de distintos rubros</h2>
                     <p className="section-lead">
-                        Estos proyectos reflejan el tipo de trabajo que hago: objetivos concretos, decisiones de UX claras y ejecucion tecnica sin ruido.
+                        Estos proyectos reflejan el tipo de trabajo que hago: objetivos concretos, decisiones de UX claras y ejecución técnica sin ruido.
                     </p>
                 </motion.div>
 

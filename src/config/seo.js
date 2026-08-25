@@ -5,7 +5,7 @@ export const seoConfig = {
     // Información general del sitio
     site: {
         name: 'Martínez Studio | Soluciones Digitales',
-        description: 'Soluciones digitales profesionales para talleres, pymes y emprendimientos. Sistemas de gestión, desarrollo de software a medida y automatización de procesos. Uruguay y Latinoamérica.',
+        description: 'Landing pages, sitios multipágina, software a medida y agentes de automatización con n8n para negocios que buscan crecer con claridad. Uruguay y Latinoamérica.',
         url: 'https://www.martinezstudio.com.uy',
         image: 'https://www.martinezstudio.com.uy/og-image.jpg',
         author: 'Leandro Martínez',
@@ -15,20 +15,19 @@ export const seoConfig = {
     // Keywords principales para cada región/servicio
     keywords: {
         main: [
-            'software para talleres uruguay',
+            'landing page uruguay',
             'desarrollo web uruguay',
-            'sistema de gestión talleres',
+            'sitios multipagina',
             'aplicaciones web latinoamérica',
             'desarrollador web freelance',
             'software a medida',
-            'automatización procesos',
+            'automatización con n8n',
+            'agentes de automatización',
             'sistema gestión clientes',
-            'software pymes',
             'soluciones digitales',
-            'gestion de talleres',
-            'gestion de servicios',
+            'diseño de landing pages',
             'software para negocios',
-            'servicio tecnico'
+            'desarrollo frontend'
         ],
         regional: {
             uruguay: [
@@ -46,23 +45,23 @@ export const seoConfig = {
                 'desarrollo mexico',
             ],
             bysector: {
-                talleres: [
-                    'software talleres',
-                    'sistema gestión talleres',
-                    'software mecanica',
-                    'app para talleres',
-                    'control trabajos taller',
+                landingPages: [
+                    'landing page uruguay',
+                    'diseño de landing pages',
+                    'sitios multipagina',
+                    'pagina web para negocios',
                 ],
-                pymes: [
-                    'software pymes',
-                    'sistema pymes',
-                    'app pequeños negocios',
-                    'automatización pymes',
+                softwareAMedida: [
+                    'software a medida',
+                    'desarrollo software personalizado',
+                    'sistema de gestión a medida',
+                    'app custom',
                 ],
-                emprendimientos: [
-                    'software emprendimientos',
-                    'app emprendedores',
-                    'herramientas startup',
+                automatizacion: [
+                    'automatización con n8n',
+                    'agentes de automatización',
+                    'workflows n8n',
+                    'integración de herramientas',
                 ],
             },
         },
@@ -71,16 +70,16 @@ export const seoConfig = {
     // Servicios principales con descripciones SEO
     services: [
         {
-            id: 'sistemas-talleres',
-            name: 'Sistemas para Talleres',
-            description: 'Control total de tu operación de taller con gestión de clientes, trabajos, inventario y presupuestos.',
-            keywords: ['sistema talleres', 'gestión talleres', 'software taller mecanico', 'control trabajos'],
+            id: 'landing-pages',
+            name: 'Landing Pages y Sitios Multipágina',
+            description: 'Landing pages y sitios de varias páginas enfocados en conversión, confianza y crecimiento de negocio.',
+            keywords: ['landing page', 'sitio multipagina', 'diseño de landing pages', 'pagina web para negocios'],
         },
         {
-            id: 'automatizacion',
-            name: 'Automatización de Procesos',
-            description: 'Reduce trabajo manual y automatiza tareas repetitivas en tu negocio.',
-            keywords: ['automatización procesos', 'workflow', 'integración sistemas', 'automatización negocio'],
+            id: 'automatizacion-n8n',
+            name: 'Automatización con n8n',
+            description: 'Agentes y flujos de automatización con n8n que conectan tus herramientas y eliminan tareas manuales repetitivas.',
+            keywords: ['automatización con n8n', 'agentes de automatización', 'workflow', 'integración sistemas'],
         },
         {
             id: 'desarrollo-medida',
@@ -155,32 +154,32 @@ export const seoConfig = {
 
     // Palabras clave long-tail (búsquedas específicas)
     longTailKeywords: [
-        'como crear una app para mi taller',
-        'software gratuito para gestionar clientes',
-        'sistema de facturación para talleres',
-        'app control trabajos taller',
-        'software gestión inventario talleres',
-        'sistema presupuestos automatizado',
+        'como crear una landing page para mi negocio',
+        'cuanto cuesta una landing page en uruguay',
+        'desarrollo de software a medida para empresas',
+        'automatizar procesos con n8n',
+        'agente de automatización para whatsapp y email',
+        'sistema de gestión a medida',
         'como automatizar mi negocio',
-        'alternativa erp para pymes',
-        'soluciones digitales emprendimientos',
+        'freelance desarrollo web uruguay',
+        'soluciones digitales para emprendimientos',
     ],
 };
 
 // Función helper para obtener meta tags
 export const getMetaTags = (page = 'home') => {
-    const baseTitle = 'Leandro Martínez | Soluciones Digitales';
+    const baseTitle = 'Martínez Studio | Soluciones Digitales';
     const baseDescription = seoConfig.site.description;
 
     const pageMeta = {
         home: {
-            title: `${baseTitle} - Software para Talleres y Pymes`,
+            title: `${baseTitle} - Landing Pages y Software a Medida`,
             description: baseDescription,
             keywords: seoConfig.keywords.main.join(', '),
         },
         servicios: {
             title: `Servicios - ${baseTitle}`,
-            description: 'Sistemas para talleres, automatización de procesos y desarrollo de software a medida.',
+            description: 'Landing pages, software a medida y automatización de procesos con n8n.',
             keywords: seoConfig.services.map(s => s.keywords).flat().join(', '),
         },
         portfolio: {

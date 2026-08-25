@@ -4,20 +4,20 @@ import useViewportAmount from "../hooks/useViewportAmount";
 const steps = [
     {
         number: "01",
-        title: "Diagnostico comercial",
-        description: "Revisamos tu oferta, mercado y objetivo del sitio para priorizar lo que realmente impacta en conversion.",
+        title: "Diagnóstico comercial",
+        description: "Revisamos tu oferta, mercado y objetivo del sitio para priorizar lo que impacta en conversión.",
         time: "Dia 1"
     },
     {
         number: "02",
         title: "Arquitectura y diseño",
-        description: "Defino estructura, tono visual y jerarquia de contenidos para que la navegacion sea clara y confiable.",
-        time: "Dias 2-4"
+        description: "Defino estructura, tono visual y jerarquía de contenidos para que la navegación sea clara y confiable.",
+        time: "Días 2-4"
     },
     {
         number: "03",
         title: "Desarrollo y QA",
-        description: "Construyo cada seccion con foco en velocidad, accesibilidad y escalabilidad, incluyendo revisiones en distintos dispositivos.",
+        description: "Construyo cada sección con foco en velocidad, accesibilidad y escalabilidad, incluyendo revisiones en distintos dispositivos.",
         time: "Semana 2"
     },
     {
@@ -48,16 +48,16 @@ const WorkProcess = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <span className="eyebrow">metodologia</span>
-                    <h2 className="section-title mt-4 text-[var(--ink)]">Un proceso preciso, sin friccion ni ruido</h2>
+                    <span className="eyebrow">metodología</span>
+                    <h2 className="section-title mt-4 text-[var(--ink)]">Un proceso preciso, sin fricción ni ruido</h2>
                     <p className="section-lead">
-                        Trabajo con hitos semanales para que siempre sepas en que etapa estamos, que se va a entregar y como se mide el avance.
+                        Trabajo con hitos semanales para que siempre sepas en qué etapa estamos, qué se va a entregar y cómo se mide el avance.
                     </p>
 
                     <div className="frosted mt-8 rounded-[var(--radius-sm)] p-5 text-left">
                         <p className="text-sm uppercase tracking-[0.08em] text-[var(--muted)]">Incluye</p>
                         <ul className="mt-3 space-y-2 text-sm text-[var(--muted)]">
-                            <li>Sesion inicial de enfoque comercial</li>
+                            <li>Sesión inicial de enfoque comercial</li>
                             <li>Feedback estructurado por entregables</li>
                             <li>Checklist de lanzamiento y soporte post entrega</li>
                         </ul>

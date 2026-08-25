@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { CONFIG } from "../../CONFIG";
+
+const [brandName, brandTagline] = CONFIG.BUSINESS_NAME.split("|").map((part) => part.trim());
+const [brandFirstWord, ...brandRestWords] = brandName.split(" ");
+const brandRestName = brandRestWords.join(" ");
 
 const sections = [
   { id: "inicio", label: "Inicio" },
@@ -52,7 +57,7 @@ const Header = () => {
     >
       <div className="border-b border-[var(--line)] bg-[rgba(244,244,239,0.92)] backdrop-blur-lg">
         <div className="site-container flex h-9 items-center justify-between text-xs text-[var(--muted)]">
-          <p>Leandro Martinez · Desarrollo web y software a medida</p>
+          <p>{brandName} · Desarrollo web y software a medida</p>
           <p className="hidden sm:block metric-number">Respuesta inicial: &lt; 24h</p>
         </div>
       </div>
@@ -70,10 +75,10 @@ const Header = () => {
         <div className="site-container flex items-center justify-between py-4">
           <a href="#inicio" className="group">
             <p className="text-xl font-semibold tracking-[-0.02em] text-[var(--ink)]">
-              Leandro
-              <span className="ml-1 text-[var(--accent)]">Martinez</span>
+              {brandFirstWord}
+              {brandRestName && <span className="ml-1 text-[var(--accent)]">{brandRestName}</span>}
             </p>
-            <p className="text-xs tracking-[0.08em] uppercase text-[var(--muted)]">Web & software studio</p>
+            <p className="text-xs tracking-[0.08em] uppercase text-[var(--muted)]">{brandTagline}</p>
           </a>
 
           <nav className="hidden lg:flex items-center gap-2">
@@ -105,7 +110,7 @@ const Header = () => {
             <button
               className="inline-flex h-10 w-10 items-center justify-center rounded border border-[var(--line)] text-[var(--ink)] lg:hidden"
               onClick={() => setMenuOpen((prev) => !prev)}
-              aria-label="Abrir o cerrar menu"
+              aria-label="Abrir o cerrar menú"
               aria-expanded={menuOpen}
             >
               {menuOpen ? (

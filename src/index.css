@@ -17,6 +17,13 @@
     --z-base: 1;
     --z-header: 20;
     --z-overlay: 30;
+    --footer-bg: #1d2826;
+    --footer-ink: #dbe2df;
+    --footer-ink-strong: #ffffff;
+    --footer-muted: #b8c4bf;
+    --footer-border: #4f6d65;
+    --footer-border-hover: #8db0a7;
+    --footer-copyright: #9eb0ab;
 }
 
 * {
@@ -146,4 +153,20 @@ select:focus-visible {
 ::selection {
     background: rgba(44, 111, 100, 0.25);
     color: #152320;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
 }
