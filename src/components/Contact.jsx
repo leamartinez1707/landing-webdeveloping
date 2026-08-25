@@ -164,6 +164,7 @@ const Contact = () => {
             <option value="Landing de una página">Landing de una página</option>
             <option value="Sitio de multiples paginas">Sitio de multiples paginas</option>
             <option value="Software a medida">Software a medida</option>
+            <option value="Automatización con n8n">Automatización con n8n</option>
             <option value="No estoy seguro">No estoy seguro</option>
           </select>
           {errors.service && <p className="text-sm text-red-700">{errors.service}</p>}
