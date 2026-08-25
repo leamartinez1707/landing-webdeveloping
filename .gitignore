@@ -24,3 +24,9 @@ dist-ssr
 *.sw?
 
 .env
+
+# Local AI tooling artifacts (skills CLI cache, Claude Code registry)
+.agents/
+.atl/
+.claude/
+skills-lock.json
