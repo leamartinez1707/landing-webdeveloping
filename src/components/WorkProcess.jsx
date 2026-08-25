@@ -68,7 +68,7 @@ const WorkProcess = () => {
                     {steps.map((step, index) => (
                         <motion.div
                             key={index}
-                            className="relative rounded-[var(--radius-sm)] border border-[var(--line)] bg-[rgba(248,248,243,0.72)] p-6"
+                            className="relative rounded-[var(--radius-sm)] border border-[var(--line)] bg-[rgba(241,245,246,0.72)] p-6"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.12 }}
@@ -78,7 +78,7 @@ const WorkProcess = () => {
                                 {step.time}
                             </div>
                             <div className="pr-20">
-                                <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded bg-[rgba(44,111,100,0.16)] text-lg font-semibold text-[var(--accent-strong)]">
+                                <div className="metric-number mb-4 inline-flex h-11 w-11 items-center justify-center rounded bg-[rgba(47,93,138,0.16)] text-lg font-semibold text-[var(--accent-strong)]">
                                     {step.number}
                                 </div>
                                 <h3 className="text-3xl leading-tight text-[var(--ink)]">{step.title}</h3>

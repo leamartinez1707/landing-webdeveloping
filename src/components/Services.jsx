@@ -69,8 +69,8 @@ const Services = () => {
                         <motion.div
                             key={idx}
                             className={`group flex h-full flex-col rounded-[var(--radius-sm)] border p-7 transition-all ${service.featured
-                                ? "border-[var(--accent)] bg-[rgba(44,111,100,0.12)] shadow-[0_20px_35px_rgba(31,90,80,0.18)]"
-                                : "border-[var(--line)] bg-[rgba(248,248,243,0.76)] hover:-translate-y-1 hover:shadow-[0_16px_28px_rgba(24,46,42,0.12)]"
+                                ? "border-[var(--accent)] bg-[rgba(47,93,138,0.12)] shadow-[0_20px_35px_rgba(29,62,92,0.18)]"
+                                : "border-[var(--line)] bg-[rgba(241,245,246,0.76)] hover:-translate-y-1 hover:shadow-[0_16px_28px_rgba(26,36,48,0.12)]"
                                 }`}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
