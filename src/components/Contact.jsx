@@ -20,11 +20,11 @@ const Contact = () => {
     const nextErrors = {};
 
     if (!formData.name.trim() || formData.name.trim().length < 2) {
-      nextErrors.name = "Escribi un nombre valido.";
+      nextErrors.name = "Escribí un nombre válido.";
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      nextErrors.email = "Ingresa un email valido.";
+      nextErrors.email = "Ingresa un email válido.";
     }
 
     if (!formData.service) {
@@ -32,7 +32,7 @@ const Contact = () => {
     }
 
     if (!formData.message.trim() || formData.message.trim().length < 20) {
-      nextErrors.message = "Contame un poco mas. Minimo 20 caracteres.";
+      nextErrors.message = "Contame un poco más. Mínimo 20 caracteres.";
     }
 
     setErrors(nextErrors);
@@ -73,7 +73,7 @@ const Contact = () => {
         date: new Date().toISOString().split("T")[0],
       }, publicKey);
 
-      setStatus({ type: "success", message: "Mensaje enviado. Te respondere dentro de las proximas 24 horas." });
+      setStatus({ type: "success", message: "Mensaje enviado. Te responderé dentro de las próximas 24 horas." });
       setFormData({
         name: "",
         email: "",
@@ -108,16 +108,16 @@ const Contact = () => {
           viewport={{ once: true }}
         >
           <span className="eyebrow">contacto</span>
-          <h2 className="section-title mt-4 text-[var(--ink)]">Contame que estas construyendo</h2>
+          <h2 className="section-title mt-4 text-[var(--ink)]">Contame qué estás construyendo</h2>
           <p className="section-lead">
-            Si ya tenes objetivo comercial, te propongo la mejor estructura. Si estas arrancando, te ayudo a definir alcance, tiempos y prioridad de inversion.
+            Si ya tenés objetivo comercial, te propongo la mejor estructura. Si estás arrancando, te ayudo a definir alcance, tiempos y prioridad de inversión.
           </p>
 
           <div className="frosted mt-8 rounded-[var(--radius-sm)] p-6">
             <p className="text-sm uppercase tracking-[0.08em] text-[var(--muted)]">Canales directos</p>
             <ul className="mt-4 space-y-3 text-sm text-[var(--muted)]">
               <li>Email: leandromartinez.dev@gmail.com</li>
-              <li>Telefono: +598 95 220 063</li>
+              <li>Teléfono: +598 95 220 063</li>
               <li>Horario: lunes a viernes, 09:00 - 18:00 UY</li>
             </ul>
           </div>
@@ -135,7 +135,7 @@ const Contact = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder="Ejemplo: Lucia Fernandez"
+            placeholder="Ejemplo: Lucía Fernández"
             className="rounded border border-[var(--line)] bg-[rgba(255,255,255,0.76)] px-4 py-3 text-sm"
           />
           {errors.name && <p className="text-sm text-red-700">{errors.name}</p>}
@@ -160,10 +160,11 @@ const Contact = () => {
             onChange={handleChange}
             className="rounded border border-[var(--line)] bg-[rgba(255,255,255,0.76)] px-4 py-3 text-sm"
           >
-            <option value="">Selecciona una opcion</option>
-            <option value="Landing de una pagina">Landing de una pagina</option>
+            <option value="">Selecciona una opción</option>
+            <option value="Landing de una página">Landing de una página</option>
             <option value="Sitio de multiples paginas">Sitio de multiples paginas</option>
             <option value="Software a medida">Software a medida</option>
+            <option value="Automatización con n8n">Automatización con n8n</option>
             <option value="No estoy seguro">No estoy seguro</option>
           </select>
           {errors.service && <p className="text-sm text-red-700">{errors.service}</p>}
@@ -179,7 +180,7 @@ const Contact = () => {
             <option value="">Prefiero definirlo en llamada</option>
             <option value="USD 350 - 900">USD 350 - 900</option>
             <option value="USD 500 - 1.800">USD 500 - 1.800</option>
-            <option value="Mas de USD 1.800">Mas de USD 1.800</option>
+            <option value="Más de USD 1.800">Más de USD 1.800</option>
           </select>
 
           <label htmlFor="message" className="text-sm font-semibold text-[var(--ink)]">Necesidad principal</label>

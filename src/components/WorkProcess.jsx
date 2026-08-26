@@ -4,20 +4,20 @@ import useViewportAmount from "../hooks/useViewportAmount";
 const steps = [
     {
         number: "01",
-        title: "Diagnostico comercial",
-        description: "Revisamos tu oferta, mercado y objetivo del sitio para priorizar lo que realmente impacta en conversion.",
+        title: "Diagnóstico comercial",
+        description: "Revisamos tu oferta, mercado y objetivo del sitio para priorizar lo que impacta en conversión.",
         time: "Dia 1"
     },
     {
         number: "02",
         title: "Arquitectura y diseño",
-        description: "Defino estructura, tono visual y jerarquia de contenidos para que la navegacion sea clara y confiable.",
-        time: "Dias 2-4"
+        description: "Defino estructura, tono visual y jerarquía de contenidos para que la navegación sea clara y confiable.",
+        time: "Días 2-4"
     },
     {
         number: "03",
         title: "Desarrollo y QA",
-        description: "Construyo cada seccion con foco en velocidad, accesibilidad y escalabilidad, incluyendo revisiones en distintos dispositivos.",
+        description: "Construyo cada sección con foco en velocidad, accesibilidad y escalabilidad, incluyendo revisiones en distintos dispositivos.",
         time: "Semana 2"
     },
     {
@@ -48,16 +48,16 @@ const WorkProcess = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <span className="eyebrow">metodologia</span>
-                    <h2 className="section-title mt-4 text-[var(--ink)]">Un proceso preciso, sin friccion ni ruido</h2>
+                    <span className="eyebrow">metodología</span>
+                    <h2 className="section-title mt-4 text-[var(--ink)]">Un proceso preciso, sin fricción ni ruido</h2>
                     <p className="section-lead">
-                        Trabajo con hitos semanales para que siempre sepas en que etapa estamos, que se va a entregar y como se mide el avance.
+                        Trabajo con hitos semanales para que siempre sepas en qué etapa estamos, qué se va a entregar y cómo se mide el avance.
                     </p>
 
                     <div className="frosted mt-8 rounded-[var(--radius-sm)] p-5 text-left">
                         <p className="text-sm uppercase tracking-[0.08em] text-[var(--muted)]">Incluye</p>
                         <ul className="mt-3 space-y-2 text-sm text-[var(--muted)]">
-                            <li>Sesion inicial de enfoque comercial</li>
+                            <li>Sesión inicial de enfoque comercial</li>
                             <li>Feedback estructurado por entregables</li>
                             <li>Checklist de lanzamiento y soporte post entrega</li>
                         </ul>
@@ -68,7 +68,7 @@ const WorkProcess = () => {
                     {steps.map((step, index) => (
                         <motion.div
                             key={index}
-                            className="relative rounded-[var(--radius-sm)] border border-[var(--line)] bg-[rgba(248,248,243,0.72)] p-6"
+                            className="relative rounded-[var(--radius-sm)] border border-[var(--line)] bg-[rgba(241,245,246,0.72)] p-6"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.12 }}
@@ -78,7 +78,7 @@ const WorkProcess = () => {
                                 {step.time}
                             </div>
                             <div className="pr-20">
-                                <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded bg-[rgba(44,111,100,0.16)] text-lg font-semibold text-[var(--accent-strong)]">
+                                <div className="metric-number mb-4 inline-flex h-11 w-11 items-center justify-center rounded bg-[rgba(47,93,138,0.16)] text-lg font-semibold text-[var(--accent-strong)]">
                                     {step.number}
                                 </div>
                                 <h3 className="text-3xl leading-tight text-[var(--ink)]">{step.title}</h3>

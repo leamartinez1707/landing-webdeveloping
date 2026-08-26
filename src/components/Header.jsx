@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { CONFIG } from "../../CONFIG";
+
+const [brandName, brandTagline] = CONFIG.BUSINESS_NAME.split("|").map((part) => part.trim());
+const [brandFirstWord, ...brandRestWords] = brandName.split(" ");
+const brandRestName = brandRestWords.join(" ");
 
 const sections = [
   { id: "inicio", label: "Inicio" },
@@ -50,19 +55,19 @@ const Header = () => {
       transition={{ duration: 0.45, ease: "easeOut" }}
       className="fixed top-0 left-0 w-full z-20"
     >
-      <div className="border-b border-[var(--line)] bg-[rgba(244,244,239,0.92)] backdrop-blur-lg">
+      <div className="border-b border-[var(--line)] bg-[rgba(231,236,238,0.92)] backdrop-blur-lg">
         <div className="site-container flex h-9 items-center justify-between text-xs text-[var(--muted)]">
-          <p>Leandro Martinez · Desarrollo web y software a medida</p>
+          <p>{brandName} · Desarrollo web y software a medida</p>
           <p className="hidden sm:block metric-number">Respuesta inicial: &lt; 24h</p>
         </div>
       </div>
 
       <motion.div
       animate={{
-        backgroundColor: scrolled ? "rgba(244,244,239,0.96)" : "rgba(244,244,239,0.78)",
+        backgroundColor: scrolled ? "rgba(231,236,238,0.96)" : "rgba(231,236,238,0.78)",
         boxShadow: scrolled
-          ? "0 10px 30px rgba(24, 46, 42, 0.12)"
-          : "0 0 0 rgba(24, 46, 42, 0)",
+          ? "0 10px 30px rgba(26, 36, 48, 0.12)"
+          : "0 0 0 rgba(26, 36, 48, 0)",
       }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className="border-b border-[var(--line)]"
@@ -70,10 +75,10 @@ const Header = () => {
         <div className="site-container flex items-center justify-between py-4">
           <a href="#inicio" className="group">
             <p className="text-xl font-semibold tracking-[-0.02em] text-[var(--ink)]">
-              Leandro
-              <span className="ml-1 text-[var(--accent)]">Martinez</span>
+              {brandFirstWord}
+              {brandRestName && <span className="ml-1 text-[var(--accent)]">{brandRestName}</span>}
             </p>
-            <p className="text-xs tracking-[0.08em] uppercase text-[var(--muted)]">Web & software studio</p>
+            <p className="text-xs tracking-[0.08em] uppercase text-[var(--muted)]">{brandTagline}</p>
           </a>
 
           <nav className="hidden lg:flex items-center gap-2">
@@ -86,7 +91,7 @@ const Header = () => {
                 className={`rounded px-4 py-2 text-sm font-medium ${
                   activeId === section.id
                     ? "bg-[var(--accent)] text-white"
-                    : "text-[var(--muted)] hover:bg-[rgba(44,111,100,0.12)] hover:text-[var(--ink)]"
+                    : "text-[var(--muted)] hover:bg-[rgba(47,93,138,0.12)] hover:text-[var(--ink)]"
                 }`}
               >
                 {section.label}
@@ -105,7 +110,7 @@ const Header = () => {
             <button
               className="inline-flex h-10 w-10 items-center justify-center rounded border border-[var(--line)] text-[var(--ink)] lg:hidden"
               onClick={() => setMenuOpen((prev) => !prev)}
-              aria-label="Abrir o cerrar menu"
+              aria-label="Abrir o cerrar menú"
               aria-expanded={menuOpen}
             >
               {menuOpen ? (
@@ -128,7 +133,7 @@ const Header = () => {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            className="border-b border-[var(--line)] bg-[rgba(248,248,243,0.98)] px-4 py-4 lg:hidden"
+            className="border-b border-[var(--line)] bg-[rgba(241,245,246,0.98)] px-4 py-4 lg:hidden"
           >
             <div className="site-container flex flex-col gap-2">
               {sections.map((section) => (
@@ -137,7 +142,7 @@ const Header = () => {
                   href={`#${section.id}`}
                   className={`rounded px-3 py-2 text-sm ${
                     activeId === section.id
-                      ? "bg-[rgba(44,111,100,0.18)] font-semibold text-[var(--ink)]"
+                      ? "bg-[rgba(47,93,138,0.18)] font-semibold text-[var(--ink)]"
                       : "text-[var(--muted)]"
                   }`}
                   onClick={handleLinkClick}

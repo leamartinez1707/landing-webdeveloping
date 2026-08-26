@@ -3,28 +3,28 @@ import useViewportAmount from "../hooks/useViewportAmount";
 
 const projects = [
     {
-        title: "Plataforma de operaciones para servicios tecnicos",
-        description: "Sistema interno para turnos, historial tecnico y seguimiento de clientes en tiempo real.",
-        image: "https://res.cloudinary.com/dofgqtm9r/image/upload/v1747969872/monopatines_project_unfd1k.png",
-        link: "https://avelinoacevedo.com.uy/",
-        type: "Software a medida",
-        result: "+47.2% de tareas cerradas por semana",
+        title: "UruFix — gestión de servicios técnicos",
+        description: "Sistema para talleres de servicios técnicos (autos, motos, bicis, celulares) que se personaliza por rubro: turnos, historial técnico y seguimiento de clientes en tiempo real.",
+        image: "/projects/urufix.webp",
+        link: "https://www.urufix.com",
+        type: "Software a medida · SaaS",
+        result: "+7.500 servicios gestionados · en producción con Mistyle Uruguay",
+    },
+    {
+        title: "E-commerce para movilidad eléctrica",
+        description: "Rediseño completo con catálogo optimizado y experiencia mobile-first orientada a cierre.",
+        image: "/projects/mistyle.webp",
+        link: "https://www.mistyle.com.uy/",
+        type: "E-commerce",
+        result: "Sitio publicado, en producción",
     },
     {
         title: "Landing comercial para estudio de interiores",
-        description: "Sitio de una pagina con portfolio visual, formulario filtrado y llamado a accion directo.",
-        image: "https://res.cloudinary.com/dofgqtm9r/image/upload/v1747969105/todomuebles_project.png",
+        description: "Sitio de una página con portfolio visual, formulario filtrado y llamado a acción directo.",
+        image: "/projects/todomuebles.webp",
         link: "https://todomueblesuy.vercel.app/home",
-        type: "Landing Page",
-        result: "+31.8% de consultas calificadas",
-    },
-    {
-        title: "E-commerce para movilidad electrica",
-        description: "Rediseño completo con catalogo optimizado y experiencia mobile-first orientada a cierre.",
-        image: "https://res.cloudinary.com/dofgqtm9r/image/upload/v1747969519/wix_project.png",
-        link: "https://www.mistyle.com.uy/",
-        type: "E-commerce",
-        result: "Tiempo promedio en pagina: 3m 18s",
+        type: "Proyecto de práctica",
+        result: "Diseño y desarrollo end-to-end",
     },
 ];
 
@@ -51,7 +51,7 @@ const Portfolio = () => {
                     <span className="eyebrow">proyectos</span>
                     <h2 className="section-title mt-4 text-[var(--ink)]">Resultados visibles en negocios de distintos rubros</h2>
                     <p className="section-lead">
-                        Estos proyectos reflejan el tipo de trabajo que hago: objetivos concretos, decisiones de UX claras y ejecucion tecnica sin ruido.
+                        Estos proyectos reflejan el tipo de trabajo que hago: objetivos concretos, decisiones de UX claras y ejecución técnica sin ruido.
                     </p>
                 </motion.div>
 
@@ -63,7 +63,7 @@ const Portfolio = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: idx * 0.16 }}
                             viewport={{ once: true, amount }}
-                            className={`overflow-hidden rounded-[var(--radius-sm)] border border-[var(--line)] bg-[rgba(248,248,243,0.75)] ${
+                            className={`overflow-hidden rounded-[var(--radius-sm)] border border-[var(--line)] bg-[rgba(241,245,246,0.75)] ${
                                 idx === 0 ? "md:col-span-2" : ""
                             }`}
                         >
@@ -74,13 +74,28 @@ const Portfolio = () => {
                                         alt={`Captura del proyecto ${project.title}`}
                                         className={`w-full object-cover transition-transform duration-500 hover:scale-[1.03] ${idx === 0 ? "h-80" : "h-64"}`}
                                     />
-                                    <span className="absolute left-4 top-4 rounded bg-[rgba(31,90,80,0.9)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.07em] text-white">
+                                    <span className="absolute left-4 top-4 rounded bg-[rgba(29,62,92,0.9)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.07em] text-white">
                                         {project.type}
                                     </span>
+                                    {project.type === "Software a medida · SaaS" ? (
+                                        <span
+                                            className="metric-number absolute right-4 top-4 rounded border-2 border-[var(--signal)] px-3 py-1 text-xs font-bold uppercase tracking-[0.1em] text-[var(--signal)]"
+                                            style={{ backgroundColor: "rgba(241,245,246,0.9)", transform: "rotate(-4deg)" }}
+                                        >
+                                            Caso real
+                                        </span>
+                                    ) : project.type === "Proyecto de práctica" ? (
+                                        <span
+                                            className="metric-number absolute right-4 top-4 rounded border border-dashed border-[var(--muted)] px-3 py-1 text-xs font-bold uppercase tracking-[0.1em] text-[var(--muted)]"
+                                            style={{ backgroundColor: "rgba(241,245,246,0.9)", transform: "rotate(-4deg)" }}
+                                        >
+                                            Práctica
+                                        </span>
+                                    ) : null}
                                 </div>
 
                                 <div className="flex h-full flex-col p-6">
-                                    <p className="text-xs uppercase tracking-[0.09em] text-[var(--muted)]">Caso real</p>
+                                    <p className="text-xs uppercase tracking-[0.09em] text-[var(--muted)]">{project.type}</p>
                                     <h3 className="mt-2 text-3xl leading-tight text-[var(--ink)]">{project.title}</h3>
                                     <p className="mt-3 text-sm text-[var(--muted)]">{project.description}</p>
 

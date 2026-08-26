@@ -71,7 +71,7 @@ export const CONFIG = {
         SERVICES: [
             'Web Development',
             'Software Development',
-            'Process Automation',
+            'n8n Workflow Automation',
             'Business Management Systems',
         ],
         PRICE_RANGE: '$$', // $, $$, $$$, $$$$
