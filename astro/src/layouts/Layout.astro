@@ -1,0 +1,17 @@
+---
+import SeoHead from "../components/SeoHead.astro";
+import "../styles/global.css";
+
+const { title, description, path } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <SeoHead title={title} description={description} path={path} />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Saltar al contenido</a>
+    <slot />
+  </body>
+</html>

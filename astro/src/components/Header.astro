@@ -1,0 +1,143 @@
+---
+import { nav, site } from "../data/site.js";
+---
+
+<header id="site-header" class="fixed inset-x-0 top-0 z-40">
+  <div class="border-b border-ink/10 bg-paper/90 backdrop-blur-md transition-shadow duration-300">
+    <div class="container-measure hidden items-center justify-between py-1.5 font-mono text-xs text-slate sm:flex">
+      <p>{site.name} · Desarrollo web y software a medida</p>
+      <p>Respuesta inicial: &lt; 24h</p>
+    </div>
+  </div>
+
+  <div id="header-bar" class="border-b border-ink/10 bg-paper/95 backdrop-blur-md">
+    <div class="container-measure flex items-center justify-between py-4">
+      <a href="#inicio" class="leading-tight">
+        <span class="block font-display text-xl">{site.name}</span>
+        <span class="block font-mono text-[0.65rem] uppercase tracking-[0.14em] text-slate"
+          >Web &amp; software studio</span
+        >
+      </a>
+
+      <nav class="hidden items-center gap-1 lg:flex" aria-label="Secciones">
+        {
+          nav.map((item) => (
+            <a
+              href={`#${item.id}`}
+              data-nav-link
+              data-target={item.id}
+              class="rounded-sm px-3 py-2 font-mono text-xs uppercase tracking-[0.04em] text-slate transition-colors hover:text-ink aria-[current=page]:text-ink aria-[current=page]:underline aria-[current=page]:decoration-signal aria-[current=page]:underline-offset-4"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a
+          href="#contacto"
+          class="hidden rounded-sm border border-ink px-4 py-2 font-mono text-xs uppercase tracking-[0.04em] text-ink transition-colors hover:border-signal hover:text-signal md:inline-flex"
+        >
+          Pedir propuesta
+        </a>
+
+        <button
+          id="menu-toggle"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-ink/20 text-ink lg:hidden"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span id="menu-icon-open" aria-hidden="true">☰</span>
+          <span id="menu-icon-close" class="hidden" aria-hidden="true">✕</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <nav
+    id="mobile-menu"
+    class="hidden border-b border-ink/10 bg-paper px-4 py-4 lg:hidden"
+    aria-label="Menú móvil"
+  >
+    <div class="container-measure flex flex-col gap-1">
+      {
+        nav.map((item) => (
+          <a
+            href={`#${item.id}`}
+            data-mobile-link
+            class="rounded-sm px-3 py-2.5 font-mono text-sm uppercase tracking-[0.04em] text-ink"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a
+        href="#contacto"
+        class="mt-2 inline-flex justify-center rounded-sm bg-signal px-4 py-2.5 font-mono text-sm uppercase tracking-[0.04em] text-paper"
+      >
+        Pedir propuesta
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const bar = document.getElementById("header-bar");
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("menu-icon-open");
+  const iconClose = document.getElementById("menu-icon-close");
+  const navLinks = document.querySelectorAll("[data-nav-link]");
+  const mobileLinks = document.querySelectorAll("[data-mobile-link]");
+
+  const setScrolled = () => {
+    if (!bar) return;
+    bar.classList.toggle("shadow-[0_10px_30px_rgba(22,24,29,0.08)]", window.scrollY > 8);
+  };
+  window.addEventListener("scroll", setScrolled, { passive: true });
+  setScrolled();
+
+  const closeMenu = () => {
+    menu?.classList.add("hidden");
+    toggle?.setAttribute("aria-expanded", "false");
+    iconOpen?.classList.remove("hidden");
+    iconClose?.classList.add("hidden");
+    document.documentElement.classList.remove("menu-open");
+  };
+
+  toggle?.addEventListener("click", () => {
+    const isHidden = menu?.classList.contains("hidden");
+    menu?.classList.toggle("hidden");
+    toggle.setAttribute("aria-expanded", String(Boolean(isHidden)));
+    iconOpen?.classList.toggle("hidden", Boolean(isHidden));
+    iconClose?.classList.toggle("hidden", !isHidden);
+    document.documentElement.classList.toggle("menu-open", Boolean(isHidden));
+  });
+
+  mobileLinks.forEach((link) => link.addEventListener("click", closeMenu));
+
+  const sections = Array.from(navLinks)
+    .map((link) => document.getElementById(link.getAttribute("data-target") || ""))
+    .filter((el) => Boolean(el));
+
+  const setActive = (id) => {
+    navLinks.forEach((link) => {
+      const isActive = link.getAttribute("data-target") === id;
+      link.toggleAttribute("aria-current", isActive);
+      if (isActive) link.setAttribute("aria-current", "page");
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    },
+    { threshold: 0.45 }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+</script>

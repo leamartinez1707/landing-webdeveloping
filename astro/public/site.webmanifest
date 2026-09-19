@@ -1,0 +1,19 @@
+{
+  "name": "Leandro Martinez - Web & Software Studio",
+  "short_name": "Martinez Studio",
+  "description": "Landing pages y software a medida para negocios que buscan crecer con claridad.",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "theme_color": "#f0efeb",
+  "background_color": "#f0efeb",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity"]
+}

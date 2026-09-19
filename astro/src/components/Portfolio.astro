@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+import { portfolio } from "../data/site.js";
+import todomuebles from "../assets/projects/todomuebles.webp";
+import mistyle from "../assets/projects/mistyle.webp";
+import urufix from "../assets/projects/urufix.webp";
+
+const images = { todomuebles, mistyle, urufix };
+---
+
+<section id="proyectos" class="border-b border-ink/10 py-20 md:py-28">
+  <div class="container-measure">
+    <div class="prose-measure">
+      <p class="eyebrow">04 portfolio</p>
+      <h2 class="mt-4 text-[clamp(2rem,4vw,3rem)]">
+        Resultados visibles en negocios de distintos rubros
+      </h2>
+      <p class="mt-4 text-lg text-slate">
+        Estos proyectos reflejan el tipo de trabajo que hago: objetivos concretos, decisiones de
+        UX claras y ejecución técnica sin ruido.
+      </p>
+    </div>
+
+    <ul class="mt-14 divide-y divide-ink/10 border-y border-ink/10">
+      {
+        portfolio.map((project) => (
+          <li class="group relative">
+            <a
+              href={project.link}
+              target={project.link !== "#" ? "_blank" : undefined}
+              rel={project.link !== "#" ? "noopener noreferrer" : undefined}
+              class="grid gap-2 py-7 sm:grid-cols-[auto_1fr_auto] sm:items-baseline sm:gap-6"
+            >
+              <span class="font-mono text-xs uppercase tracking-[0.06em] text-signal">
+                {project.type}
+              </span>
+              <h3 class="text-2xl leading-tight md:text-3xl">{project.title}</h3>
+              <span class="hidden font-mono text-xs text-slate sm:inline">Ver proyecto →</span>
+              <p class="prose-measure text-sm text-slate sm:col-span-3">{project.description}</p>
+              <p class="font-mono text-xs text-ink sm:col-span-3">{project.result}</p>
+            </a>
+
+            <div class="pointer-events-none absolute right-0 top-1/2 z-10 hidden w-72 -translate-y-1/2 translate-x-6 border border-ink/15 bg-paper opacity-0 shadow-[0_20px_45px_rgba(22,24,29,0.18)] transition-opacity duration-200 group-hover:opacity-100 lg:block">
+              <Image
+                src={images[project.slug]}
+                alt={`Captura del proyecto ${project.title}`}
+                width={480}
+                height={320}
+                loading="lazy"
+                class="h-auto w-full object-cover"
+              />
+            </div>
+
+            <div class="mt-3 border border-ink/10 lg:hidden">
+              <Image
+                src={images[project.slug]}
+                alt={`Captura del proyecto ${project.title}`}
+                width={640}
+                height={420}
+                loading="lazy"
+                class="h-auto w-full object-cover"
+              />
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
