@@ -20,6 +20,7 @@ const jsonLd = {
   image: ogImageURL,
   email: site.email,
   telephone: site.phone,
+  priceRange: "USD 190 - USD 1.800",
   areaServed: ["UY", "AR", "CL", "MX", "CO", "PE"],
   address: {
     "@type": "PostalAddress",
@@ -30,7 +31,13 @@ const jsonLd = {
     latitude: site.coordinates.lat,
     longitude: site.coordinates.lng,
   },
-  sameAs: [site.linkedin, site.github],
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "18:00",
+  },
+  sameAs: [site.linkedin],
   description: site.description,
 };
 ---
@@ -45,6 +52,8 @@ const jsonLd = {
 <link rel="canonical" href={canonicalURL} />
 
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 <meta name="theme-color" content="#f0efeb" />
 
