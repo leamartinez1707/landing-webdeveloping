@@ -1,5 +1,5 @@
 ---
-import { services } from "../data/site.js";
+import { services, site } from "../data/site.js";
 ---
 
 <section id="servicios" class="border-b border-ink/10 py-20 md:py-28">
@@ -21,7 +21,7 @@ import { services } from "../data/site.js";
               <h3 class="text-2xl md:text-3xl">{service.title}</h3>
               {service.featured && (
                 <span class="rounded-sm bg-signal px-2 py-0.5 font-mono text-[0.65rem] uppercase tracking-[0.08em] text-paper">
-                  recomendada
+                  {service.badge || "recomendada"}
                 </span>
               )}
             </div>
@@ -29,9 +29,38 @@ import { services } from "../data/site.js";
               {service.price}
             </p>
             <p class="prose-measure text-sm text-slate sm:col-span-2">{service.description}</p>
+            {service.features && (
+              <ul class="mt-1 grid gap-1.5 text-sm text-slate sm:col-span-2 sm:grid-cols-2">
+                {service.features.map((feature) => (
+                  <li class="flex items-start gap-2">
+                    <span class="mt-1 h-1 w-1 shrink-0 rounded-full bg-signal" aria-hidden="true"></span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {service.examples && (
+              <ul class="flex flex-wrap gap-2 sm:col-span-2">
+                {service.examples.map((example) => (
+                  <li class="border border-ink/15 px-2.5 py-1 font-mono text-[0.7rem] uppercase tracking-[0.04em] text-slate">
+                    {example}
+                  </li>
+                ))}
+              </ul>
+            )}
             <p class="font-mono text-xs uppercase tracking-[0.06em] text-slate sm:col-span-2">
               Entrega: {service.delivery}
             </p>
+            <a
+              href={`https://api.whatsapp.com/send?phone=${site.whatsappNumber}&text=${encodeURIComponent(
+                `Hola, me interesa el paquete ${service.title}. ¿Charlamos?`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-1 inline-flex w-fit items-center justify-center rounded-sm bg-signal px-4 py-2 font-mono text-xs uppercase tracking-[0.04em] text-paper transition-opacity hover:opacity-90 sm:col-span-2"
+            >
+              Contactar ahora
+            </a>
           </li>
         ))
       }

@@ -1,20 +1,20 @@
 export const site = {
-  name: "Leandro Martínez",
-  brand: "Martinez Studio",
+  name: "Martínez Studio",
+  brand: "Martínez Studio",
   domain: "https://www.martinezstudio.com.uy",
-  title: "Leandro Martínez | Landing pages y software a medida",
+  title: "Martínez Studio | Landing pages y software a medida",
   description:
-    "Desarrollo landing pages de una página o multipágina y software a medida para empresas. Proyectos reales, precios claros y enfoque en conversión.",
+    "Desarrollo landing pages, sitios web y software a medida para pymes: gestión de inventario, reservas, restaurantes y automatizaciones de WhatsApp e Instagram.",
   keywords:
-    "landing page, desarrollo web uruguay, software a medida, diseño ux, página web para negocios, desarrollo frontend",
-  author: "Leandro Martínez",
+    "landing page, desarrollo web uruguay, software a medida, automatización whatsapp, bot instagram, gestión de inventario, software para restaurantes, software de reservas, página web para pymes, desarrollo frontend, tienda online shopify",
+  author: "Martínez Studio",
   locale: "es_UY",
   email: "leandromartinez.dev@gmail.com",
   phone: "+598 95 220 063",
+  whatsappNumber: "59895220063",
   whatsapp:
-    "https://api.whatsapp.com/send?phone=59895220063&text=Hola%20Leandro%2C%20quiero%20consultar%20por%20una%20web%20o%20automatizaci%C3%B3n.",
+    "https://api.whatsapp.com/send?phone=59895220063&text=Hola%2C%20quiero%20consultar%20por%20una%20web%20o%20automatizaci%C3%B3n.",
   linkedin: "https://www.linkedin.com/in/leandromartinezuy",
-  github: "https://github.com/leamartinez1707",
   coordinates: { lat: -34.9011, lng: -56.1645 },
 };
 
@@ -26,28 +26,75 @@ export const nav = [
   { id: "contacto", label: "Contacto" },
 ];
 
-// Precios reales de referencia (paquetes de solo web). El paquete combinado
-// con automatización es nuevo y todavía no tiene precio de mercado definido.
+// Precios reales de referencia. "Automatización" es un paquete nuevo y
+// todavía no tiene precio de mercado definido.
 export const services = [
   {
-    title: "Web esencial",
+    title: "Página web básica",
     description:
-      "Landing clara, rápida y que aparece cuando alguien te busca en Google. Sin plantillas genéricas ni textos de relleno.",
-    price: "USD 350",
+      "Una sola página con secciones internas, adaptada a tu marca y a todos los dispositivos. Perfecta para emprendedores o proyectos nuevos que están arrancando su presencia digital.",
+    features: [
+      "Diseño alineado a tu marca",
+      "1 página con secciones internas",
+      "Adaptada a todos los dispositivos",
+      "Formulario o botón de contacto",
+      "Integración con redes sociales",
+      "Botón de WhatsApp",
+      "Hosting y dominio incluidos el primer año",
+    ],
+    price: "USD 190",
     delivery: "7 a 14 días",
+    featured: true,
+    badge: "más vendida",
   },
   {
-    title: "Web + automatización",
+    title: "Página web completa",
     description:
-      "Tu web sumada a un asistente que responde consultas de WhatsApp aunque estés durmiendo, y a automatizaciones que hacen que turnos, pedidos y planillas se carguen solos.",
+      "Sitio de hasta 5 páginas para que tu negocio tenga presencia completa en la web: más espacio para contar quién sos, qué ofrecés y por qué elegirte.",
+    features: [
+      "Diseño alineado a tu identidad",
+      "Hasta 5 páginas: Inicio, Nosotros, Servicios, Proyectos y Contacto",
+      "SEO y conexión con redes",
+      "Navegación intuitiva y rápida",
+      "Formulario o botón de contacto",
+      "Botón de WhatsApp",
+      "Hosting y dominio incluidos el primer año",
+    ],
+    price: "USD 330",
+    delivery: "10 a 20 días",
+  },
+  {
+    title: "Tienda online Shopify",
+    description:
+      "Tienda profesional en Shopify, con diseño adaptado a tu marca y lista para empezar a vender sin complicaciones.",
+    features: [
+      "Tienda Shopify profesional",
+      "Diseño adaptado a tu marca",
+      "Hasta 20 productos incluidos",
+      "Capacitación incluida",
+      "Lista para comenzar a vender",
+    ],
+    price: "USD 740",
+    delivery: "3 a 4 semanas",
+  },
+  {
+    title: "Automatización",
+    description:
+      "Un bot que responde en WhatsApp o Instagram, sincronización de stock entre tu local y tu ecommerce, y tareas manuales que pasan a cargarse solas.",
+    features: [
+      "Bot de respuestas automáticas en WhatsApp o Instagram",
+      "Sincronización de inventario con tu ecommerce",
+      "Automatización de turnos, pedidos o planillas",
+      "Configuración y capacitación incluida",
+    ],
     price: "Desde USD (a definir)",
     delivery: "2 a 4 semanas",
-    featured: true,
   },
   {
-    title: "A medida",
+    title: "Software a medida",
     description:
-      "Para cuando necesitás algo más grande: un sistema interno, varios procesos conectados o un agente de IA hecho a medida de cómo trabaja tu negocio.",
+      "Un sistema propio para cómo trabaja tu negocio: seguimiento de clientes, turnos o cualquier proceso que hoy resolvés con planillas.",
+    examples: ["Gestión de inventario", "Gestión de restaurantes", "Sistema de reservas", "Software para gimnasio", "Agenda para barberias"],
     price: "Desde USD 1.800",
     delivery: "Roadmap por fases",
   },
@@ -114,9 +161,8 @@ export const portfolio = [
 
 export const socials = [
   { label: "LinkedIn", href: site.linkedin },
-  { label: "GitHub", href: site.github },
   {
     label: "WhatsApp",
-    href: "https://api.whatsapp.com/send?phone=59895220063&text=Hola%20Leandro,%20quiero%20consultar%20por%20un%20proyecto.",
+    href: "https://api.whatsapp.com/send?phone=59895220063&text=Hola,%20quiero%20consultar%20por%20un%20proyecto.",
   },
 ];
