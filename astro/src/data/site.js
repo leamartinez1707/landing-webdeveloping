@@ -95,7 +95,7 @@ export const services = [
     description:
       "Un sistema propio para cómo trabaja tu negocio: seguimiento de clientes, turnos o cualquier proceso que hoy resolvés con planillas.",
     examples: ["Gestión de inventario", "Gestión de restaurantes", "Sistema de reservas", "Software para gimnasio", "Agenda para barberias"],
-    price: "Desde USD 1.800",
+    price: "A cotizar",
     delivery: "Roadmap por fases",
   },
 ];
