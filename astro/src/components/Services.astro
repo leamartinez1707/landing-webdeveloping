@@ -1,0 +1,74 @@
+---
+import { services, site } from "../data/site.js";
+---
+
+<section id="servicios" class="border-b border-ink/10 py-20 md:py-28">
+  <div class="container-measure">
+    <div class="prose-measure">
+      <p class="eyebrow">02 servicios</p>
+      <h2 class="mt-4 text-[clamp(2rem,4vw,3rem)]">Paquetes claros para decidir rápido</h2>
+      <p class="mt-4 text-lg text-slate">
+        Cada propuesta tiene alcance definido, tiempos reales y precio transparente. Si tu
+        proyecto necesita algo fuera de paquete, armamos una cotización específica.
+      </p>
+    </div>
+
+    <ul class="mt-14 divide-y divide-ink/10 border-y border-ink/10">
+      {
+        services.map((service) => (
+          <li class="group grid gap-3 py-8 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-6">
+            <div class="flex items-baseline gap-3">
+              <h3 class="text-2xl md:text-3xl">{service.title}</h3>
+              {service.featured && (
+                <span class="rounded-sm bg-signal px-2 py-0.5 font-mono text-[0.65rem] uppercase tracking-[0.08em] text-paper">
+                  {service.badge || "recomendada"}
+                </span>
+              )}
+            </div>
+            <p class="whitespace-nowrap text-right font-mono text-xl md:text-2xl">
+              {service.price}
+            </p>
+            <p class="prose-measure text-sm text-slate sm:col-span-2">{service.description}</p>
+            {service.features && (
+              <ul class="mt-1 grid gap-1.5 text-sm text-slate sm:col-span-2 sm:grid-cols-2">
+                {service.features.map((feature) => (
+                  <li class="flex items-start gap-2">
+                    <span class="mt-1 h-1 w-1 shrink-0 rounded-full bg-signal" aria-hidden="true"></span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {service.examples && (
+              <ul class="flex flex-wrap gap-2 sm:col-span-2">
+                {service.examples.map((example) => (
+                  <li class="border border-ink/15 px-2.5 py-1 font-mono text-[0.7rem] uppercase tracking-[0.04em] text-slate">
+                    {example}
+                  </li>
+                ))}
+              </ul>
+            )}
+            <p class="font-mono text-xs uppercase tracking-[0.06em] text-slate sm:col-span-2">
+              Entrega: {service.delivery}
+            </p>
+            <a
+              href={`https://api.whatsapp.com/send?phone=${site.whatsappNumber}&text=${encodeURIComponent(
+                `Hola, me interesa el paquete ${service.title}. ¿Charlamos?`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-1 inline-flex w-fit items-center justify-center rounded-sm bg-signal px-4 py-2 font-mono text-xs uppercase tracking-[0.04em] text-paper transition-opacity hover:opacity-90 sm:col-span-2"
+            >
+              Contactar ahora
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="prose-measure mt-6 text-sm text-slate">
+      Precios de referencia en USD. Incluyen discovery inicial, desarrollo, QA y acompañamiento en
+      el lanzamiento.
+    </p>
+  </div>
+</section>

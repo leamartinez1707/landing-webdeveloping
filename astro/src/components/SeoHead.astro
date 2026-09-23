@@ -1,0 +1,71 @@
+---
+import { site } from "../data/site.js";
+import ogImage from "../assets/og-image.jpg";
+
+const {
+  title = site.title,
+  description = site.description,
+  path = "/",
+} = Astro.props;
+
+const canonicalURL = new URL(path, site.domain).toString();
+const ogImageURL = new URL(ogImage.src, site.domain).toString();
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: site.brand,
+  founder: site.author,
+  url: site.domain,
+  image: ogImageURL,
+  email: site.email,
+  telephone: site.phone,
+  priceRange: "USD 190 - USD 740",
+  areaServed: ["UY"],
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "UY",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: site.coordinates.lat,
+    longitude: site.coordinates.lng,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "18:00",
+  },
+  sameAs: [site.linkedin],
+  description: site.description,
+};
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={site.keywords} />
+<meta name="author" content={site.author} />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={canonicalURL} />
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="theme-color" content="#f0efeb" />
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:image" content={ogImageURL} />
+<meta property="og:locale" content={site.locale} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageURL} />
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

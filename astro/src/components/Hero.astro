@@ -1,0 +1,114 @@
+---
+import { site } from "../data/site.js";
+---
+
+<section id="inicio" class="border-b border-ink/10 pb-20 pt-36 md:pb-28 md:pt-44">
+  <div class="container-measure grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+    <div>
+      <p class="eyebrow">01 inicio</p>
+      <h1 class="mt-6 text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.98]">
+        Tu negocio, <span class="text-signal">visible y funcionando</span> en internet.
+      </h1>
+      <p class="prose-measure mt-7 text-lg text-slate">
+        Desarrollo de páginas web para que te encuentren en internet. Desarrollo de software a medida o automatizaciones para que tu negocio funcione mejor.
+      </p>
+      <p class="prose-measure mt-3 text-sm text-slate">
+        Estudio con base en Montevideo. Tomo pocos proyectos a la vez para meterme de lleno en cada
+        uno.
+      </p>
+
+      <div
+        id="hero-prompt"
+        class="mt-8 inline-flex items-center gap-2 rounded-sm border border-ink/15 bg-paper-deep/60 px-4 py-3 font-mono text-sm text-ink"
+        aria-hidden="true"
+      >
+        <span class="text-slate">~/servicios&nbsp;$</span>
+        <span id="hero-prompt-text"></span>
+        <span class="inline-block h-4 w-[2px] animate-pulse bg-signal"></span>
+      </div>
+      <p class="sr-only">
+        Hago landing pages, sitios web y software a medida para negocios, y automatizo tareas
+        repetitivas como turnos, WhatsApp o pedidos.
+      </p>
+
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <a
+          href={site.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-sm bg-signal px-6 py-3 text-sm font-semibold text-paper transition-opacity hover:opacity-90"
+        >
+          Escribime por WhatsApp
+        </a>
+        <a
+          href="#contacto"
+          class="inline-flex items-center justify-center rounded-sm border border-ink/20 px-6 py-3 text-sm font-semibold text-ink hover:border-ink"
+        >
+          Ver formulario de contacto
+        </a>
+      </div>
+    </div>
+
+    <aside class="border border-ink/15 bg-paper-deep/50 p-7">
+      <p class="font-mono text-xs uppercase tracking-[0.1em] text-slate">Cómo trabajo</p>
+      <p class="mt-3 font-display text-2xl leading-tight">Bloques semanales, un proyecto a la vez</p>
+      <p class="mt-4 text-sm text-slate">
+        Trabajo en bloques semanales. Cada entrega incluye objetivos de negocio, decisiones de UX
+        y soporte para el lanzamiento.
+      </p>
+
+      <dl class="mt-7 space-y-4 border-t border-ink/10 pt-5">
+        <div class="flex items-baseline justify-between gap-4">
+          <dt class="text-sm text-slate">Página web desde</dt>
+          <dd class="font-mono text-lg">USD 190</dd>
+        </div>
+        <div class="flex items-baseline justify-between gap-4">
+          <dt class="text-sm text-slate">Software a medida</dt>
+          <dd class="font-mono text-lg">A cotizar</dd>
+        </div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<script>
+  const phrases = [
+    "una web que te traiga clientes",
+    "posicionarte en Google",
+    "turnos y reservas automáticos",
+    "software a medida para tu negocio",
+  ];
+  const target = document.getElementById("hero-prompt-text");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (target) {
+    if (prefersReducedMotion) {
+      target.textContent = phrases[0];
+    } else {
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+
+      const tick = () => {
+        const current = phrases[phraseIndex];
+        charIndex += deleting ? -1 : 1;
+        target.textContent = current.slice(0, charIndex);
+
+        let delay = deleting ? 35 : 65;
+
+        if (!deleting && charIndex === current.length) {
+          deleting = true;
+          delay = 1400;
+        } else if (deleting && charIndex === 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          delay = 300;
+        }
+
+        window.setTimeout(tick, delay);
+      };
+
+      tick();
+    }
+  }
+</script>
