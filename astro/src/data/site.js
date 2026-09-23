@@ -80,14 +80,14 @@ export const services = [
   {
     title: "Automatización",
     description:
-      "Un bot que responde en WhatsApp o Instagram, sincronización de stock entre tu local y tu ecommerce, y tareas manuales que pasan a cargarse solas.",
+      "Un bot que responde en WhatsApp o Instagram, sincronización de stock entre tu local y tu ecommerce, y tareas manuales que pasan a cargarse solas. Proyectos con integraciones más complejas (WhatsApp Business API oficial, múltiples sistemas) se cotizan según alcance tras la primera charla.",
     features: [
       "Bot de respuestas automáticas en WhatsApp o Instagram",
       "Sincronización de inventario con tu ecommerce",
       "Automatización de turnos, pedidos o planillas",
       "Configuración y capacitación incluida",
     ],
-    price: "Desde USD (a definir)",
+    price: "Desde USD 250",
     delivery: "2 a 4 semanas",
   },
   {
@@ -95,7 +95,7 @@ export const services = [
     description:
       "Un sistema propio para cómo trabaja tu negocio: seguimiento de clientes, turnos o cualquier proceso que hoy resolvés con planillas.",
     examples: ["Gestión de inventario", "Gestión de restaurantes", "Sistema de reservas", "Software para gimnasio", "Agenda para barberias"],
-    price: "Desde USD 1.800",
+    price: "A cotizar",
     delivery: "Roadmap por fases",
   },
 ];
@@ -136,7 +136,7 @@ export const portfolio = [
     description:
       "Sitio de una página con portfolio visual, formulario filtrado y llamado a acción directo.",
     type: "Landing page",
-    result: "+31.8% de consultas calificadas",
+    result: "Presencia digital con portfolio filtrable y contacto directo por WhatsApp.",
     link: "https://todomueblesuy.vercel.app/home",
   },
   {
@@ -145,17 +145,26 @@ export const portfolio = [
     description:
       "Rediseño completo con catálogo optimizado y experiencia mobile-first orientada a cierre.",
     type: "E-commerce",
-    result: "Tiempo promedio en página: 3m 18s",
+    result: "Catálogo reorganizado y checkout simplificado para comprar desde el celular.",
     link: "https://www.mistyle.com.uy/",
   },
   {
     slug: "urufix",
-    title: "Plataforma de operaciones para servicios técnicos",
+    title: "UruFix: plataforma de gestión para servicios técnicos",
     description:
-      "Sistema interno para turnos, historial técnico y seguimiento de clientes en tiempo real.",
+      "Sistema desarrollado para la gestión técnica de una flota de monopatines eléctricos: turnos, historial técnico y seguimiento de clientes.",
     type: "Software a medida",
-    result: "+47.2% de tareas cerradas por semana",
+    result: "De procesos manuales en planillas a un sistema centralizado de seguimiento de órdenes de trabajo.",
     link: "https://avelinoacevedo.com.uy/",
+  },
+  {
+    slug: "stock-sync",
+    title: "Sincronización de stock multicanal",
+    description:
+      "Automatización que conecta la base de datos interna (AWS) de un negocio con su cuenta de Mercado Libre, actualizando el stock disponible automáticamente y evitando ventas de productos sin disponibilidad.",
+    type: "Automatización",
+    result: "Elimina la carga manual y el desfasaje de stock entre canales de venta.",
+    link: "#",
   },
 ];
 
