@@ -2,11 +2,11 @@ export const site = {
   name: "Martínez Studio",
   brand: "Martínez Studio",
   domain: "https://www.martinezstudio.com.uy",
-  title: "Martínez Studio | Landing pages y software a medida",
+  title: "Martínez Studio | Páginas web y automatizaciones en Uruguay",
   description:
-    "Desarrollo landing pages, sitios web y software a medida para pymes: gestión de inventario, reservas, restaurantes y automatizaciones de WhatsApp e Instagram.",
+    "Desarrollo páginas web y automatizaciones para negocios de Uruguay: reservas, gestión de inventario, y respuestas de WhatsApp e Instagram que funcionan solas.",
   keywords:
-    "landing page, desarrollo web uruguay, software a medida, automatización whatsapp, bot instagram, gestión de inventario, software para restaurantes, software de reservas, página web para pymes, desarrollo frontend, tienda online shopify",
+    "página web montevideo, página web para pymes, landing page, desarrollo web uruguay, software a medida, automatización whatsapp, bot instagram, gestión de inventario, software para restaurantes, software de reservas, desarrollo frontend, tienda online shopify",
   author: "Martínez Studio",
   locale: "es_UY",
   email: "leandromartinez.dev@gmail.com",
@@ -26,8 +26,6 @@ export const nav = [
   { id: "contacto", label: "Contacto" },
 ];
 
-// Precios reales de referencia. "Automatización" es un paquete nuevo y
-// todavía no tiene precio de mercado definido.
 export const services = [
   {
     title: "Página web básica",
@@ -132,12 +130,12 @@ export const processSteps = [
 export const portfolio = [
   {
     slug: "todomuebles",
-    title: "Landing comercial para estudio de interiores",
+    title: "Página web para negocio de carpintería",
     description:
-      "Sitio de una página con portfolio visual, formulario filtrado y llamado a acción directo.",
+      "Página web con trabajos filtrable y contacto directo por WhatsApp para un negocio de carpintería en Uruguay.",
     type: "Landing page",
     result: "Presencia digital con portfolio filtrable y contacto directo por WhatsApp.",
-    link: "https://todomueblesuy.vercel.app/home",
+    link: "https://todomueblesuy.vercel.app/",
   },
   {
     slug: "mistyle",
@@ -145,23 +143,23 @@ export const portfolio = [
     description:
       "Rediseño completo con catálogo optimizado y experiencia mobile-first orientada a cierre.",
     type: "E-commerce",
-    result: "Catálogo reorganizado y checkout simplificado para comprar desde el celular.",
+    result: "Catálogo reorganizado y checkout simplificado para comprar desde cualquier dispositivo.",
     link: "https://www.mistyle.com.uy/",
   },
   {
     slug: "urufix",
     title: "UruFix: plataforma de gestión para servicios técnicos",
     description:
-      "Sistema desarrollado para la gestión técnica de una flota de monopatines eléctricos: turnos, historial técnico y seguimiento de clientes.",
-    type: "Software a medida",
+      "Sistema desarrollado para la gestión de servicios técnicos. Turnos, historial técnico y seguimiento de clientes.",
+    type: "SaaS",
     result: "De procesos manuales en planillas a un sistema centralizado de seguimiento de órdenes de trabajo.",
-    link: "https://avelinoacevedo.com.uy/",
+    link: "https://urufix.com",
   },
   {
     slug: "stock-sync",
     title: "Sincronización de stock multicanal",
     description:
-      "Automatización que conecta la base de datos interna (AWS) de un negocio con su cuenta de Mercado Libre, actualizando el stock disponible automáticamente y evitando ventas de productos sin disponibilidad.",
+      "Automatización que conecta la base de datos interna de un negocio con su cuenta de Mercado Libre, actualizando el stock disponible automáticamente y evitando ventas de productos sin disponibilidad.",
     type: "Automatización",
     result: "Elimina la carga manual y el desfasaje de stock entre canales de venta.",
     link: "#",
